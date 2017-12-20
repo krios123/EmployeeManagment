@@ -33,8 +33,6 @@
         Employee Management
         <small>1</small>
       </h1>
-      <h2>hello</h2>
-      <h3>Hello</h3>
      
     </section>
 
