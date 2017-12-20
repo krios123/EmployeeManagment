@@ -83,7 +83,7 @@
 				url="jdbc:mysql://localhost:3306/employeemanagement" user="root"
 				password="" />
 
-			<sql:query var="listEmp" dataSource="${myDS }">select * from employeedetails;</sql:query>
+			<sql:query var="listEmp" dataSource="${myDS }">select * from employeedetails where flag=1;</sql:query>
 
 
 

@@ -17,7 +17,7 @@
 	<action-mappings>
 
 		<action path="/login" parameter="method" type="com.action.Registrationaction"
-			input="/login.jsp" validate="true" name="loginForm">
+			input="/login.jsp" validate="false" name="loginForm">
 			<forward name="success" path="/Registration.jsp"></forward>
 			<forward name="fail" path="/login.jsp"></forward>
 		</action>

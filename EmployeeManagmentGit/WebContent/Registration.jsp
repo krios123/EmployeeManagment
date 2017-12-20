@@ -41,7 +41,7 @@
 
 					<div class="panel-body">
 
-						<html:form action="/registration">
+						<html:form action="/registration" method="insert">
 
 							<div class="row">
 								<div class="form-group">
@@ -49,8 +49,9 @@
 									<div class="col-md-5">
 										<html:text property="emp_name" name="registrationForm"
 											styleClass="form-control" value=""></html:text>
+											<div style="color: red;">	
 											<html:errors property="emp_name" />
-									</div>
+								</div>	</div>
 								</div>
 							</div>
 							<br>
@@ -67,7 +68,8 @@
 											<html:option value="Java developer">Java Developer</html:option>
 											<html:option value="PHP Developer">PHP Developer</html:option>
 										</html:select>
-										<html:errors property="designation"/>
+										<div style="color: red;">	
+										<html:errors property="designation"/></div>
 									</div>
 								</div>
 							</div>
@@ -87,7 +89,9 @@
 												styleClass="form-control pull-right datepicker" value=""></html:text>
 										
 										</div>
-										</div><html:errors property="date_of_birth"/>
+										</div>
+										<div style="color: red;">	
+										<html:errors property="date_of_birth"/></div>
 									</div>
 								</div>
 							</div>
@@ -103,7 +107,8 @@
 											<html:option value="male">Male</html:option>
 											<html:option value="female">Female</html:option>
 										</html:select>
-										<html:errors property="gender"/>
+										<div style="color: red;">	
+										<html:errors property="gender"/></div>
 										
 									</div>
 								</div>
@@ -116,8 +121,9 @@
 									<div class="col-md-5">
 										<html:text property="fathers_name" name="registrationForm"
 											styleClass="form-control" value=""></html:text>
+										<div style="color: red;">	
 										<html:errors property="fathers_name"/>
-									
+									</div>
 									</div>
 								</div>
 							</div>
@@ -157,8 +163,10 @@
 											</div>
 											<html:text property="personal_mail_id"
 												name="registrationForm" styleClass="form-control" value=""></html:text>
-										</div><html:errors property="personal_mail_id"/>
-									</div>
+										</div>
+										<div style="color: red;">	
+										<html:errors property="personal_mail_id"/>
+									</div></div>
 								</div>
 							</div>
 							<br>
@@ -174,8 +182,10 @@
 												name="registrationForm" styleClass="form-control" value=""></html:textarea>
 											
 							
-										</div><html:errors property="permanent_address"/>
-									</div>
+										</div>
+										<div style="color: red;">	
+										<html:errors property="permanent_address"/>
+									</div></div>
 								</div>
 							</div>
 							<br>
@@ -191,7 +201,8 @@
 											<html:textarea property="local_address"
 												name="registrationForm" styleClass="form-control" value=""></html:textarea>
 										</div>
-										<html:errors property="local_address"/>
+										<div style="color: red;">	
+										<html:errors property="local_address"/></div>
 									</div>
 								</div>
 							</div>
@@ -207,8 +218,9 @@
 											</div>
 											<html:text property="contact_no" name="registrationForm"
 												styleClass="form-control" value="" size="10" maxlength="10"></html:text>
+												<div style="color: red;">	
 												<html:errors property="contact_no"/>
-										
+										</div>
 										</div>
 									</div>
 								</div>
@@ -233,9 +245,10 @@
 												<html:option value="BCA">BCA</html:option>
 												<html:option value="MCA">MCA</html:option>
 											</html:select>
-												<html:errors property="highest_qualification"/>
 											
-										</div>
+										</div><div style="color: red;">	
+												<html:errors property="highest_qualification"/>
+											</div>
 									</div>
 								</div>
 							</div>
@@ -247,8 +260,9 @@
 									<div class="col-md-5">
 										<html:text property="year_of_Experience"
 											name="registrationForm" styleClass="form-control" value="0"></html:text>
+												<div style="color: red;">	
 												<html:errors property="year_of_Experience"/>
-									
+												</div>
 									</div>
 								</div>
 							</div>
@@ -282,9 +296,10 @@
 											<div>
 											<html:text property="date_of_registration" name="registrationForm"
 												styleClass="form-control pull-right datepicker" value=""></html:text>
+												
+										</div></div><div style="color: red;">	
 												<html:errors property="date_of_registration"/>
-										
-										</div></div>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -296,8 +311,9 @@
 									<div class="col-md-5">
 										<html:text property="salary_at_the_time_of_joining"
 											name="registrationForm" styleClass="form-control" value="0"></html:text>
+										<div style="color: red;">	
 										<html:errors property="salary_at_the_time_of_joining"/>
-									
+									</div>
 									</div>
 								</div>
 							</div>
@@ -362,8 +378,9 @@
 									<div class="col-md-5">
 										<html:text property="employee_personal_bank_name"
 											name="registrationForm" styleClass="form-control" value=""></html:text>
+										<div style="color: red;">	
 										<html:errors property="employee_personal_bank_name"/>
-									
+									</div>
 									</div>
 								</div>
 							</div>
@@ -375,8 +392,9 @@
 									<div class="col-md-5">
 										<html:text property="personal_bank_account_no"
 											name="registrationForm" styleClass="form-control" value=""></html:text>
+										<div style="color: red;">	
 										<html:errors property="personal_bank_account_no"/>
-									
+									</div>
 									</div>
 								</div>
 							</div>
@@ -387,8 +405,9 @@
 									<div class="col-md-5">
 										<html:text property="bank_address" name="registrationForm"
 											styleClass="form-control" value=""></html:text>
+										<div style="color: red;">	
 										<html:errors property="bank_address"/>
-									
+									</div>
 									</div>
 								</div>
 							</div>
@@ -399,8 +418,9 @@
 									<div class="col-md-5">
 										<html:text property="iFSC_code" name="registrationForm"
 											styleClass="form-control" value=""></html:text>
+										<div style="color: red;">	
 										<html:errors property="iFSC_code"/>
-									
+									</div>
 									</div>
 								</div>
 							</div>
