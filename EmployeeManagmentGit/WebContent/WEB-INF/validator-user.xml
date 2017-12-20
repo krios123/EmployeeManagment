@@ -71,7 +71,7 @@
 		 	<msg name="required" key="err.user.Bank_address.required" />
 		 </field>
 		
-		<field property="ifsc_code" depends="required">
+		<field property="iFSC_code" depends="required">
 		 	<msg name="required" key="err.user.IFSC_code.required" />
 		 </field>
 		
