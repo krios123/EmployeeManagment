@@ -6,7 +6,7 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.validator.ValidatorForm;
 
-public class LoginForm extends ActionForm {
+public class LoginForm extends ValidatorForm{
 	String username;
 	String password;
 

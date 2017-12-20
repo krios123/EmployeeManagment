@@ -1,8 +1,9 @@
 package form;
 
 import org.apache.struts.action.ActionForm;
+import org.apache.struts.validator.ValidatorForm;
 
-public class RegistrationForm extends ActionForm {
+public class RegistrationForm extends ValidatorForm {
 	
 	String emp_name;
 	String designation;

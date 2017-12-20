@@ -24,7 +24,7 @@
 
 
 		<action path="/registration" parameter="method"
-			type="com.action.Registrationaction" input="/Registration.jsp" name="registrationForm">
+			type="com.action.Registrationaction" input="/Registration.jsp" name="registrationForm" validate="true">
 			<forward name="success" path="/Display.jsp"></forward>
 		</action>
 
