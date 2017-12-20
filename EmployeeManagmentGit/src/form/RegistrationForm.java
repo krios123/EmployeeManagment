@@ -230,7 +230,5 @@ public class RegistrationForm extends ValidatorForm {
 	public void setTotal_yearly_leave_taken(int total_yearly_leave_taken) {
 		this.total_yearly_leave_taken = total_yearly_leave_taken;
 	}
-	
-	
 
 }

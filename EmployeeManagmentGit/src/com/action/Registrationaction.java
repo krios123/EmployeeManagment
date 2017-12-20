@@ -148,7 +148,6 @@ public class Registrationaction extends DispatchAction {
 
                 return mapping.findForward("fail");                 
             }
-  	
 	}
 
 }
