@@ -175,7 +175,7 @@
 			<script type="text/javascript">
 				function forDelete(empid) {
 
-					
+					var r= confirm('Are you sure!!')
 					//alert("empid  "+ empid)
 					if(r==true)
 						{
