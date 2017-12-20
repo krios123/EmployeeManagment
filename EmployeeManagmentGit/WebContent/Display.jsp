@@ -78,7 +78,7 @@
 		<!-- Main content -->
 		<section class="content container-fluid">
 			<input type=button value="Back" onCLick="history.back()"
-				class="btn btn-primary btn-info" style="margin-left: 1000px">
+				class="btn btn-primary btn-info" style="margin-left: 1000px"><br/><br/><br/>
 			<sql:setDataSource var="myDS" driver="com.mysql.jdbc.Driver"
 				url="jdbc:mysql://localhost:3306/employeemanagement" user="root"
 				password="" />
@@ -125,8 +125,7 @@
 							<th>Absent</th>
 							<th>Total yearly leave left</th>
 							<th></th>
-						
-
+							<th></th>
 						</tr>
 					</thead>
 						<tbody id="myTable">
@@ -161,14 +160,12 @@
 								<td><c:out value="${user.Bank_address}" /></td>
 								<td><c:out value="${user.IFSC_code}" /></td>
 								<td><c:out value="${user.Total_leave_permissioned}" /></td>
-								<td><c:out
-										value="${user.Total_leave_taken_from_jan_till_dec}" /></td>
+								<td><c:out value="${user.Total_leave_taken_from_jan_till_dec}" /></td>
 								<td><c:out value="${user.Leave_taken}" /></td>
 								<td><c:out value="${user.Absent}" /></td>
 								<td><c:out value="${user.Total_yearly_leave_left}" /></td>
-								<td><html:link page="/delete?method=delete&id=${user.Emp_id}">Delete/</html:link>
-									<html:link page="/update?method=update&id=${user.Emp_id}">update</html:link>
-								</td>
+								<td><html:link page="/delete?method=delete&id=${user.Emp_id}"><div class="btn btn-block btn-danger btn-sm">Delete</div></html:link></td>
+								<td><html:link page="/update?method=update&id=${user.Emp_id}"><div class="btn btn-block btn-warning btn-sm">Update</div></html:link></td>
 							</tr>
 							</c:forEach>
 						</tbody>
