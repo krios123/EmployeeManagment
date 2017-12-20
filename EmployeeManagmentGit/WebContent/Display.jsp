@@ -164,15 +164,30 @@
 								<td><c:out value="${user.Leave_taken}" /></td>
 								<td><c:out value="${user.Absent}" /></td>
 								<td><c:out value="${user.Total_yearly_leave_left}" /></td>
-								<td><html:link page="/delete?method=delete&id=${user.Emp_id}"><div class="btn btn-block btn-danger btn-sm">Delete</div></html:link></td>
-								<td><html:link page="/update?method=update&id=${user.Emp_id}"><div class="btn btn-block btn-warning btn-sm">Update</div></html:link></td>
+								<td><div onclick="forDelete()"><div class="btn btn-block btn-warning btn-sm">Delete</div></div></td>
+								<td><html:link page="/update?method=update&id=${user.Emp_id}"><div class="btn btn-block btn-danger btn-sm">Update</div></html:link></td>
 							</tr>
+							<div id="empid" style="display: none;">${user.Emp_id}</div>
 							</c:forEach>
 						</tbody>
 				</table>
 
 			</div>
-
+			<script type="text/javascript">
+				function forDelete() {
+					var r= confirm('Are you Sure!!')
+					var empid= document.getElementById("empid").innerHTML
+					if(r==true)
+						{
+							location.href = '/EmployeeManagmentGit/delete?method=delete&id='+empid;
+						}
+					else
+						{
+							return
+						}
+				}
+			
+			</script>
 		</section>
 		<!-- /.content -->
 	</div>
