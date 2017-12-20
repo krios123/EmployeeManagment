@@ -190,9 +190,8 @@
 											</div>
 											<html:textarea property="local_address"
 												name="registrationForm" styleClass="form-control" value=""></html:textarea>
-											
-										
-										</div><html:errors property="local_address"/>
+										</div>
+										<html:errors property="local_address"/>
 									</div>
 								</div>
 							</div>
