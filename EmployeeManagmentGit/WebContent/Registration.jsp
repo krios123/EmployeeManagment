@@ -29,7 +29,7 @@
 		<h1>Employee Registration</h1>
 
 	</section>
-<html:errors/>
+<html:errors property="emp_name"/>
 	<!-- Main content -->
 	<section class="content container-fluid">
 		<input type=button value="Back" onCLick="history.back()"
