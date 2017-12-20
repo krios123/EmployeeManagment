@@ -8,122 +8,122 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="E:/software/jar files/strutss/antlr-2.7.2.jar">
+	<classpathentry kind="lib" path="E:/reshma/jaf files/strutss/antlr-2.7.2.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="E:/software/jar files/strutss/bsf-2.3.0.jar">
+	<classpathentry kind="lib" path="E:/reshma/jaf files/strutss/bsf-2.3.0.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="E:/software/jar files/strutss/commons-beanutils-1.8.0.jar">
+	<classpathentry kind="lib" path="E:/reshma/jaf files/strutss/commons-beanutils-1.8.0.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="E:/software/jar files/strutss/commons-chain-1.2.jar">
+	<classpathentry kind="lib" path="E:/reshma/jaf files/strutss/commons-chain-1.2.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="E:/software/jar files/strutss/commons-digester-1.8.jar">
+	<classpathentry kind="lib" path="E:/reshma/jaf files/strutss/commons-digester-1.8.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="E:/software/jar files/strutss/commons-fileupload-1.1.1.jar">
+	<classpathentry kind="lib" path="E:/reshma/jaf files/strutss/commons-fileupload-1.1.1.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="E:/software/jar files/strutss/commons-io-1.1.jar">
+	<classpathentry kind="lib" path="E:/reshma/jaf files/strutss/commons-io-1.1.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="E:/software/jar files/strutss/commons-logging-1.0.4.jar">
+	<classpathentry kind="lib" path="E:/reshma/jaf files/strutss/commons-logging-1.0.4.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="E:/software/jar files/strutss/commons-validator-1.3.1.jar">
+	<classpathentry kind="lib" path="E:/reshma/jaf files/strutss/commons-validator-1.3.1.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="E:/software/jar files/strutss/jstl-1.0.2.jar">
+	<classpathentry kind="lib" path="E:/reshma/jaf files/strutss/jstl-1.0.2.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="E:/software/jar files/strutss/mysql-connector-java-5.1.42-bin.jar">
+	<classpathentry kind="lib" path="E:/reshma/jaf files/strutss/oro-2.0.8.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="E:/software/jar files/strutss/oro-2.0.8.jar">
+	<classpathentry kind="lib" path="E:/reshma/jaf files/strutss/standard-1.0.6.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="E:/software/jar files/strutss/servlet-api.jar">
+	<classpathentry kind="lib" path="E:/reshma/jaf files/strutss/struts-core-1.3.10.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="E:/software/jar files/strutss/standard-1.0.6.jar">
+	<classpathentry kind="lib" path="E:/reshma/jaf files/strutss/struts-el-1.3.10.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="E:/software/jar files/strutss/struts-core-1.3.10.jar">
+	<classpathentry kind="lib" path="E:/reshma/jaf files/strutss/struts-extras-1.3.10.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="E:/software/jar files/strutss/struts-el-1.3.10.jar">
+	<classpathentry kind="lib" path="E:/reshma/jaf files/strutss/struts-faces-1.3.10.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="E:/software/jar files/strutss/struts-extras-1.3.10.jar">
+	<classpathentry kind="lib" path="E:/reshma/jaf files/strutss/struts-mailreader-dao-1.3.10.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="E:/software/jar files/strutss/struts-faces-1.3.10.jar">
+	<classpathentry kind="lib" path="E:/reshma/jaf files/strutss/struts-scripting-1.3.10.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="E:/software/jar files/strutss/struts-mailreader-dao-1.3.10.jar">
+	<classpathentry kind="lib" path="E:/reshma/jaf files/strutss/struts-taglib-1.3.10.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="E:/software/jar files/strutss/struts-scripting-1.3.10.jar">
+	<classpathentry kind="lib" path="E:/reshma/jaf files/strutss/struts-tiles-1.3.10.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="E:/software/jar files/strutss/struts-taglib-1.3.10.jar">
+	<classpathentry kind="lib" path="E:/reshma/jaf files/mysql-connector-java-5.1.42/mysql-connector-java-5.1.42-bin.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="E:/software/jar files/strutss/struts-tiles-1.3.10.jar">
+	<classpathentry kind="lib" path="E:/reshma/jaf files/custom tags/jstl.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="E:/software/jar files/custom tags/jstl.jar">
+	<classpathentry kind="lib" path="E:/reshma/jaf files/custom tags/standard.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="E:/software/jar files/custom tags/standard.jar">
+	<classpathentry kind="lib" path="C:/Program Files (x86)/Apache Software Foundation/Tomcat 7.0/lib/servlet-api.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
