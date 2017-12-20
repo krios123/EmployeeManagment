@@ -82,7 +82,7 @@ public class Registrationaction extends DispatchAction {
 
 		Statement st = Dbconn.connectDB();
 
-		String sl = "DELETE FROM employeedetails WHERE Emp_id='" + id + "'";
+		String sl = "update employeedetails set flag = 0 WHERE Emp_id='" + id + "'";
 		int i = st.executeUpdate(sl);
 
 		return mapping.findForward("success");
