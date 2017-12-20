@@ -45,9 +45,15 @@
 			name="registrationForm">
 			<forward name="success" path="/Display.jsp"></forward>
 		</action>
-
-
+		
+		<action path=""></action>
+		
 	</action-mappings>
 
+ <message-resources parameter="properties.user"></message-resources>
+  
+    <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+    	<set-property value="/WEB-INF/validator-rules.xml, /WEB-INF/validator-user.xml" property="pathnames" />
+    </plug-in>
 
 </struts-config>
