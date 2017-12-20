@@ -175,8 +175,8 @@
 			<script type="text/javascript">
 				function forDelete(empid) {
 
-					
-					//alert("empid  "+ empid)
+					var r=confirm("Are yoy sure?")
+					alert("empid  "+ empid)
 					if(r==true)
 						{
 							location.href = '/EmployeeManagmentGit/delete?method=delete&id='+empid;
