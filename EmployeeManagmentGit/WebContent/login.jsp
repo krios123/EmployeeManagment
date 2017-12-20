@@ -53,7 +53,7 @@
 	<html:form action="/login" method="insertlogin">
 		 <div class="row">
 						<div class="form-group">
-							<label class="col-md-4 control-label" for="Name"> User Name</label>
+							<label class="col-md-4 control-label" for="Name">User Name</label>
 							<div class="col-md-5">
 	                        	<html:text property="username" name="loginForm"  styleClass="form-control" value=""></html:text>
 	                        </div>
