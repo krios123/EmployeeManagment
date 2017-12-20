@@ -41,7 +41,7 @@
 
 					<div class="panel-body">
 
-						<html:form action="/registration">
+						<html:form action="/registration" method="insert">
 
 							<div class="row">
 								<div class="form-group">
