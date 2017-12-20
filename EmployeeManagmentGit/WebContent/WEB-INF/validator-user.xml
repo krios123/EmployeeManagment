@@ -1,0 +1,80 @@
+<!DOCTYPE form-validation PUBLIC
+        "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.3.0//EN"
+        "http://jakarta.apache.org/commons/dtds/validator_1_3_0.dtd">
+
+<form-validation>
+   <formset>
+      <form name="registrationForm">
+      
+         <field property="emp_name" depends="required">
+		 	<msg name="required" key="err.user.Emp_name.required" />
+		 </field>
+		
+		<field property="designation" depends="required">
+		 	<msg name="required" key="err.user.Designation.required" />
+		 </field>
+		
+		<field property="date_of_birth" depends="required">
+		 	<msg name="required" key="err.user.Date_of_birth.required" />
+		 </field>
+		
+		<field property="gender" depends="required">
+		 	<msg name="required" key="err.user.Gender.required" />
+		 </field>
+		
+		<field property="fathers_name" depends="required">
+		 	<msg name="required" key="err.user.Fathers_name.required" />
+		 </field>
+		
+		<field property="personal_mail_id" depends="required,invalid">
+		 	<msg name="required" key="err.user.Personal_mail_id.required" />
+		 	<msg name="email" key="err.user.Personal_mail_id.invalid"/>
+		 </field>
+		
+		<field property="permanent_address" depends="required">
+		 	<msg name="required" key="err.user.Permanent_address.required" />
+		 </field>
+		
+		<field property="local_address" depends="required">
+		 	<msg name="required" key="err.user.Local_address.required" />
+		 </field>
+		
+		<field property="contact_no" depends="required">
+		 	<msg name="required" key="err.user.Contact_no.required" />
+		 </field>
+		
+		<field property="highest_qualification" depends="required">
+		 	<msg name="required" key="err.user.Highest_qualification.required" />
+		 </field>
+		
+		<field property="year_of_Experience" depends="required">
+		 	<msg name="required" key="err.user.Year_of_Experience.required" />
+		 </field>
+		
+		<field property="date_of_registration" depends="required">
+		 	<msg name="required" key="err.user.Date_of_registration.required" />
+		 </field>
+		
+		<field property="salary_at_the_time_of_joining" depends="required">
+		 	<msg name="required" key="err.user.Salary_at_the_time_of_joining.required" />
+		 </field>
+		
+		<field property="employee_personal_bank_name" depends="required">
+		 	<msg name="required" key="err.user.Employee_personal_bank_name.required" />
+		 </field>
+		
+		<field property="personal_bank_account_no" depends="required">
+		 	<msg name="required" key="err.user.Personal_bank_account_no.required" />
+		 </field>
+		
+		<field property="bank_address" depends="required">
+		 	<msg name="required" key="err.user.Bank_address.required" />
+		 </field>
+		
+		<field property="ifsc_code" depends="required">
+		 	<msg name="required" key="err.user.IFSC_code.required" />
+		 </field>
+		
+        </form>
+  </formset>
+</form-validation>
