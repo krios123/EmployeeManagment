@@ -43,16 +43,6 @@
 
 						<html:form action="/registration">
 
-							<%-- <div class="row">
-								<div class="form-group">
-									<label class="col-md-4 control-label">Employee Name</label>
-									<div class="col-md-5">
-										<html:text property="Emp_name" name="registrationForm"
-											styleClass="form-control" value=""></html:text>
-									</div>
-								</div>
-							</div> --%>
-
 							<div class="row">
 								<div class="form-group">
 									<label class="col-md-4 control-label">Employee name</label>
