@@ -55,7 +55,7 @@
 
 							<div class="row">
 								<div class="form-group">
-									<label class="col-md-4 control-label">EMPname</label>
+									<label class="col-md-4 control-label">Employee name</label>
 									<div class="col-md-5">
 										<html:text property="emp_name" name="registrationForm"
 											styleClass="form-control" value=""></html:text>
