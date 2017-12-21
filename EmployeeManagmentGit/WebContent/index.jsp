@@ -42,6 +42,8 @@
 			password="" />
 
 		<sql:query var="emps" dataSource="${myDS }">select * from employeedetails;</sql:query>
+		<sql:query var="listemp" dataSource="${myDS }">select * from employeedetails where Date_of_birth=curdate();</sql:query>
+
 
 		<%---------------------------------------------------------------------------------------------------- --%>
 		<section class="content">
@@ -99,15 +101,19 @@
 					<!-- small box -->
 					<div class="small-box bg-red">
 						<div class="inner">
-							<h3>65</h3>
-
-							<p>Visitors</p>
+							<h3>${listemp.rowCount}	</h3>
+							<h4><%	out.print("Today's Birthday ");	%></h4>						
+							<p>
+								<c:forEach var="usr" items="${listemp.rows}">
+									<c:out value="${usr.Emp_name}" />
+								</c:forEach>
+							</p>
 						</div>
 						<div class="icon">
-							<i class="ion ion-pie-graph"></i>
+							<i class="fa fa-birthday-cake"></i>
 						</div>
-						<a href="#" class="small-box-footer">More info <i
-							class="fa fa-arrow-circle-right"></i></a>
+
+
 					</div>
 				</div>
 				<!-- ./col -->
@@ -116,12 +122,12 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="col-md-7">
-				
-						<%@include file="Events.jsp"%>
-					
-				</div>
+
+					<%@include file="Events.jsp"%>
+
 				</div>
 			</div>
+		</div>
 	</section>
 </div>
 

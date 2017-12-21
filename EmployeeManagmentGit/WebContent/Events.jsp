@@ -1,5 +1,17 @@
-<section>
 
+<%@taglib uri="http://struts.apache.org/tags-bean" prefix="bean"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
+<%@taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
+<section>
+	<sql:setDataSource var="myDS" driver="com.mysql.jdbc.Driver"
+				url="jdbc:mysql://localhost:3306/employeemanagement" user="root"
+				password="" />
+
+			<sql:query var="listEmp" dataSource="${myDS }">select * from employeedetails where Date_of_birth between subdate(curdate(),interval 2 day) and subdate(curdate(),interval -5 day);</sql:query>
+			
                 <div class="widget-box transparent" id="recent-box">
                     <div class="widget-header">
                         <h4 class="lighter smaller"><i class="fa fa-rss orange"></i> Recent</h4>
@@ -22,133 +34,124 @@
                             </ul>
                         </div>
                     </div>
+                    
                     <div id="member-tab" class="tab-pane active">
                                     <div class="clearfix">
                                                 <div class="col-md-6">
                                                     <div class="itemdiv memberdiv" style="width:auto">
-                                                        <div class="user">
-                                                            <img alt="Tahasin Atar" src="/ImageHandler.ashx?Id=27719&amp;r=20170906045546&amp;size=Small">
-                                                        </div>
+                                                        <c:forEach var="user" items="${listEmp.rows}">
                                                         <div class="body">
-                                                            <div>
-                                                                <span class="text-primary"> Tahasin Atar (E00027)</span>
+                                                        <fmt:parseDate value="${user.Date_of_birth}" var="DOBirth" pattern="yyyy-MM-dd"/>
+                                                         <span>
+                                                         	<div>
+                                                         		<i class="fa fa-birthday-cake"></i>
+                                                                <span class="text-primary"> <c:out value="${user.Emp_name}" /></span>
+                                                            </div>
+                                                            <div>                                                     
+                                                                <span><c:out value="${user.Designation}" /></span>
                                                             </div>
                                                             <div>
-                                                                <i class="fa fa-calendar"></i>
-                                                                <span class="green">Sat - 23 Dec</span>
-                                                            </div>
-                                                            <div>
-                                                                    <span class="label label-info arrowed-in arrowed-in-right">Editor</span>
-                                                                <br>
-                                                                    <span class="label label-danger arrowed-in arrowed-in-right">
-                                                                        Editorial
-                                                                    </span>
-                                                                <a href="mailto:tahasinatar@papertrue.com?subject=Happy Birthday" target="_blank" class="tooltip-success" data-rel="tooltip" data-placement="right" title="" data-original-title="Send&nbsp;birthday&nbsp;wishes">
-                                                                    <span class="green">
-                                                                        <i class="fa fa-envelope-o bigger-110"></i>
-                                                                    </span>
-                                                                </a>
-                                                            </div>
-                                                            <div class="space-6"></div>
-                                                        </div>
+                                                          		<span>  <i class="fa fa-calendar"></i> <fmt:formatDate value="${DOBirth }" type="date"/></span>
+                                                            </div>                                                          
+                                                             <div class="space-6"></div>
+                                                             </span>
+                                                        </div><br>                                                   
+                                                        </c:forEach>
                                                     </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="itemdiv memberdiv" style="width:auto">
-                                                        <div class="user">
-                                                            <img alt="Jhilam Roy" src="/ImageHandler.ashx?Id=27898&amp;r=20171129034853&amp;size=Small">
-                                                        </div>
-                                                        <div class="body">
-                                                            <div>
-                                                                <span class="text-primary"> Jhilam Roy (E00050)</span>
-                                                            </div>
-                                                            <div>
-                                                                <i class="fa fa-calendar"></i>
-                                                                <span class="green">Sat - 06 Jan</span>
-                                                            </div>
-                                                            <div>
-                                                                    <span class="label label-info arrowed-in arrowed-in-right">Editor</span>
-                                                                <br>
-                                                                    <span class="label label-danger arrowed-in arrowed-in-right">
-                                                                        Editorial
-                                                                    </span>
-                                                                <a href="mailto:jhilamroy@papertrue.com?subject=Happy Birthday" target="_blank" class="tooltip-success" data-rel="tooltip" data-placement="right" title="" data-original-title="Send&nbsp;birthday&nbsp;wishes">
-                                                                    <span class="green">
-                                                                        <i class="fa fa-envelope-o bigger-110"></i>
-                                                                    </span>
-                                                                </a>
-                                                            </div>
-                                                            <div class="space-6"></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="itemdiv memberdiv" style="width:auto">
-                                                        <div class="user">
-                                                            <img alt="Rajkumar Kedari" src="/ImageHandler.ashx?Id=27684&amp;r=20170930081534&amp;size=Small">
-                                                        </div>
-                                                        <div class="body">
-                                                            <div>
-                                                                <span class="text-primary"> Rajkumar Kedari (E00013)</span>
-                                                            </div>
-                                                            <div>
-                                                                <i class="fa fa-calendar"></i>
-                                                                <span class="green">Sat - 06 Jan</span>
-                                                            </div>
-                                                            <div>
-                                                                    <span class="label label-info arrowed-in arrowed-in-right">Manager</span>
-                                                                <br>
-                                                                    <span class="label label-danger arrowed-in arrowed-in-right">
-                                                                        Sales
-                                                                    </span>
-                                                                <a href="mailto:rajkumarkedari@papertrue.com?subject=Happy Birthday" target="_blank" class="tooltip-success" data-rel="tooltip" data-placement="right" title="" data-original-title="Send&nbsp;birthday&nbsp;wishes">
-                                                                    <span class="green">
-                                                                        <i class="fa fa-envelope-o bigger-110"></i>
-                                                                    </span>
-                                                                </a>
-                                                            </div>
-                                                            <div class="space-6"></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="itemdiv memberdiv" style="width:auto">
-                                                        <div class="user">
-                                                            <img alt="Shreya Bardhan" src="/ImageHandler.ashx?Id=27712&amp;r=20171101021604&amp;size=Small">
-                                                        </div>
-                                                        <div class="body">
-                                                            <div>
-                                                                <span class="text-primary"> Shreya Bardhan (E00020)</span>
-                                                            </div>
-                                                            <div>
-                                                                <i class="fa fa-calendar"></i>
-                                                                <span class="green">Thu - 11 Jan</span>
-                                                            </div>
-                                                            <div>
-                                                                    <span class="label label-info arrowed-in arrowed-in-right">Senior Editor</span>
-                                                                <br>
-                                                                    <span class="label label-danger arrowed-in arrowed-in-right">
-                                                                        Editorial
-                                                                    </span>
-                                                                <a href="mailto:shreyabardhan@papertrue.com?subject=Happy Birthday" target="_blank" class="tooltip-success" data-rel="tooltip" data-placement="right" title="" data-original-title="Send&nbsp;birthday&nbsp;wishes">
-                                                                    <span class="green">
-                                                                        <i class="fa fa-envelope-o bigger-110"></i>
-                                                                    </span>
-                                                                </a>
-                                                            </div>
-                                                            <div class="space-6"></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            <div class="row col-md-12">
-                                                <div class="center">
-                                                    <a href="/Home/BirthDays">More &gt;&gt;</a>
-                                                </div>
-                                            </div>
-                                        <div class="clearfix"></div>
-                                        <div class="hr hr-double hr8"></div>
+                                                </div>                                     
                                     </div>
-                                </div>
-                </div>
+                   </div>
+                   
+                     <div id="anniversary-tab" class="tab-pane active">
+                                    <div class="clearfix">
+                                                <div class="col-md-6">
+                                                    <div class="itemdiv memberdiv" style="width:auto">
+                                                        <c:forEach var="user" items="${listEmp.rows}">
+                                                        <div class="body">
+                                                        <fmt:parseDate value="${user.Date_of_birth}" var="DOBirth" pattern="yyyy-MM-dd"/>
+                                                         <span>
+                                                         	<div>
+                                                         		<i class="fa fa-birthday-cake"></i>
+                                                                <span class="text-primary"> <c:out value="${user.Emp_name}" /></span>
+                                                            </div>
+                                                            <div>                                                     
+                                                                <span><c:out value="${user.Designation}" /></span>
+                                                            </div>
+                                                            <div>
+                                                          		<span>  <i class="fa fa-calendar"></i> <fmt:formatDate value="${DOBirth }" type="date"/></span>
+                                                            </div>                                                          
+                                                             <div class="space-6"></div>
+                                                             </span>
+                                                        </div><br>                                                   
+                                                        </c:forEach>
+                                                    </div>
+                                                </div>                                     
+                                    </div>
+                   </div>
+                   
             </div>
+           
 </section>
+
+<script>
+var employeeNewslist = '0';
+var birthdayList = '4';
+var holidayList = '11';
+var anniversaryList = '4';
+if (employeeNewslist.trim() != '0') {
+    $("#liNews").addClass("active");
+    $("#liBirthday").removeClass("active");
+    $("#liHoliday").removeClass("active");
+    $("liAnniversary").removeClass("active");
+
+    $("#comment-tab").addClass("active");
+    $("#member-tab").removeClass("active");
+    $("#task-tab").removeClass("active");
+    $("#anniversary-tab").removeClass("active");
+}
+else if (birthdayList.trim() != '0') {
+    $("#liBirthday").addClass("active");
+    $("#liNews").removeClass("active");
+    $("#liHoliday").removeClass("active");
+    $("liAnniversary").removeClass("active");
+
+    $("#member-tab").addClass("active");
+    $("#comment-tab").removeClass("active");
+    $("#task-tab").removeClass("active");
+    $("anniversary-tab").removeClass("active");
+}
+else if (holidayList.trim() != '0') {
+    $("#liHoliday").addClass("active");
+    $("#liNews").removeClass("active");
+    $("#liBirthday").removeClass("active");
+    $("liAnniversary").removeClass("active");
+
+    $("#task-tab").addClass("active");
+    $("#comment-tab").removeClass("active");
+    $("#member-tab").removeClass("active");
+    $("anniversary-tab").removeClass("active");
+}
+else if (anniversaryList.trim() != '0') {
+    $("liAnniversary").addClass("active");
+    $("#liHoliday").removeClass("active");
+    $("#liNews").removeClass("active");
+    $("#liBirthday").removeClass("active");
+
+    $("#anniversary-tab").addClass("active");
+    $("#task-tab").removeClass("active");
+    $("#comment-tab").removeClass("active");
+    $("#member-tab").removeClass("active");
+}
+else {
+    $("#liNews").addClass("active");
+    $("#liBirthday").removeClass("active");
+    $("#liHoliday").removeClass("active");
+    $("liAnniversary").removeClass("active");
+
+    $("#comment-tab").addClass("active");
+    $("#member-tab").removeClass("active");
+    $("#task-tab").removeClass("active");
+    $("#anniversary-tab").removeClass("active");
+}
+});
+</script>
