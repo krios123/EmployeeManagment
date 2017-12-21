@@ -129,7 +129,7 @@
 <!-- /.content-wrapper -->
 
 <%@include file="main_files/footer.jsp"%>
-</div>
+
 
 
 <%@include file="main_files/js_section.jsp"%>

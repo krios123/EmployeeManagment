@@ -121,6 +121,7 @@ public class Registrationaction extends DispatchAction {
 				  st.executeUpdate(sql);
 				  
 		}catch (Exception e) {
+			e.printStackTrace();
 				System.out.println(e.getMessage());
 			
 		}
