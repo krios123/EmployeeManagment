@@ -116,6 +116,7 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="col-md-7">
+				
 						<%@include file="Events.jsp"%>
 					
 				</div>
