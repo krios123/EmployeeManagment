@@ -31,7 +31,7 @@ public class RegistrationForm extends ValidatorForm {
 	String bank_address;
 	String iFSC_code;
 	int increment_amount;
-	int increment_amount_date;
+	String increment_amount_date;
 	int total_leave_permissioned;
 	int total_leave_taken_from_jan_till_dec;
 	int total_leave_taken;
@@ -194,10 +194,11 @@ public class RegistrationForm extends ValidatorForm {
 	public void setIncrement_amount(int increment_amount) {
 		this.increment_amount = increment_amount;
 	}
-	public int getIncrement_amount_date() {
+	
+	public String getIncrement_amount_date() {
 		return increment_amount_date;
 	}
-	public void setIncrement_amount_date(int increment_amount_date) {
+	public void setIncrement_amount_date(String increment_amount_date) {
 		this.increment_amount_date = increment_amount_date;
 	}
 	public int getTotal_leave_permissioned() {
