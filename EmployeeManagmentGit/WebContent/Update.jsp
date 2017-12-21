@@ -91,9 +91,11 @@
 													<div class="input-group-addon">
 														<i class="fa fa-calendar"></i>
 													</div>
+													<div>
 													<html:text property="date_of_birth" name="registrationForm"
 														styleClass="form-control pull-right datepicker"
 														value="${user.Date_of_birth }"></html:text>
+													</div>
 												</div>
 											</div>
 										</div>
@@ -266,9 +268,11 @@
 													<div class="input-group-addon">
 														<i class="fa fa-calendar"></i>
 													</div>
+													<div>
 													<html:text property="date_of_joining"
-														name="registrationForm" styleClass="form-control"
+														name="registrationForm" styleClass="form-control pull-right datepicker"
 														value="${user.Date_of_joining }"></html:text>
+													</div>
 												</div>
 											</div>
 										</div>
@@ -283,9 +287,11 @@
 													<div class="input-group-addon">
 														<i class="fa fa-calendar"></i>
 													</div>
+													<div>
 													<html:text property="date_of_registration"
-														name="registrationForm" styleClass="form-control"
+														name="registrationForm" styleClass="form-control pull-right datepicker"
 														value="${user.Date_of_registration }"></html:text>
+													</div>
 												</div>
 											</div>
 										</div>
@@ -296,10 +302,11 @@
 											<label class="col-md-4 control-label">Salary at the
 												Time of Joining</label>
 											<div class="col-md-5">
+											<div>
 												<html:text property="salary_at_the_time_of_joining"
 													name="registrationForm" styleClass="form-control"
 													value="${user.Salary_at_the_time_of_joining }"></html:text>
-											</div>
+											</div></div>
 										</div>
 									</div>
 									<br>
@@ -320,12 +327,20 @@
 											<label class="col-md-4 control-label"> Increment
 												amount date</label>
 											<div class="col-md-5">
-												<html:text property="increment_amount_date"
-													name="registrationForm" styleClass="form-control"
-													value="${user.Increment_amount_date }"></html:text>
+											<div class="input-group date">
+													<div class="input-group-addon">
+														<i class="fa fa-calendar"></i>
+													</div>
+													<div>
+													<html:text property="increment_amount_date"
+														name="registrationForm" styleClass="form-control pull-right datepicker"
+														value="${user.Increment_amount_date }"></html:text>
+													</div>
+												</div>
 											</div>
 										</div>
 									</div>
+									<br>
 									<div class="row">
 										<div class="form-group">
 											<label class="col-md-4 control-label">Passport Number</label>
@@ -425,7 +440,6 @@
 										</div>
 									</div>
 									<br>
-									<br>
 									<div class="row">
 										<div class="form-group">
 											<label class="col-md-4 control-label"> Total leave
@@ -507,7 +521,7 @@
 
 </body>
 <script type="text/javascript">
-	$('#Date').datepicker({
+	$('.datepicker').datepicker({
 		autoclose : true,
 		todayHighlight : true
 	});

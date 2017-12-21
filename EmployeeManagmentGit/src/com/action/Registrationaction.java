@@ -1,6 +1,6 @@
 package com.action;
 
-import java.sql.Date;
+import java.util.Date;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
@@ -25,32 +25,35 @@ public class Registrationaction extends DispatchAction {
 			HttpServletResponse response) throws Exception {
 
 		RegistrationForm rform = (RegistrationForm) form;
+		SimpleDateFormat  sdfSource= new SimpleDateFormat("MM/dd/yyyy");
+		SimpleDateFormat sdfDestination = new SimpleDateFormat("yyyy-MM-dd");
 
 		String Emp_name = rform.getEmp_name();
 		String Designation = rform.getDesignation();
-		String Date_of_birth = rform.getDate_of_birth();
-		String Gender = rform.getGender();
-		String Fathers_name = rform.getFathers_name();
+		
+		String Date_of_birth 		= sdfDestination.format(sdfSource.parse(rform.getDate_of_birth()));
+		String Gender 				= rform.getGender();
+		String Fathers_name 		= rform.getFathers_name();
 		int Fathers_contact_details = rform.getFathers_contact_details();
-		String Fathers_designation = rform.getFathers_designation();
-		String Personal_mail_id = rform.getPersonal_mail_id();
-		String Permanent_address = rform.getPermanent_address();
-		String Local_address = rform.getLocal_address();
-		int Contact_no = rform.getContact_no();
-		String Highest_qualification = rform.getHighest_qualification();
-		int Year_of_Experience = rform.getYear_of_Experience();
-		String Date_of_joining = rform.getDate_of_joining();
-		String Date_of_registration = rform.getDate_of_registration();
+		String Fathers_designation 	= rform.getFathers_designation();
+		String Personal_mail_id 	= rform.getPersonal_mail_id();
+		String Permanent_address 	= rform.getPermanent_address();
+		String Local_address 		= rform.getLocal_address();
+		int Contact_no 				= rform.getContact_no();
+		String Highest_qualification= rform.getHighest_qualification();
+		int Year_of_Experience 		= rform.getYear_of_Experience();
+		String Date_of_joining 		= sdfDestination.format(sdfSource.parse(rform.getDate_of_joining()));
+		String Date_of_registration = sdfDestination.format(sdfSource.parse(rform.getDate_of_registration())); 
 		int Salary_at_the_time_of_joining = rform.getSalary_at_the_time_of_joining();
-		String Passport_no = rform.getPassport_no();
-		String Pancard_no = rform.getPancard_no();
-		String PF_no = rform.getpF_no();
-		String Official_bank_name = rform.getOfficial_bank_name();
-		int Official_bank_account_no = rform.getOfficial_bank_account_no();
+		String Passport_no 			= rform.getPassport_no();
+		String Pancard_no 			= rform.getPancard_no();
+		String PF_no 				= rform.getpF_no();
+		String Official_bank_name 	= rform.getOfficial_bank_name();
+		int Official_bank_account_no= rform.getOfficial_bank_account_no();
 		String Employee_personal_bank_name = rform.getEmployee_personal_bank_name();
-		int Personal_bank_account_no = rform.getPersonal_bank_account_no();
-		String Bank_address = rform.getBank_address();
-		String IFSC_code = rform.getiFSC_code();
+		int Personal_bank_account_no= rform.getPersonal_bank_account_no();
+		String Bank_address 		= rform.getBank_address();
+		String IFSC_code 			= rform.getiFSC_code();
 		System.out.println("name" + Emp_name);
 
 		System.out.println("PFname" + PF_no);
@@ -104,6 +107,9 @@ public class Registrationaction extends DispatchAction {
 	public ActionForward updateDisplay(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		
+		SimpleDateFormat  sdfSource= new SimpleDateFormat("MM/dd/yyyy");
+		SimpleDateFormat sdfDestination = new SimpleDateFormat("yyyy-MM-dd");
+		
 		System.out.println("hii"+request.getParameter("id"));
 		RegistrationForm rform=(RegistrationForm)form;
 		System.out.println("in update employee method");
@@ -111,7 +117,7 @@ public class Registrationaction extends DispatchAction {
 		try{
 			 Statement st=Dbconn.connectDB();
 			
-			String sql="UPDATE `employeedetails` SET `Emp_name` = '"+rform.getEmp_name()+"', `Designation` = '"+rform.getDesignation()+"', `Date_of_birth` = '"+rform.getDate_of_birth()+"', `Gender` = '"+rform.getGender()+"', `Fathers_name` = '"+rform.getFathers_name()+"', `Fathers_contact_details` = '"+rform.getFathers_contact_details()+"', `Fathers_designation` = '"+rform.getFathers_designation()+"', `Personal_mail_id` = '"+rform.getPersonal_mail_id()+"', `Permanent_address` = '"+rform.getPermanent_address()+"', `Local_address` = '"+rform.getLocal_address()+"', `Contact_no` = '"+rform.getContact_no()+"', `Highest_qualification` = '"+rform.getHighest_qualification()+"', `Year_of_Experience` = '"+rform.getYear_of_Experience()+"', `Date_of_joining` = '"+rform.getDate_of_joining()+"', `Date_of_registration` = '"+rform.getDate_of_registration()+"', `Salary_at_the_time_of_joining` = '"+rform.getSalary_at_the_time_of_joining()+"', `Increment_amount` = '"+rform.getIncrement_amount()+"', `Increment_amount_date` = '"+rform.getIncrement_amount_date()+"', `Passport_no` = '"+rform.getPassport_no()+"', `Pan_card_no` = '"+rform.getPancard_no()+"', `PF_no` = '"+rform.getpF_no()+"', `Official_bank_name` = '"+rform.getOfficial_bank_name()+"', `Official_bank_account_no` = '"+rform.getOfficial_bank_account_no()+"', `Employee_personal_bank_name` = '"+rform.getEmployee_personal_bank_name()+"', `Personal_bank_account_no` = '"+rform.getPersonal_bank_account_no()+"', `Bank_address` = '"+rform.getBank_address()+"', `IFSC_code` = '"+rform.getiFSC_code()+"', `Total_leave_permissioned` = '"+rform.getTotal_leave_permissioned()+"', `Total_leave_taken_from_jan_till_dec` = '"+rform.getTotal_leave_taken_from_jan_till_dec()+"', `Total_leave_taken` = '"+rform.getTotal_leave_taken()+"', `Absent` = '"+rform.getAbsent()+"', `Total_yearly_leave_taken` = '"+rform.getTotal_yearly_leave_taken()+"' WHERE Emp_id='"+request.getSession().getAttribute("Empid")+"'";
+			String sql="UPDATE `employeedetails` SET `Emp_name` = '"+rform.getEmp_name()+"', `Designation` = '"+rform.getDesignation()+"', `Date_of_birth` = '"+sdfDestination.format(sdfSource.parse(rform.getDate_of_birth()))+"', `Gender` = '"+rform.getGender()+"', `Fathers_name` = '"+rform.getFathers_name()+"', `Fathers_contact_details` = '"+rform.getFathers_contact_details()+"', `Fathers_designation` = '"+rform.getFathers_designation()+"', `Personal_mail_id` = '"+rform.getPersonal_mail_id()+"', `Permanent_address` = '"+rform.getPermanent_address()+"', `Local_address` = '"+rform.getLocal_address()+"', `Contact_no` = '"+rform.getContact_no()+"', `Highest_qualification` = '"+rform.getHighest_qualification()+"', `Year_of_Experience` = '"+rform.getYear_of_Experience()+"', `Date_of_joining` = '"+sdfDestination.format(sdfSource.parse(rform.getDate_of_joining()))+"', `Date_of_registration` = '"+sdfDestination.format(sdfSource.parse(rform.getDate_of_registration()))+"', `Salary_at_the_time_of_joining` = '"+rform.getSalary_at_the_time_of_joining()+"', `Increment_amount` = '"+rform.getIncrement_amount()+"', `Increment_amount_date` = '"+sdfDestination.format(sdfSource.parse(rform.getIncrement_amount_date()))+"', `Passport_no` = '"+rform.getPassport_no()+"', `Pan_card_no` = '"+rform.getPancard_no()+"', `PF_no` = '"+rform.getpF_no()+"', `Official_bank_name` = '"+rform.getOfficial_bank_name()+"', `Official_bank_account_no` = '"+rform.getOfficial_bank_account_no()+"', `Employee_personal_bank_name` = '"+rform.getEmployee_personal_bank_name()+"', `Personal_bank_account_no` = '"+rform.getPersonal_bank_account_no()+"', `Bank_address` = '"+rform.getBank_address()+"', `IFSC_code` = '"+rform.getiFSC_code()+"', `Total_leave_permissioned` = '"+rform.getTotal_leave_permissioned()+"', `Total_leave_taken_from_jan_till_dec` = '"+rform.getTotal_leave_taken_from_jan_till_dec()+"', `Total_leave_taken` = '"+rform.getTotal_leave_taken()+"', `Absent` = '"+rform.getAbsent()+"', `Total_yearly_leave_taken` = '"+rform.getTotal_yearly_leave_taken()+"' WHERE Emp_id='"+request.getSession().getAttribute("Empid")+"'";
 				  st.executeUpdate(sql);
 				  
 		}catch (Exception e) {

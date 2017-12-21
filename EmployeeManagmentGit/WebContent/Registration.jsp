@@ -8,6 +8,7 @@
 <%@taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 
 
+
 <aside class="main-sidebar">
 	<!-- sidebar: style can be found in sidebar.less -->
 	<section class="sidebar">
@@ -228,8 +229,7 @@
 							<br>
 							<div class="row">
 								<div class="form-group">
-									<label class="col-md-4 control-label">Highest
-										Qualification</label>
+									<label class="col-md-4 control-label">Highest Qualification</label>
 									<div class="col-md-5">
 										<div class="input-group">
 											<div class="input-group-addon">
@@ -255,8 +255,7 @@
 							<br>
 							<div class="row">
 								<div class="form-group">
-									<label class="col-md-4 control-label">Year of
-										Experience</label>
+									<label class="col-md-4 control-label">Year of Experience</label>
 									<div class="col-md-5">
 										<html:text property="year_of_Experience"
 											name="registrationForm" styleClass="form-control" value="0"></html:text>
@@ -279,7 +278,8 @@
 											<html:text property="date_of_joining" name="registrationForm"
 												styleClass="form-control pull-right datepicker" value=""></html:text>
 										
-										</div></div>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>

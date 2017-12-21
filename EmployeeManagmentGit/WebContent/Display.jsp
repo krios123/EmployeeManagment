@@ -4,10 +4,13 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="CSS/style.css">
+
+
+
 <header class="main-header">
 
 	<!-- Logo -->
-	<a href="index.jsp" class="logo"> <!-- mini logo for sidebar mini 50x50 pixels -->
+	<a href="index.jsp" class="logo">
 		<span class="logo-mini"><b>#</b>008</span> <!-- logo for regular state and mobile devices -->
 		<span class="logo-lg"><b>K</b>rios</span>
 	</a>
@@ -46,6 +49,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 <%@taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
@@ -57,7 +61,7 @@
 		<section class="sidebar">
 			<!-- Sidebar user panel (optional) -->
 			<div class="user-panel">
-				<h2 style="color: white">Welcomee</h2>
+				<h2 style="color: white">Welcome</h2>
 				<div class="pull-left info"></div>
 			</div>
 
@@ -130,11 +134,15 @@
 					</thead>
 						<tbody id="myTable">
 							<c:forEach var="user" items="${listEmp.rows}">
+							<fmt:parseDate value="${user.Date_of_birth}" var="DOBirth" pattern="yyyy-MM-dd"/>
+							<fmt:parseDate value="${user.Date_of_joining}" var="DOJoining" pattern="yyyy-MM-dd"/>
+							<fmt:parseDate value="${user.Date_of_registration}" var="DORegistration" pattern="yyyy-MM-dd"/>
+							<fmt:parseDate value="${user.Increment_amount_date}" var="IncrementAmtDate" pattern="yyyy-MM-dd"/>
 							<tr>
 								<td><c:out value="${user.Emp_id}" /></td>
 								<td><c:out value="${user.Emp_name}" /></td>
 								<td><c:out value="${user.Designation}" /></td>
-								<td><c:out value="${user.Date_of_birth}" /></td>
+									<td><fmt:formatDate value="${DOB }" type="date"/> </td>
 								<td><c:out value="${user.Gender}" /></td>
 								<td><c:out value="${user.Fathers_name}" /></td>
 								<td><c:out value="${user.Fathers_contact_details}" /></td>
@@ -145,11 +153,11 @@
 								<td><c:out value="${user.Contact_no}" /></td>
 								<td><c:out value="${user.Highest_qualification}" /></td>
 								<td><c:out value="${user.Year_of_Experience}" /></td>
-								<td><c:out value="${user.Date_of_joining}" /></td>
-								<td><c:out value="${user.Date_of_registration}" /></td>
+									<td><fmt:formatDate value="${DOJoining }" type="date"/></td>
+									<td><fmt:formatDate value="${DORegistration }" type="date"/></td>
 								<td><c:out value="${user.Salary_at_the_time_of_joining}" /></td>
 								<td><c:out value="${user.Increment_amount}" /></td>
-								<td><c:out value="${user.Increment_amount_date}" /></td>
+									<td><fmt:formatDate value="${IncrementAmtDate }" type="date"/></td>
 								<td><c:out value="${user.Passport_no}" /></td>
 								<td><c:out value="${user.Pancard_no}" /></td>
 								<td><c:out value="${user.PF_no}" /></td>
@@ -164,8 +172,8 @@
 								<td><c:out value="${user.Leave_taken}" /></td>
 								<td><c:out value="${user.Absent}" /></td>
 								<td><c:out value="${user.Total_yearly_leave_left}" /></td>
-								<td><div onclick="forDelete(${user.Emp_id})" ><div class="btn btn-block btn-warning btn-sm">Delete</div></div></td>
-								<td><html:link page="/update?method=update&id=${user.Emp_id}"><div class="btn btn-block btn-danger btn-sm">Update</div></html:link></td>
+								<td><html:link page="/update?method=update&id=${user.Emp_id}"><div class="btn btn-block btn-warning btn-sm">Update</div></html:link></td>
+								<td><div onclick="forDelete(${user.Emp_id})" ><div class="btn btn-block btn-danger btn-sm">Delete</div></div></td>
 							</tr>
 							</c:forEach>
 						</tbody>
