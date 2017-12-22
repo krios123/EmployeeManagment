@@ -9,6 +9,7 @@
 <%@taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
+<%@taglib uri="http://java.sun.com/jstl/fmt" prefix="fmt" %>
 
 <body>
 
@@ -80,9 +81,9 @@
 											</div>
 										</div>
 									</div>
-
-
 									<br>
+									
+									
 									<div class="row">
 										<div class="form-group">
 											<label class="col-md-4 control-label">Date of Birth</label>
@@ -94,7 +95,7 @@
 													<div>
 													<html:text property="date_of_birth" name="registrationForm"
 														styleClass="form-control pull-right datepicker"
-														value="${user.Date_of_birth }"></html:text>
+														value="${user.Date_of_birth}"></html:text>
 													</div>
 												</div>
 											</div>
@@ -259,6 +260,8 @@
 										</div>
 									</div>
 									<br>
+									
+									
 									<div class="row">
 										<div class="form-group">
 											<label class="col-md-4 control-label"> Date of
@@ -278,6 +281,8 @@
 										</div>
 									</div>
 									<br>
+									
+									
 									<div class="row">
 										<div class="form-group">
 											<label class="col-md-4 control-label">Date of
@@ -322,6 +327,8 @@
 										</div>
 									</div>
 									<br>
+									
+									
 									<div class="row">
 										<div class="form-group">
 											<label class="col-md-4 control-label"> Increment
@@ -331,6 +338,7 @@
 													<div class="input-group-addon">
 														<i class="fa fa-calendar"></i>
 													</div>
+													
 													<div>
 													<html:text property="increment_amount_date"
 														name="registrationForm" styleClass="form-control pull-right datepicker"
