@@ -42,7 +42,7 @@
 			password="" />
 
 		<sql:query var="emps" dataSource="${myDS }">select * from employeedetails;</sql:query>
-		<sql:query var="listemp" dataSource="${myDS }">select * from employeedetails where Date_of_birth=curdate();</sql:query>
+			<sql:query var="listemp" dataSource="${myDS }">select * from employeedetails where date_format(Date_of_birth,'%d-%m') between date_format(subdate(curdate(),interval 2 day),'%d-%m') and date_format(subdate(curdate(),interval -5 day),'%d-%m');</sql:query>
 
 
 		<%---------------------------------------------------------------------------------------------------- --%>
@@ -105,7 +105,7 @@
 							<h4><%	out.print("Today's Birthday ");	%></h4>						
 							<p>
 								<c:forEach var="usr" items="${listemp.rows}">
-									<c:out value="${usr.Emp_name}" />
+									<c:out value="${usr.Emp_name}" /><br>
 								</c:forEach>
 							</p>
 						</div>

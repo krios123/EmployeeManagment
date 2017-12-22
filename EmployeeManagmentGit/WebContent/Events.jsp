@@ -10,10 +10,14 @@
 				url="jdbc:mysql://localhost:3306/employeemanagement" user="root"
 				password="" />
 
-			<sql:query var="listEmp" dataSource="${myDS }">select * from employeedetails where Date_of_birth between subdate(curdate(),interval 2 day) and subdate(curdate(),interval -5 day);</sql:query>
+
+			<sql:query var="listEmp" dataSource="${myDS }">select * from employeedetails where date_format(Date_of_birth,'%d-%m') between date_format(subdate(curdate(),interval 2 day),'%d-%m') and date_format(subdate(curdate(),interval -5 day),'%d-%m');</sql:query>
 <div class="row">
 		<div class="col-md-12">
 			<div class="col-md-7">		
+
+			
+
                 <div class="widget-box transparent" id="recent-box">
                     <div class="widget-header">
                         <h4 class="lighter smaller"><i class="fa fa-rss orange"></i> Recent</h4>
