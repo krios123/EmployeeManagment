@@ -5,6 +5,8 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 
+
+<body>
 <!-- Left side column. contains the logo and sidebar -->
 <aside class="main-sidebar">
 
@@ -36,98 +38,9 @@
 
 	<!-- Main content -->
 	<section class="content container-fluid">
-		<%-- SQL connections ------------------------------------------------------------------------------------%>
-		<sql:setDataSource var="myDS" driver="com.mysql.jdbc.Driver"
-			url="jdbc:mysql://localhost:3306/employeemanagement" user="root"
-			password="" />
 
-		<sql:query var="emps" dataSource="${myDS }">select * from employeedetails;</sql:query>
-		<sql:query var="listemp" dataSource="${myDS }">select * from employeedetails where Date_of_birth=curdate();</sql:query>
-
-
-		<%---------------------------------------------------------------------------------------------------- --%>
-		<section class="content">
-			<!-- Small boxes (Stat box) -->
-			<div class="row">
-				<div class="col-lg-3 col-xs-6">
-					<!-- small box -->
-					<div class="small-box bg-aqua">
-						<div class="inner">
-							<h3>${emps.rowCount}</h3>
-
-							<p>Employee Registrations</p>
-						</div>
-						<div class="icon">
-							<i class="ion ion-person-add"></i>
-						</div>
-						<a href="Display.jsp" class="small-box-footer">More info <i
-							class="fa fa-arrow-circle-right"></i></a>
-					</div>
-				</div>
-				<!-- ./col -->
-				<div class="col-lg-3 col-xs-6">
-					<!-- small box -->
-					<div class="small-box bg-green">
-						<div class="inner">
-							<h3>100</h3>
-
-							<p>Total orders</p>
-						</div>
-						<div class="icon">
-							<i class="ion ion-stats-bars"></i>
-						</div>
-						<a href="#" class="small-box-footer">More info <i
-							class="fa fa-arrow-circle-right"></i></a>
-					</div>
-				</div>
-				<!-- ./col -->
-				<div class="col-lg-3 col-xs-6">
-					<!-- small box -->
-					<div class="small-box bg-yellow">
-						<div class="inner">
-							<h3>44</h3>
-
-							<p>xyz</p>
-						</div>
-						<div class="icon">
-							<i class="ion ion-person-add"></i>
-						</div>
-						<a href="#" class="small-box-footer">More info <i
-							class="fa fa-arrow-circle-right"></i></a>
-					</div>
-				</div>
-				<!-- ./col -->
-				<div class="col-lg-3 col-xs-6">
-					<!-- small box -->
-					<div class="small-box bg-red">
-						<div class="inner">
-							<h3>${listemp.rowCount}	</h3>
-							<h4><%	out.print("Today's Birthday ");	%></h4>						
-							<p>
-								<c:forEach var="usr" items="${listemp.rows}">
-									<c:out value="${usr.Emp_name}" />
-								</c:forEach>
-							</p>
-						</div>
-						<div class="icon">
-							<i class="fa fa-birthday-cake"></i>
-						</div>
-
-
-					</div>
-				</div>
-				<!-- ./col -->
-			</div>
-		</section>
-		<div class="row">
-			<div class="col-md-12">
-				<div class="col-md-7">
-
-					<%@include file="Events.jsp"%>
-
-				</div>
-			</div>
-		</div>
+	<img src="image/hrms.jpg" height="600" width="1100">
+	
 	</section>
 </div>
 

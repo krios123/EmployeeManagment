@@ -18,7 +18,7 @@
 
 		<action path="/login" parameter="method" type="com.action.Registrationaction"
 			input="/login.jsp" validate="false" name="loginForm">
-			<forward name="success" path="/Registration.jsp"></forward>
+			<forward name="success" path="/Main.jsp"></forward>
 			<forward name="fail" path="/login.jsp"></forward>
 		</action>
 
