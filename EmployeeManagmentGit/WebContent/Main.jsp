@@ -115,7 +115,7 @@
 							<i class="fa fa-gift"></i>
 						</div>
 						
-					</div>
+					</div>  
 				</div>
 				<!-- ./col -->
 			</div>
