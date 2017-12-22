@@ -72,7 +72,7 @@
                                    <div class="clearfix">
                                                 <div class="col-md-6">
                                                     <div class="itemdiv memberdiv" style="width:auto">
-                                                        <c:forEach var="user" items="${workAnniversaries.rows}">
+                                        <c:forEach var="user" items="${workAnniversaries.rows}">
                                                         <div class="body">
                                                         <fmt:parseDate value="${user.Date_of_joining}" var="WorkAnniversaries" pattern="yyyy-MM-dd"/>
                                                          <span>
@@ -85,6 +85,9 @@
                                                             </div>
                                                             <div>
                                                           		<span>  <i class="fa fa-calendar"></i> <fmt:formatDate value="${WorkAnniversaries }" type="date"/></span>
+
+                                                          		<fmt:formatDate value="${DOJoining }" type="date"/></td></span>
+
                                                             </div>                                                          
                                                              <div class="space-6"></div>
                                                              </span>
