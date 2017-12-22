@@ -28,7 +28,7 @@
 	<!-- Content Header (Page header) -->
 	<section class="content-header">
 		<h1>
-			Employee Management <small>1</small>
+		Dashboard <small>1</small>
 		</h1>
 
 	</section>
@@ -42,7 +42,8 @@
 			password="" />
 
 		<sql:query var="emps" dataSource="${myDS }">select * from employeedetails;</sql:query>
-			<sql:query var="listemp" dataSource="${myDS }">select * from employeedetails where date_format(Date_of_birth,'%d-%m') between date_format(subdate(curdate(),interval 2 day),'%d-%m') and date_format(subdate(curdate(),interval -5 day),'%d-%m');</sql:query>
+			<sql:query var="dobCount" dataSource="${myDS }">select * from employeedetails where date_format(Date_of_birth,'%m-%d') between date_format(subdate(curdate(),interval 2 day),'%m-%d') and date_format(subdate(curdate(),interval -5 day),'%m-%d');</sql:query>
+		<sql:query var="workAnniversaries" dataSource="${myDS }">select *, floor(TIMESTAMPDIFF(month,Date_of_joining,curdate())/12) as 'total_year'  from employeedetails where date_format(Date_of_joining,'%m-%d')= date_format(curdate(),'%m-%d');</sql:query>
 
 
 		<%---------------------------------------------------------------------------------------------------- --%>
@@ -81,30 +82,16 @@
 					</div>
 				</div>
 				<!-- ./col -->
-				<div class="col-lg-3 col-xs-6">
-					<!-- small box -->
-					<div class="small-box bg-yellow">
-						<div class="inner">
-							<h3>44</h3>
-
-							<p>xyz</p>
-						</div>
-						<div class="icon">
-							<i class="ion ion-person-add"></i>
-						</div>
-						<a href="#" class="small-box-footer">More info <i
-							class="fa fa-arrow-circle-right"></i></a>
-					</div>
-				</div>
+				
 				<!-- ./col -->
-				<div class="col-lg-3 col-xs-6">
+				<div class="col-lg-6 col-xs-6">
 					<!-- small box -->
-					<div class="small-box bg-red">
+					<div class="small-box bg-purple">
 						<div class="inner">
-							<h3>${listemp.rowCount}	</h3>
+							<h3>${dobCount.rowCount}	</h3>
 							<h4><%	out.print("Today's Birthday ");	%></h4>						
 							<p>
-								<c:forEach var="usr" items="${listemp.rows}">
+								<c:forEach var="usr" items="${dobCount.rows}">
 									<c:out value="${usr.Emp_name}" /><br>
 								</c:forEach>
 							</p>
@@ -112,8 +99,22 @@
 						<div class="icon">
 							<i class="fa fa-birthday-cake"></i>
 						</div>
-
-
+					</div>
+					<div class="small-box bg-red">
+						<div class="inner">
+							<h3>${workAnniversaries.rowCount}	</h3>
+							<h4><%	out.print(" Happy Work Anniversary!!! ");	%></h4>						
+							<p>
+								<c:forEach var="usr1" items="${workAnniversaries.rows}">
+										
+									<c:out value="${usr1.Emp_name}" /><br>
+								</c:forEach>
+							</p>
+						</div>
+						<div class="icon">
+							<i class="fa fa-gift"></i>
+						</div>
+						
 					</div>
 				</div>
 				<!-- ./col -->

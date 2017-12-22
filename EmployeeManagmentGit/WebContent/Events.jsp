@@ -10,16 +10,14 @@
 				url="jdbc:mysql://localhost:3306/employeemanagement" user="root"
 				password="" />
 
-			<sql:query var="listEmp" dataSource="${myDS }">select * from employeedetails where date_format(Date_of_birth,'%d-%m') between date_format(subdate(curdate(),interval 2 day),'%d-%m') and date_format(subdate(curdate(),interval -5 day),'%d-%m');</sql:query>
+			<sql:query var="listEmp" dataSource="${myDS }">select * from employeedetails where date_format(Date_of_birth,'%m-%d') between date_format(subdate(curdate(),interval 2 day),'%m-%d') and date_format(subdate(curdate(),interval -5 day),'%m-%d');</sql:query>
 
-			<sql:query var="workann" dataSource="${myDS }">select * from employeedetails where date_format(Date_of_birth,'%d-%m') between date_format(subdate(curdate(),interval 2 day),'%d-%m') and date_format(subdate(curdate(),interval -5 day),'%d-%m');</sql:query>
+						<sql:query var="workAnniversaries" dataSource="${myDS }">select *, floor(TIMESTAMPDIFF(month,Date_of_joining,curdate())/12) as 'total_year'  from employeedetails where date_format(Date_of_joining,'%m-%d')= date_format(curdate(),'%m-%d');</sql:query>
+
 <div class="row">
-		<div class="col-md-12">
-			<div class="col-md-7">		
-
-			
-
-                <div class="widget-box transparent" id="recent-box">
+<div class="col-md-12">
+	<div class="col-md-7">
+         <div class="widget-box transparent" id="recent-box">
                     <div class="widget-header">
                         <h4 class="lighter smaller"><i class="fa fa-rss orange"></i> Recent</h4>
                         <div class="widget-toolbar no-border">
@@ -39,7 +37,7 @@
                         </div>
                     </div>
            <div class="widget-body">
-               <div class="widget-main padding-4">
+               <div class="widget-main padding-3">
                   <div class="tab-content padding-8 overflow-visible">           
                     <div id="member-tab" class="tab-pane active">
                                     <div class="clearfix">
@@ -61,10 +59,12 @@
                                                             </div>                                                          
                                                              <div class="space-6"></div>
                                                              </span>
-                                                        </div><br>                                                   
+                                                        </div><br>    
+                                                                                                      
                                                         </c:forEach>
                                                     </div>
-                                                </div>                                     
+                                                </div>   
+                                                                      
                                     </div>
                    </div>
                    
@@ -72,16 +72,20 @@
                                     <div class="clearfix">
                                                 <div class="col-md-6">
                                                     <div class="itemdiv memberdiv" style="width:auto">
-                                                        <c:forEach var="user" items="${listEmp.rows}">
+                                                        <c:forEach var="user" items="${workAnniversaries.rows}">
                                                        <div class="body">
                                                        <fmt:parseDate value="${user.Date_of_joining}" var="DOJoining" pattern="yyyy-MM-dd"/>
                                                          <span>
                                                          	<div>
-                                                         		<i class="fa fa-birthday-cake"></i>
+                                                         		<i class="fa fa-gift"></i>
                                                                 <span class="text-primary"> <c:out value="${user.Emp_name}" /></span>
                                                             </div>
                                                             <div>                                                     
                                                                 <span><c:out value="${user.Designation}" /></span>
+                                                            </div>
+                                                            <div>                                                     
+                                                                <span> <c:out value="${user.total_year}"></c:out> Year Completed</span>
+                                                               
                                                             </div>
                                                             <div>
                                                           		<span>  <i class="fa fa-calendar"></i>
@@ -112,14 +116,18 @@
                </div>    
             </div>
            </div>
-           </div></div></div></div>
+           
+           </div>
+           </div>
+           </div>
+  </div>
 </section>
 
 <script>
 
-var birthdayList = '4';
-var holidayList = '11';
-var anniversaryList = '4';
+var birthdayList = '0';
+var holidayList = '0';
+var anniversaryList = '0';
  if (birthdayList.trim() != '0') {
     $("#liBirthday").addClass("active");
     $("#liHoliday").removeClass("active");
@@ -138,7 +146,7 @@ else if (holidayList.trim() != '0') {
     $("#member-tab").removeClass("active");
     $("anniversary-tab").removeClass("active");
 }
-else if (anniversaryList.trim() != '0') {
+else (anniversaryList.trim() != '0') {
     $("liAnniversary").addClass("active");
     $("#liHoliday").removeClass("active");
     $("#liBirthday").removeClass("active");
@@ -147,14 +155,6 @@ else if (anniversaryList.trim() != '0') {
     $("#task-tab").removeClass("active");
     $("#member-tab").removeClass("active");
 }
-else {
-    $("#liBirthday").addClass("active");
-    $("#liHoliday").removeClass("active");
-    $("liAnniversary").removeClass("active");
 
-    $("#member-tab").removeClass("active");
-    $("#task-tab").removeClass("active");
-    $("#anniversary-tab").removeClass("active");
-}
-});
+;
 </script>
