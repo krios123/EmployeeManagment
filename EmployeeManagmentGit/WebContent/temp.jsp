@@ -1,99 +1,73 @@
-<%@include file="main_files/header.jsp"%>
- 
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="CSS/style.css">
-
-
-
-<header class="main-header">
-
-	<!-- Logo -->
-	<a href="index.jsp" class="logo">
-		<span class="logo-mini"><b>#</b>008</span> <!-- logo for regular state and mobile devices -->
-		<span class="logo-lg"><b>K</b>rios</span>
-	</a>
-
-	<!-- Header Navbar -->
-	<nav class="navbar navbar-static-top" role="navigation">
-		<!-- Sidebar toggle button-->
-		<a href="#" class="sidebar-toggle" data-toggle="push-menu"
-			role="button"> <span class="sr-only">Toggle navigation</span>
-		</a>
-
-
-		<div class="navbar-custom-menu">
-			<span> <!-- search form (Optional) -->
-
-				<form class="navbar-form navbar-left" action="#" method="get">
-					<div class="input-group">
-
-						 <input class="form-control" id="myInput" type="text" placeholder="Search..">
-
-					</div>
-				</form>
-				</span>
-				 <span>
-
-					<ul class="nav navbar-nav">
-						<li><a href="login.jsp">Logout</a></li>
-					</ul>
-
-			</span>
-		</div>
-	</nav>
-</header>
-
-<%@taglib uri="http://struts.apache.org/tags-bean" prefix="bean"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
-<%@taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Employee Information</title>
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="bower_components/Ionicons/css/ionicons.min.css">
+  <link rel="stylesheet" href="bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+  <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+        
+	
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
 
-<body>
-
+<%@include file="main_files/nav_header1.jsp"%>
+	
 	<aside class="main-sidebar">
-		<!-- sidebar: style can be found in sidebar.less -->
-		<section class="sidebar">
-			<!-- Sidebar user panel (optional) -->
-			<div class="user-panel">
-				<h2 style="color: white">Welcome</h2>
-				<div class="pull-left info"></div>
-			</div>
+	<!-- sidebar: style can be found in sidebar.less -->
+	<section class="sidebar">
+		<!-- Sidebar user panel (optional) -->
+		<div class="user-panel">
+			<h2 style="color: white">Welcome</h2>
+			<div class="pull-left info"></div>
+		</div>
 
 
-			<%@include file="main_files/slider_submenu.jsp"%>
+		<%@include file="main_files/slider_submenu.jsp"%>
+	</section>
+	<!-- /.sidebar -->
+</aside>
 
-		</section>
-		<!-- /.sidebar -->
-	</aside>
+<div class="content-wrapper">
 
-	<div class="content-wrapper">
-		<!-- Content Header (Page header) -->
-		<section class="content-header">
-			<h2>Employee Information</h2>
-
-		</section>
-
-		<!-- Main content -->
-		<section class="content container-fluid">
-			<input type=button value="Back" onCLick="history.back()"
-				class="btn btn-primary btn-info" style="margin-left: 1000px"/><br/><br/><br/>
+			
 			<sql:setDataSource var="myDS" driver="com.mysql.jdbc.Driver"
 				url="jdbc:mysql://localhost:3306/employeemanagement" user="root"
 				password="" />
 
 			<sql:query var="listEmp" dataSource="${myDS }">select * from employeedetails where flag=1;</sql:query>
-
-
-
-			<div align="center" class="table-responsive">
-				<table border="1" class="table table-hover">
-					<thead>
+    
+    
+    <section class="content container-fluid">
+    
+    <input type=button value="Back" onCLick="history.back()"
+				class="btn btn-primary btn-info" style="margin-left: 1000px"/><br/><br/><br/>
+				
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box ">
+            <div class="box-header">
+              <h3 class="box-title">Employee Information</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body  ">
+            <div align="center" class="table-responsive">
+              <table id="myDatatable" class="table table-bordered table-striped ">
+                <thead>
 						<tr>
 							<th>Employee Id</th>
 							<th>Emp Name</th>
@@ -132,8 +106,8 @@
 							<th></th>
 						</tr>
 					</thead>
-						<tbody id="myTable">
-							<c:forEach var="user" items="${listEmp.rows}">
+	                <tbody>
+	                <c:forEach var="user" items="${listEmp.rows}">
 							<fmt:parseDate value="${user.Date_of_birth}" var="DOBirth" pattern="yyyy-MM-dd"/>
 							<fmt:parseDate value="${user.Date_of_joining}" var="DOJoining" pattern="yyyy-MM-dd"/>
 							<fmt:parseDate value="${user.Date_of_registration}" var="DORegistration" pattern="yyyy-MM-dd"/>
@@ -176,49 +150,40 @@
 								<td><div onclick="forDelete(${user.Emp_id})" ><div class="btn btn-block btn-danger btn-sm">Delete</div></div></td>
 							</tr>
 							</c:forEach>
-						</tbody>
-				</table>
+	                </tbody>
+              </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+</div>
+<div class="cl">hello</div>
 
-			</div>
-			<script type="text/javascript">
-				function forDelete(empid) {
+<%@include file="main_files/footer.jsp"%>
 
-					var r=confirm("Are yoy sure?")
-					alert("empid  "+ empid)
-
-					var r= confirm('Are you sure!!')
-					//alert("empid  "+ empid)
-					if(r==true)
-						{
-							location.href = '/EmployeeManagmentGit/delete?method=delete&id='+empid;
-						}
-					else
-						{
-							return
-						}
-				}
-			
-			</script>
-		</section>
-		<!-- /.content -->
-	</div>
-
-
-
-	<%@include file="main_files/footer.jsp"%>
-	</div>
-
-
-	<%@include file="main_files/js_section.jsp"%>
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script src="bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<script src="bower_components/fastclick/lib/fastclick.js"></script>
+<script src="dist/js/adminlte.min.js"></script>
+<script src="dist/js/demo.js"></script>
+<!-- page script -->
 <script>
-$(document).ready(function(){
-	//alert("hii")
-  $("#myInput").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $("#myTable tr").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-    });
-  });
-});
+  $(function () {
+    $('#myDatatable').DataTable({
+      'paging'      : true,
+      'lengthChange': true,
+      'searching'   : true,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : true
+    })
+  })
 </script>
+</div>
 </body>
+</html>
