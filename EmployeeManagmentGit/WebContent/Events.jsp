@@ -72,8 +72,22 @@
                                                 <div class="col-md-6">
                                                     <div class="itemdiv memberdiv" style="width:auto">
                                                         <c:forEach var="user" items="${listEmp.rows}">
-                                                        <div class="body">
-                                                    
+                                                       <div class="body">
+                                                       <fmt:parseDate value="${user.Date_of_joining}" var="DOJoining" pattern="yyyy-MM-dd"/>
+                                                         <span>
+                                                         	<div>
+                                                         		<i class="fa fa-birthday-cake"></i>
+                                                                <span class="text-primary"> <c:out value="${user.Emp_name}" /></span>
+                                                            </div>
+                                                            <div>                                                     
+                                                                <span><c:out value="${user.Designation}" /></span>
+                                                            </div>
+                                                            <div>
+                                                          		<span>  <i class="fa fa-calendar"></i>
+                                                          		<fmt:formatDate value="${DOJoining }" type="date"/></td></span>
+                                                            </div>                                                          
+                                                             <div class="space-6"></div>
+                                                             </span>
                                                         </div><br>                                                   
                                                         </c:forEach>
                                                     </div>
