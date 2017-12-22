@@ -21,7 +21,11 @@
 			<forward name="success" path="/Main.jsp"></forward>
 			<forward name="fail" path="/login.jsp"></forward>
 		</action>
-
+<action path="/loginnew" parameter="method" type="com.action.Registrationaction"
+			input="/loginnew.jsp" validate="false" name="loginForm">
+			<forward name="success" path="/Main.jsp"></forward>
+			<forward name="fail" path="/login.jsp"></forward>
+		</action>
 
 		<action path="/registration" parameter="method"
 			type="com.action.Registrationaction" input="/Registration.jsp" name="registrationForm" validate="true">
