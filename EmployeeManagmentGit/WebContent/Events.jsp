@@ -9,9 +9,10 @@
 	<sql:setDataSource var="myDS" driver="com.mysql.jdbc.Driver"
 				url="jdbc:mysql://localhost:3306/employeemanagement" user="root"
 				password="" />
+				
+			<sql:query var="dobCount" dataSource="${myDS }">select * from employeedetails where date_format(Date_of_birth,'%m-%d') between date_format(subdate(curdate(),interval 2 day),'%m-%d') and date_format(subdate(curdate(),interval -5 day),'%m-%d');</sql:query>
+			<sql:query var="workAnniversaries" dataSource="${myDS }">select *, floor(TIMESTAMPDIFF(month,Date_of_joining,curdate())/12) as 'total_year'  from employeedetails where date_format(Date_of_joining,'%d-%m')= date_format(curdate(),'%d-%m');</sql:query>
 
-
-			<sql:query var="listEmp" dataSource="${myDS }">select * from employeedetails where date_format(Date_of_birth,'%d-%m') between date_format(subdate(curdate(),interval 2 day),'%d-%m') and date_format(subdate(curdate(),interval -5 day),'%d-%m');</sql:query>
 <div class="row">
 		<div class="col-md-12">
 			<div class="col-md-7">		
@@ -44,7 +45,7 @@
                                     <div class="clearfix">
                                                 <div class="col-md-6">
                                                     <div class="itemdiv memberdiv" style="width:auto">
-                                                        <c:forEach var="user" items="${listEmp.rows}">
+                                                        <c:forEach var="user" items="${dobCount.rows}">
                                                         <div class="body">
                                                         <fmt:parseDate value="${user.Date_of_birth}" var="DOBirth" pattern="yyyy-MM-dd"/>
                                                          <span>
@@ -68,12 +69,25 @@
                    </div>
                    
                        <div id="anniversary-tab" class="tab-pane active">
-                                    <div class="clearfix">
+                                   <div class="clearfix">
                                                 <div class="col-md-6">
                                                     <div class="itemdiv memberdiv" style="width:auto">
-                                                        <c:forEach var="user" items="${listEmp.rows}">
+                                                        <c:forEach var="user" items="${workAnniversaries.rows}">
                                                         <div class="body">
-                                                    
+                                                        <fmt:parseDate value="${user.Date_of_joining}" var="WorkAnniversaries" pattern="yyyy-MM-dd"/>
+                                                         <span>
+                                                         	<div>
+                                                         		<i class="fa fa-gift"></i>
+                                                                <span class="text-primary"> <c:out value="${user.Emp_name}" /></span>
+                                                            </div>
+                                                            <div>                                                     
+                                                                <span><c:out value="${user.Designation}" /></span>
+                                                            </div>
+                                                            <div>
+                                                          		<span>  <i class="fa fa-calendar"></i> <fmt:formatDate value="${WorkAnniversaries }" type="date"/></span>
+                                                            </div>                                                          
+                                                             <div class="space-6"></div>
+                                                             </span>
                                                         </div><br>                                                   
                                                         </c:forEach>
                                                     </div>
