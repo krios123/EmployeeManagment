@@ -41,9 +41,10 @@
 			url="jdbc:mysql://localhost:3306/employeemanagement" user="root"
 			password="" />
 
-		<sql:query var="emps" dataSource="${myDS }">select * from employeedetails;</sql:query>
+		<sql:query var="emps" dataSource="${myDS }">select * from employeedetails where flag=1;</sql:query>
 			<sql:query var="dobCount" dataSource="${myDS }">select * from employeedetails where date_format(Date_of_birth,'%m-%d') between date_format(subdate(curdate(),interval 2 day),'%m-%d') and date_format(subdate(curdate(),interval -5 day),'%m-%d');</sql:query>
 		<sql:query var="workAnniversaries" dataSource="${myDS }">select *, floor(TIMESTAMPDIFF(month,Date_of_joining,curdate())/12) as 'total_year'  from employeedetails where date_format(Date_of_joining,'%m-%d')= date_format(curdate(),'%m-%d');</sql:query>
+		<sql:query var="count" dataSource="${myDS }">select * from employeedetails where Date_of_joining=curdate();</sql:query>
 
 
 		<%---------------------------------------------------------------------------------------------------- --%>
@@ -88,10 +89,10 @@
 					<!-- small box -->
 					<div class="small-box bg-purple">
 						<div class="inner">
-							<h3>${dobCount.rowCount}	</h3>
+							<h3>${count.rowCount}	</h3>
 							<h4><%	out.print("Today's Birthday ");	%></h4>						
 							<p>
-								<c:forEach var="usr" items="${dobCount.rows}">
+								<c:forEach var="usr" items="${count.rows}">
 									<c:out value="${usr.Emp_name}" /><br>
 								</c:forEach>
 							</p>
