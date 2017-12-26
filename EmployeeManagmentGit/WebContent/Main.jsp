@@ -41,8 +41,10 @@
 			url="jdbc:mysql://localhost:3306/employeemanagement" user="root"
 			password="" />
 
+
 		<sql:query var="emps" dataSource="${myDS }">select * from employeedetails;</sql:query>
 			<sql:query var="dobCount" dataSource="${myDS }">select * from employeedetails where date_format(Date_of_birth,'%m-%d')= date_format(curdate(),'%m-%d');</sql:query>
+
 		<sql:query var="workAnniversaries" dataSource="${myDS }">select *, floor(TIMESTAMPDIFF(month,Date_of_joining,curdate())/12) as 'total_year'  from employeedetails where date_format(Date_of_joining,'%m-%d')= date_format(curdate(),'%m-%d');</sql:query>
 
 
