@@ -123,6 +123,7 @@ public class Registrationaction extends DispatchAction {
 		}catch (Exception e) {
 			e.printStackTrace();
 				System.out.println(e.getMessage());
+				System.out.println("in catch");
 			
 		}
 	

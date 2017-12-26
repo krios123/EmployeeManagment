@@ -9,7 +9,7 @@
 <%@taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
-<%@taglib uri="http://java.sun.com/jstl/fmt" prefix="fmt" %>
+<%@taglib uri="http://java.sun.com/jstl/fmt_rt" prefix="fmt" %>
 
 <body>
 
@@ -33,7 +33,7 @@
 		</section>
 		<!-- /.sidebar -->
 	</aside>
-
+	
 	<div class="content-wrapper">
 		<!-- Content Header (Page header) -->
 		<section class="content-header">
@@ -43,17 +43,24 @@
 
 		<!-- Main content -->
 		<section class="content container-fluid">
-			<input type=button value="Back" onCLick="history.back()"
-				class="btn btn-primary btn-info" style="margin-left: 1000px">
+			<input type="button" value="Back" onCLick="history.back()"
+				class="btn btn-primary btn-info" style="margin-left: 1000px"/>
 
 			<div class="container" style="margin-top: 30px">
 				<div class="col-md-10 col-md-offset-1">
 					<div class="panel panel-default">
-
 						<div class="panel-body">
-
 							<html:form action="/update1" method="updateDisplay">
 								<c:forEach var="user" items="${listEmp.rows}">
+										<fmt:parseDate value="${user.Date_of_birth }" var="DOBirth" pattern="yyyy-MM-dd"/>
+											<fmt:formatDate value="${DOBirth}" pattern="MM/dd/yyyy" var="DOBirth1"/>
+										<fmt:parseDate value="${user.Date_of_joining}" var="DOJoining" pattern="yyyy-MM-dd"/>
+											<fmt:formatDate value="${DOJoining}" pattern="MM/dd/yyyy" var="DOJoining1"/>
+										<fmt:parseDate value="${user.Date_of_registration}" var="DORegistration" pattern="yyyy-MM-dd"/>
+											<fmt:formatDate value="${DORegistration}" pattern="MM/dd/yyyy" var="DORegistration1"/>
+										<fmt:parseDate value="${user.Increment_amount_date}" var="IncrementAmtDate" pattern="yyyy-MM-dd"/>
+											<fmt:formatDate value="${IncrementAmtDate}" pattern="MM/dd/yyyy" var="IncrementAmtDate1"/>
+										
 									<div class="row">
 										<div class="form-group">
 											<label class="col-md-4 control-label">EMPname</label>
@@ -95,7 +102,7 @@
 													<div>
 													<html:text property="date_of_birth" name="registrationForm"
 														styleClass="form-control pull-right datepicker"
-														value="${user.Date_of_birth}"></html:text>
+														value="${DOBirth1}"></html:text>
 													</div>
 												</div>
 											</div>
@@ -274,7 +281,7 @@
 													<div>
 													<html:text property="date_of_joining"
 														name="registrationForm" styleClass="form-control pull-right datepicker"
-														value="${user.Date_of_joining }"></html:text>
+														value="${DOJoining1}"></html:text>
 													</div>
 												</div>
 											</div>
@@ -295,7 +302,7 @@
 													<div>
 													<html:text property="date_of_registration"
 														name="registrationForm" styleClass="form-control pull-right datepicker"
-														value="${user.Date_of_registration }"></html:text>
+														value="${DORegistration1 }"></html:text>
 													</div>
 												</div>
 											</div>
@@ -342,7 +349,7 @@
 													<div>
 													<html:text property="increment_amount_date"
 														name="registrationForm" styleClass="form-control pull-right datepicker"
-														value="${user.Increment_amount_date }"></html:text>
+														value="${IncrementAmtDate1}"></html:text>
 													</div>
 												</div>
 											</div>
@@ -528,6 +535,7 @@
 	<%@include file="main_files/js_section.jsp"%>
 
 </body>
+
 <script type="text/javascript">
 	$('.datepicker').datepicker({
 		autoclose : true,

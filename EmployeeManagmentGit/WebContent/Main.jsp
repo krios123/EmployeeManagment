@@ -28,7 +28,7 @@
 	<!-- Content Header (Page header) -->
 	<section class="content-header">
 		<h1>
-		Dashboard <small>1</small>
+		Dashboard <small></small>
 		</h1>
 
 	</section>
@@ -42,7 +42,7 @@
 			password="" />
 
 		<sql:query var="emps" dataSource="${myDS }">select * from employeedetails;</sql:query>
-			<sql:query var="dobCount" dataSource="${myDS }">select * from employeedetails where date_format(Date_of_birth,'%m-%d') between date_format(subdate(curdate(),interval 2 day),'%m-%d') and date_format(subdate(curdate(),interval -5 day),'%m-%d');</sql:query>
+			<sql:query var="dobCount" dataSource="${myDS }">select * from employeedetails where date_format(Date_of_birth,'%m-%d')= date_format(curdate(),'%m-%d');</sql:query>
 		<sql:query var="workAnniversaries" dataSource="${myDS }">select *, floor(TIMESTAMPDIFF(month,Date_of_joining,curdate())/12) as 'total_year'  from employeedetails where date_format(Date_of_joining,'%m-%d')= date_format(curdate(),'%m-%d');</sql:query>
 
 
