@@ -3,6 +3,8 @@ package form;
 import org.apache.struts.action.ActionForm;
 
 public class AssetsForm extends ActionForm{
+	String id;
+
 String employee_name;
 String rent;
 String team;
@@ -14,6 +16,12 @@ String configuration;
 String courier_done;
 String laptop_received_by_employee;
 
+public String getId() {
+	return id;
+}
+public void setId(String id) {
+	this.id = id;
+}
 public String getEmployee_name() {
 	return employee_name;
 }
