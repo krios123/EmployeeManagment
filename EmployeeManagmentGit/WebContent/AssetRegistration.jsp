@@ -53,7 +53,6 @@
 					<div class="panel-body">
 
 						<html:form action="/assetregistration" method="insert">
-
 							<div class="row">
 								<div class="form-group">
 									<label class="col-md-4 control-label">Employee id</label>
@@ -62,9 +61,9 @@
 											styleClass="form-control" name="assetForm">
 											
 											<html:option value="">-Select-</html:option>
-											<c:forEach var="user" items="${listEmp.rows}">
+										<c:forEach var="user" items="${listEmp.rows}">
 											<html:option value="${user.Emp_id}">${user.Emp_id}--${user.Emp_name}</html:option>
-										</c:forEach>
+											</c:forEach>
 											
 										</html:select>
 										
@@ -77,19 +76,7 @@
 									<label class="col-md-4 control-label">Rent</label>
 									<div class="col-md-5">
 										<html:text property="rent" name="assetForm"
-											styleClass="form-control" value=""></html:text>
-										
-									</div>
-								</div>
-							</div>
-							<br>
-
-							<div class="row">
-								<div class="form-group">
-									<label class="col-md-4 control-label">Team</label>
-									<div class="col-md-5">
-										<html:text property="team" name="assetForm"
-											styleClass="form-control" value=""></html:text>
+											styleClass="form-control" value="" ></html:text>
 										
 									</div>
 								</div>
@@ -116,31 +103,6 @@
 							</div>
 							<br>
 
-							
-						
-							<div class="row">
-								<div class="form-group">
-									<label class="col-md-4 control-label">Designation</label>
-									<div class="col-md-5">
-										<html:text property="designation" name="assetForm"
-											styleClass="form-control" value=""></html:text>
-										
-									</div>
-								</div>
-							</div>
-							<br>
-
-							<div class="row">
-								<div class="form-group">
-									<label class="col-md-4 control-label">Work Location</label>
-									<div class="col-md-5">
-										<html:text property="work_location"
-											name="assetForm" styleClass="form-control" value=""></html:text>
-									</div>
-								</div>
-							</div>
-							<br>
-							
 								<div class="row">
 								<div class="form-group">
 									<label class="col-md-4 control-label">Company of Laptop</label>
@@ -185,10 +147,11 @@
 								</div>
 							</div>
 							<br>
-
+					
 							<html:submit styleClass="btn btn-success" style="margin-left:400px">Submit</html:submit>
 							<hr style="margin-top: 10px; margin-bottom: 10px;">
 							<html:hidden property="method" value="insert"/>
+						
 						</html:form>
 					</div>
 				</div>

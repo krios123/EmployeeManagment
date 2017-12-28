@@ -27,7 +27,7 @@
 </head>
 
 
-<body class="hold-transition skin-blue sidebar-mini" onunload="deleteAllCookies()">
+<body class="hold-transition skin-blue sidebar-mini">
 	
 	
 	<%
@@ -44,7 +44,7 @@
 	
 	<c:set value="<%= num %>" var="cnt"></c:set>
 	
-	<div id="num"><%= num %></div>
+	<div id="num" style="display: none"><%= num %></div>
 	
 <div class="wrapper">
 
@@ -110,9 +110,9 @@
 				</table>
 				
 				<form action="CalenderBirthday.jsp" id="nextmonth1">
-					<input type="text" style="display: none;" value="" id="id" name="id" />
-					<button class="btn btn-block btn-info btn-sm" type="button" onclick="nextmonth()">Next Month</button>
-					<button class="btn btn-block btn-info btn-sm" type="button" onclick="prevmonth()">Prev Month</button>
+					<input type="text" style="display: none;" value="" id="id" name="id" />				
+					<button class="btn btn-primary btn-info" type="button" onclick="prevmonth()">Prev Month</button>
+			<button class="btn btn-primary btn-info" type="button" onclick="nextmonth()" style="margin-left: 890px">Next Month</button>
 				</form>
   </section>
   </div>
