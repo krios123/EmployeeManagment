@@ -67,6 +67,8 @@
 											styleClass="form-control" name="registrationForm">
 											<html:option value="">-Select-</html:option>
 											<html:option value="Java developer">Java Developer</html:option>
+											<html:option value="Java developer">Android Developer</html:option>
+											<html:option value="Java developer">Dotnet Developer</html:option>
 											<html:option value="PHP Developer">PHP Developer</html:option>
 										</html:select>
 										<div style="color: red;">	

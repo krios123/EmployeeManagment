@@ -43,6 +43,10 @@
 
 
 		<sql:query var="emps" dataSource="${myDS }">select * from employeedetails;</sql:query>
+	<sql:query var="joining" dataSource="${myDS }">select * from employeedetails where Date_of_joining=curdate() and flag=1;</sql:query>
+		
+		<sql:query var="Interviews" dataSource="${myDS }">select * from recruitmentdetails where Scheduled_date=curdate() and flag=1;</sql:query>
+		
 			<sql:query var="dobCount" dataSource="${myDS }">select * from employeedetails where date_format(Date_of_birth,'%m-%d')= date_format(curdate(),'%m-%d');</sql:query>
 
 		<sql:query var="workAnniversaries" dataSource="${myDS }">select *, floor(TIMESTAMPDIFF(month,Date_of_joining,curdate())/12) as 'total_year'  from employeedetails where date_format(Date_of_joining,'%m-%d')= date_format(curdate(),'%m-%d');</sql:query>
@@ -68,25 +72,44 @@
 					</div>
 				</div>
 				<!-- ./col -->
-				<div class="col-lg-3 col-xs-6">
+				<div class="col-lg-4 col-xs-6">
 					<!-- small box -->
 					<div class="small-box bg-green">
 						<div class="inner">
-							<h3>100</h3>
-
-							<p>Total orders</p>
+							<h3>${Interviews.rowCount}</h3>
+							<h4>Today's InterView Scheduled</h4>
+							
+							<c:forEach var="usr" items="${Interviews.rows}">
+									<c:out value="${usr.Applicant_name}" /><br>
+								</c:forEach>
 						</div>
 						<div class="icon">
 							<i class="ion ion-stats-bars"></i>
 						</div>
-						<a href="#" class="small-box-footer">More info <i
+						<a href="ShowInterviews.jsp" class="small-box-footer">More info <i
 							class="fa fa-arrow-circle-right"></i></a>
 					</div>
+					<div class="small-box bg-yellow">
+						<div class="inner">
+							<h3>${joining.rowCount}	</h3>
+							<h4><%	out.print(" Today's Joining!!! ");	%></h4>						
+							<p>
+								<c:forEach var="usr1" items="${joining.rows}">
+										
+									<c:out value="${usr1.Emp_name}" /><br>
+								</c:forEach>
+							</p>
+						</div>
+						<div class="icon">
+							<i class=""></i>
+						</div>
+				
+					</div>  
 				</div>
 				<!-- ./col -->
 				
 				<!-- ./col -->
-				<div class="col-lg-6 col-xs-6">
+				<div class="col-lg-5 col-xs-6">
 					<!-- small box -->
 					<div class="small-box bg-purple">
 						<div class="inner">

@@ -10,9 +10,9 @@
 				url="jdbc:mysql://localhost:3306/employeemanagement" user="root"
 				password="" />
 
-			<sql:query var="listEmp" dataSource="${myDS }">select * from employeedetails where date_format(Date_of_birth,'%m-%d') between date_format(subdate(curdate(),interval 2 day),'%m-%d') and date_format(subdate(curdate(),interval -5 day),'%m-%d');</sql:query>
+			<sql:query var="listEmp" dataSource="${myDS }">select * from employeedetails order by Date_of_birth limit 4;</sql:query>
 
-						<sql:query var="workAnniversaries" dataSource="${myDS }">select *, floor(TIMESTAMPDIFF(month,Date_of_joining,curdate())/12) as 'total_year'  from employeedetails where date_format(Date_of_joining,'%m-%d')= date_format(curdate(),'%m-%d');</sql:query>
+						<sql:query var="workAnniversaries" dataSource="${myDS }">select *,floor(TIMESTAMPDIFF(month,Date_of_joining,curdate())/12) as 'total_year'   from employeedetails order by Date_of_joining limit 4;</sql:query>
 
 <div class="row">
 <div class="col-md-12">
@@ -39,11 +39,13 @@
            <div class="widget-body">
                <div class="widget-main padding-3">
                   <div class="tab-content padding-8 overflow-visible">           
+                    
                     <div id="member-tab" class="tab-pane active">
                                     <div class="clearfix">
+                                     <c:forEach var="user" items="${listEmp.rows}">
                                                 <div class="col-md-6">
                                                     <div class="itemdiv memberdiv" style="width:auto">
-                                                        <c:forEach var="user" items="${listEmp.rows}">
+                                                       
                                                         <div class="body">
                                                         <fmt:parseDate value="${user.Date_of_birth}" var="DOBirth" pattern="yyyy-MM-dd"/>
                                                          <span>
@@ -56,23 +58,29 @@
                                                             </div>
                                                             <div>
                                                           		<span>  <i class="fa fa-calendar"></i> <fmt:formatDate value="${DOBirth }" type="date"/></span>
-                                                            </div>                                                          
+                                                            </div>       
+                                                            <a href="mailto:${user.Personal_mail_id}?subject=Happy Birthday !!!!" target="_blank" class="tooltip-success" data-rel="tooltip" data-placement="right" title="Wish u Very Happy Birthday" data-original-title="Send&nbsp;birthday&nbsp;wishes">
+                                                                    <span class="green">Email -
+                                                                        <i class="fa fa-envelope-o bigger-110"></i>
+                                                                    </span>
+                                                                </a>                                                   
                                                              <div class="space-6"></div>
                                                              </span>
                                                         </div><br>    
-                                                                                                      
-                                                        </c:forEach>
+                                                      
                                                     </div>
                                                 </div>   
-                                                                      
+                                                                                             
+                                             </c:forEach>                         
                                     </div>
                    </div>
                    
-                       <div id="anniversary-tab" class="tab-pane active">
+                       <div id="anniversary-tab" class="tab-pane">
                                     <div class="clearfix">
+                                      <c:forEach var="user" items="${workAnniversaries.rows}">
                                                 <div class="col-md-6">
                                                     <div class="itemdiv memberdiv" style="width:auto">
-                                                        <c:forEach var="user" items="${workAnniversaries.rows}">
+                                                      
                                                        <div class="body">
                                                        <fmt:parseDate value="${user.Date_of_joining}" var="DOJoining" pattern="yyyy-MM-dd"/>
                                                          <span>
@@ -90,13 +98,19 @@
                                                             <div>
                                                           		<span>  <i class="fa fa-calendar"></i>
                                                           		<fmt:formatDate value="${DOJoining }" type="date"/></td></span>
-                                                            </div>                                                          
+                                                            </div>  
+                                                               <a href="mailto:${user.Personal_mail_id}?subject=Happy Work Anniversary !!!!" target="_blank" class="tooltip-success" data-rel="tooltip" data-placement="right" title="Wish u Very Happy Birthday" data-original-title="Send&nbsp;birthday&nbsp;wishes">
+                                                                    <span class="green">Email -
+                                                                        <i class="fa fa-envelope-o bigger-110"></i>
+                                                                    </span>
+                                                                </a>                                                             
                                                              <div class="space-6"></div>
                                                              </span>
                                                         </div><br>                                                   
-                                                        </c:forEach>
+                                                       
                                                     </div>
-                                                </div>                                     
+                                                </div>      
+                                                 </c:forEach>                               
                                     </div>
                   	 </div>
                   	 

@@ -10,18 +10,42 @@
 
 		<form-bean name="registrationForm" type="form.RegistrationForm"></form-bean>
 		<form-bean name="loginForm" type="form.LoginForm"></form-bean>
+		<form-bean name="recruitmentForm" type="form.RecruitmentForm"></form-bean>
+		
 
 	</form-beans>
 
 
 	<action-mappings>
 
+	<action path="/recruitment" parameter="method"
+			type="com.action.Recruitmentaction" input="/Recruitment.jsp" name="recruitmentForm" validate="true">
+			<forward name="success" path="/ShowInterviews.jsp"></forward>
+		</action>
+		
+		<action path="/idelete" parameter="method"
+			type="com.action.Recruitmentaction" input="/ShowInterviews.jsp" validate="false"
+			name="recruitmentForm">
+			<forward name="success" path="/ShowInterviews.jsp"></forward>
+		</action>	
+		<action path="/iupdate" parameter="method"
+			type="com.action.Recruitmentaction" input="/ShowInterviews.jsp" validate="false"
+			name="recruitmentForm">
+			<forward name="success" path="/UpdateInterviews.jsp"></forward>
+		</action>
+
+		<action path="/update12" parameter="method"
+			type="com.action.Recruitmentaction" input="/UpdateInterviews.jsp" validate="false"
+			name="recruitmentForm">
+			<forward name="success" path="/ShowInterviews.jsp"></forward>
+		</action>
+		
 		<action path="/login" parameter="method" type="com.action.Registrationaction"
 			input="/login.jsp" validate="false" name="loginForm">
 			<forward name="success" path="/Main.jsp"></forward>
 			<forward name="fail" path="/login.jsp"></forward>
 		</action>
-<action path="/loginnew" parameter="method" type="com.action.Registrationaction"
+			<action path="/loginnew" parameter="method" type="com.action.Registrationaction"
 			input="/loginnew.jsp" validate="false" name="loginForm">
 			<forward name="success" path="/Main.jsp"></forward>
 			<forward name="fail" path="/login.jsp"></forward>
@@ -39,7 +63,7 @@
 		</action>
 
 		<action path="/update" parameter="method"
-			type="com.action.Registrationaction" input="/details.jsp" validate="false"
+			type="com.action.Registrationaction" input="/Display.jsp" validate="false"
 			name="registrationForm">
 			<forward name="success" path="/Update.jsp"></forward>
 		</action>
