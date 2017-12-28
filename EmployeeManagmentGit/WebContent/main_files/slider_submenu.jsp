@@ -39,7 +39,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="AssetRegistration.jsp">Assets Form</a></li>
-              <li><a href="ShowInterviews.jsp">Assets Details</a></li>
+              <li><a href="AssetsDetails.jsp">Assets Details</a></li>
            
           </ul>
         </li>
