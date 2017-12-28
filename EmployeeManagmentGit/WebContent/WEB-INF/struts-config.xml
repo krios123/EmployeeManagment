@@ -27,6 +27,17 @@
 			name="assetForm">
 			<forward name="success" path="/AssetsDetails.jsp"></forward>
 		</action>
+		<action path="/updateass" parameter="method"
+			type="com.action.Assetsaction" input="/AssetsDetails.jsp" validate="false"
+			name="assetForm">
+			<forward name="success" path="/UpdateAsset.jsp"></forward>
+		</action>
+
+		<action path="/updateasset" parameter="method"
+			type="com.action.Assetsaction" input="/UpdateAsset.jsp" validate="false"
+			name="assetForm">
+			<forward name="success" path="/AssetsDetails.jsp"></forward>
+		</action>
 
 	<action path="/recruitment" parameter="method"
 			type="com.action.Recruitmentaction" input="/Recruitment.jsp" name="recruitmentForm" validate="true">
