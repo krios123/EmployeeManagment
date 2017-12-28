@@ -3,9 +3,9 @@ package form;
 import org.apache.struts.action.ActionForm;
 
 public class AssetsForm extends ActionForm{
-	String id;
+	
 
-String employee_name;
+String employee_id;
 String rent;
 String team;
 String date_to_given;
@@ -16,17 +16,12 @@ String configuration;
 String courier_done;
 String laptop_received_by_employee;
 
-public String getId() {
-	return id;
+
+public String getEmployee_id() {
+	return employee_id;
 }
-public void setId(String id) {
-	this.id = id;
-}
-public String getEmployee_name() {
-	return employee_name;
-}
-public void setEmployee_name(String employee_name) {
-	this.employee_name = employee_name;
+public void setEmployee_id(String employee_id) {
+	this.employee_id = employee_id;
 }
 public String getRent() {
 	return rent;
