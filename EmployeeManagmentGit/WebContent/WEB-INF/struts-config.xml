@@ -102,7 +102,7 @@
 			name="attendanceForm">
 			<forward name="success" path="/Main.jsp"></forward>
 			<forward name="failure" path="/insertAttendance.jsp"></forward>
-		</action>
+		</action> 
 
 	</action-mappings>
 
