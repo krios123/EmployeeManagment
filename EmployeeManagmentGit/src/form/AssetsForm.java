@@ -7,10 +7,7 @@ public class AssetsForm extends ActionForm{
 
 String employee_id;
 String rent;
-String team;
 String date_to_given;
-String designation;
-String work_location;
 String company_of_laptop;
 String configuration;
 String courier_done;
@@ -29,30 +26,14 @@ public String getRent() {
 public void setRent(String rent) {
 	this.rent = rent;
 }
-public String getTeam() {
-	return team;
-}
-public void setTeam(String team) {
-	this.team = team;
-}
+
 public String getDate_to_given() {
 	return date_to_given;
 }
 public void setDate_to_given(String date_to_given) {
 	this.date_to_given = date_to_given;
 }
-public String getDesignation() {
-	return designation;
-}
-public void setDesignation(String designation) {
-	this.designation = designation;
-}
-public String getWork_location() {
-	return work_location;
-}
-public void setWork_location(String work_location) {
-	this.work_location = work_location;
-}
+
 public String getCompany_of_laptop() {
 	return company_of_laptop;
 }

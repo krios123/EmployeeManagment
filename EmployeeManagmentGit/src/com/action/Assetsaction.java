@@ -29,10 +29,7 @@ public class Assetsaction extends DispatchAction {
 		
 		String emp_id				= rform.getEmployee_id();
 		String rent					= rform.getRent();
-		String team 				= rform.getTeam();
 		String date_to_given		= sdfDestination.format(sdfSource.parse(rform.getDate_to_given()));
-		String designation			= rform.getDesignation();
-		String work_location 		= rform.getWork_location();
 		String company_of_laptop	= rform.getCompany_of_laptop();
 		String configuration		= rform.getConfiguration();
 		String courier_done			= rform.getCourier_done();
@@ -41,7 +38,7 @@ public class Assetsaction extends DispatchAction {
 		try{
 				Statement st = Dbconn.connectDB();
 		
-				String sql = "insert into assetdetails values(null,'"+emp_id+"','"+rent+"','"+team+"','"+date_to_given+"','"+designation+"','"+work_location+"','"+company_of_laptop+"','"+configuration+"','"+courier_done+"','"+laptop_received_by_employee+"') ";
+				String sql = "insert into assetdetails values(null,'"+emp_id+"','"+rent+"','"+date_to_given+"','"+company_of_laptop+"','"+configuration+"','"+courier_done+"','"+laptop_received_by_employee+"',1) ";
 				System.out.println("Query" + sql);
 				st.executeUpdate(sql);
 				}
@@ -51,7 +48,7 @@ public class Assetsaction extends DispatchAction {
 		return mapping.findForward("success");
 	}
 	
-	public ActionForward updateDisplay(ActionMapping mapping, ActionForm form, HttpServletRequest request,
+	public ActionForward update(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		
 		int id = Integer.parseInt(request.getParameter("id"));
@@ -69,7 +66,7 @@ public class Assetsaction extends DispatchAction {
 
 		Statement st = Dbconn.connectDB();
 
-		String sl = "DELETE FROM `assetdetails` WHERE Employee_id='" + id + "'";
+		String sl = "UPDATE `assetdetails`  set flag = 0 WHERE Employee_id='" + id + "'";
 		 st.executeUpdate(sl);
 		 System.out.println(sl);
 		 System.out.println("success");
@@ -78,7 +75,7 @@ public class Assetsaction extends DispatchAction {
 	}
 	
 	
-	public ActionForward update(ActionMapping mapping, ActionForm form, HttpServletRequest request,
+	public ActionForward updateDisplay(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		
 AssetsForm rform=(AssetsForm)form;
@@ -88,10 +85,7 @@ AssetsForm rform=(AssetsForm)form;
 		
 		String emp_id				= rform.getEmployee_id();
 		String rent					= rform.getRent();
-		String team 				= rform.getTeam();
 		String date_to_given		= sdfDestination.format(sdfSource.parse(rform.getDate_to_given()));
-		String designation			= rform.getDesignation();
-		String work_location 		= rform.getWork_location();
 		String company_of_laptop	= rform.getCompany_of_laptop();
 		String configuration		= rform.getConfiguration();
 		String courier_done			= rform.getCourier_done();
@@ -100,14 +94,13 @@ AssetsForm rform=(AssetsForm)form;
 		try{
 			Statement st = Dbconn.connectDB();
 	
-			String sql = "update assetdetails set Rent Team Date_to_given Designation Work_location Company_of_laptop Configuration Courier_done Laptop_received_by_employee";
+			String sql = "update assetdetails set Rent='"+rent+"' ,Date_to_given='"+date_to_given+"' ,Company_of_laptop='"+company_of_laptop+"' ,Configuration='"+configuration+"' ,Courier_done='"+courier_done+"' ,Laptop_received_by_employee='"+laptop_received_by_employee+"' where Employee_id='"+request.getSession().getAttribute("Empid")+"'";
 			System.out.println("Query" + sql);
 			st.executeUpdate(sql);
 			}
 	catch (Exception e) {
-		return mapping.findForward("failure");
+		System.out.println(e.getMessage());
 	}
-	
 		
 	return mapping.findForward("success");
 	}

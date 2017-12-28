@@ -75,7 +75,7 @@
 	<div class="content-wrapper">
 		<!-- Content Header (Page header) -->
 		<section class="content-header">
-			<h2>Interviews Updates</h2>
+			<h2></h2>
 
 		</section>
 
@@ -87,7 +87,7 @@
 				url="jdbc:mysql://localhost:3306/employeemanagement" user="root"
 				password="" />
 
-			<sql:query var="listEmp" dataSource="${myDS }">select * from assetdetails;</sql:query>
+			<sql:query var="listEmp" dataSource="${myDS }">SELECT  e.Emp_id,e.Emp_name, a.Rent, a.Date_to_given ,a.Company_of_laptop, a.Configuration,a.Courier_done,a.Laptop_received_by_employee from assetdetails as a inner join employeedetails as e on a.Employee_id=e.Emp_id where a.flag=1;</sql:query>
 
 
 
@@ -95,16 +95,17 @@
 				<table border="1" class="table table-hover">
 					<thead>
 						<tr>
-						    <th>Employee id</th>
-							<th>Rent</th>
+							<th>Employee Id</th>
+						    <th>Employee name</th>	
+						    <th>Rent</th>						
 							<th>Team</th>
 							<th>Date of Laptop Given</th>							
 							<th>Designation</th>
-							<th>Work Location</th>
-							<th>Company of Laptop</th>							
-							<th>Configuration</th>
-							<th>Courier_done</th>
-							<th>Laptop Received by Employee</th>
+							<th>Work Location</th>	
+							<th>Company of laptop</th>													
+							<th>Configuration</th>	
+							<th>Courier Done</th>
+							<th>Laptop received by Employee</th>						
 							<th></th>
 							<th></th>
 						</tr>
@@ -113,19 +114,20 @@
 							<c:forEach var="user" items="${listEmp.rows}">
 							<fmt:parseDate value="${user.Date_to_given}" var="sdate" pattern="yyyy-MM-dd"/>
 							<tr>
-								<td><c:out value="${user.Employee_id}" /></td>
-								<td><c:out value="${user.Rent}" /></td>
+							<td><c:out value="${user.Emp_id}" /></td>	
+								<td><c:out value="${user.Emp_name}" /></td>	
+								<td><c:out value="${user.Rent}" /></td>							
 									<td><c:out value="${user.Team}" /></td>
 								<td><fmt:formatDate value="${sdate}" type="date"/> </td>
 								<td><c:out value="${user.Designation}" /></td>
 								<td><c:out value="${user.Work_location}" /></td>	
-								<td><c:out value="${user.Company_of_laptop}" /></td>	
+								<td><c:out value="${user.Company_of_laptop}" /></td>								
 								<td><c:out value="${user.Configuration}" /></td>	
-								<td><c:out value="${user.Courier_done}" /></td>	
-									<td><c:out value="${user.Laptop_received_by_employee}" /></td>
+								<td><c:out value="${user.Courier_done}" /></td>
+								<td><c:out value="${user.Laptop_received_by_employee}" /></td>						
 															
-								<td><html:link page="/iupdate?method=update&id=${user.Employee_id}"><div class="btn btn-block btn-warning btn-sm">Update</div></html:link></td>
-								<td><div onclick="forDelete(${user.Employee_id})" ><div class="btn btn-block btn-danger btn-sm">Delete</div></div></td>
+								<td><html:link page="/updateass?method=update&id=${user.Emp_id}"><div class="btn btn-block btn-warning btn-sm">Update</div></html:link></td>
+								<td><div onclick="forDelete(${user.Emp_id})" ><div class="btn btn-block btn-danger btn-sm">Delete</div></div></td>
 							</tr>
 							</c:forEach>
 						</tbody>

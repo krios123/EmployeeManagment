@@ -44,7 +44,7 @@
 	
 	<c:set value="<%= num %>" var="cnt"></c:set>
 	
-	<div id="num"><%= num %></div>
+	<div id="num" style="display:none;"><%= num %></div>
 	
 <div class="wrapper">
 
