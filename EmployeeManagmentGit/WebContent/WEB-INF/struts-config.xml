@@ -12,12 +12,14 @@
 		<form-bean name="loginForm" type="form.LoginForm"></form-bean>
 		<form-bean name="recruitmentForm" type="form.RecruitmentForm"></form-bean>
 		<form-bean name="assetForm" type="form.AssetsForm"></form-bean>
+		<form-bean name="attendanceForm" type="form.AttendanceSheetForm"></form-bean>
 		
 
 	</form-beans>
 
 
 	<action-mappings>
+	
 	<action path="/assetregistration" parameter="method"
 			type="com.action.Assetsaction" input="/AssetRegistration.jsp" name="assetForm" validate="true">
 			<forward name="success" path="/AssetsDetails.jsp"></forward>
@@ -83,7 +85,14 @@
 			name="registrationForm">
 			<forward name="success" path="/Display.jsp"></forward>
 		</action>
-		
+
+		<action path="/insertattendance" parameter="method"
+			type="com.action.AttendanceSheetAction" input="/insertAttendance.jsp" validate="false"
+			name="attendanceForm">
+			<forward name="success" path="/Main.jsp"></forward>
+			<forward name="failure" path="/insertAttendance.jsp"></forward>
+		</action>
+
 	</action-mappings>
 
  <message-resources parameter="properties.user"></message-resources>
