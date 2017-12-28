@@ -20,7 +20,12 @@
 	<action-mappings>
 	<action path="/assetregistration" parameter="method"
 			type="com.action.Assetsaction" input="/AssetRegistration.jsp" name="assetForm" validate="true">
-			<forward name="success" path="/ShowInterviews.jsp"></forward>
+			<forward name="success" path="/AssetsDetails.jsp"></forward>
+		</action>
+		<action path="/assetdelete" parameter="method"
+			type="com.action.Assetsaction" input="/AssetsDetails.jsp" validate="false"
+			name="assetForm">
+			<forward name="success" path="/AssetsDetails.jsp"></forward>
 		</action>
 
 	<action path="/recruitment" parameter="method"

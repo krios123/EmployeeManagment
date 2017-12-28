@@ -58,7 +58,7 @@
 								<div class="form-group">
 									<label class="col-md-4 control-label">Employee id</label>
 									<div class="col-md-5">
-									<html:select property="employee_name" value=""
+									<html:select property="employee_id" value=""
 											styleClass="form-control" name="assetForm">
 											
 											<html:option value="">-Select-</html:option>
@@ -140,6 +140,18 @@
 								</div>
 							</div>
 							<br>
+							
+								<div class="row">
+								<div class="form-group">
+									<label class="col-md-4 control-label">Company of Laptop</label>
+									<div class="col-md-5">
+										<html:text property="company_of_laptop"
+											name="assetForm" styleClass="form-control" value=""></html:text>
+									</div>
+								</div>
+							</div>
+							<br>
+							
 
 							<div class="row">
 								<div class="form-group">

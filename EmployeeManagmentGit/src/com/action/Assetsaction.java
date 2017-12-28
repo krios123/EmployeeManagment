@@ -41,12 +41,12 @@ public class Assetsaction extends DispatchAction {
 		try{
 				Statement st = Dbconn.connectDB();
 		
-				String sql = "insert into assetdetails values('"+emp_id+"','"+rent+"','"+team+"','"+date_to_given+"','"+designation+"','"+work_location+"','"+company_of_laptop+"','"+configuration+"','"+courier_done+"','"+laptop_received_by_employee+"') ";
+				String sql = "insert into assetdetails values(null,'"+emp_id+"','"+rent+"','"+team+"','"+date_to_given+"','"+designation+"','"+work_location+"','"+company_of_laptop+"','"+configuration+"','"+courier_done+"','"+laptop_received_by_employee+"') ";
 				System.out.println("Query" + sql);
 				st.executeUpdate(sql);
 				}
 		catch (Exception e) {
-			return mapping.findForward("failure");
+			System.out.println(e.getMessage());
 		}
 		return mapping.findForward("success");
 	}
@@ -58,6 +58,22 @@ public class Assetsaction extends DispatchAction {
 		System.out.println("idd" + id);
 		request.getSession().setAttribute("Empid", id);
 		
+		return mapping.findForward("success");
+	}
+	public ActionForward delete(ActionMapping mapping, ActionForm form, HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+
+
+		int id = Integer.parseInt(request.getParameter("id"));
+		System.out.println("idd" + id);
+
+		Statement st = Dbconn.connectDB();
+
+		String sl = "DELETE FROM `assetdetails` WHERE Employee_id='" + id + "'";
+		 st.executeUpdate(sl);
+		 System.out.println(sl);
+		 System.out.println("success");
+
 		return mapping.findForward("success");
 	}
 	
