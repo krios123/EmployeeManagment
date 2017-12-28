@@ -52,7 +52,7 @@
 
 					<div class="panel-body">
 
-						<html:form action="/assetregistration" method="add">
+						<html:form action="/assetregistration" method="insert">
 
 							<div class="row">
 								<div class="form-group">
@@ -176,7 +176,7 @@
 
 							<html:submit styleClass="btn btn-success" style="margin-left:400px">Submit</html:submit>
 							<hr style="margin-top: 10px; margin-bottom: 10px;">
-							<html:hidden property="method" value="recruit"/>
+							<html:hidden property="method" value="insert"/>
 						</html:form>
 					</div>
 				</div>
