@@ -77,7 +77,7 @@ var d,m,y;
 
   $(document).ready(function () {
 	
-	  alert(" document ready");
+	//  alert(" document ready");
 	 // alert(new Date());
   
     var date = new Date()
@@ -123,6 +123,7 @@ var d,m,y;
 				
 			function nextmonth()
 				{
+		
 					num = document.getElementById("num").innerHTML;					
 					document.getElementById("num2").value= parseInt(num)+1;
 					document.getElementById("mnthForm").submit();
