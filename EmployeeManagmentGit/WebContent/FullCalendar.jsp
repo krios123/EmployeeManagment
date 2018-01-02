@@ -72,12 +72,13 @@
 			      
 	</section>
 </div>
+
 <script>
 var d,m,y;
 
   $(document).ready(function () {
 	
-	  alert(" document ready");
+	 // alert(" document ready");
 	 // alert(new Date());
   
     var date = new Date()
@@ -103,7 +104,7 @@ var d,m,y;
       //Random default events
       events    :{ 
     	 	
-    	  url: 'http://localhost:8080/EmployeeManagmentGit/getJsonCalender?num='+ document.getElementById("num").innerHTML+m,
+    	  url: 'http://localhost:8080/EmployeeManagmentGit/getJsonCalender?num='+(parseInt(document.getElementById("num").innerHTML)+parseInt(m)),
     	 
     	  error: function() {
               alert('there was an error while fetching events!')
@@ -116,15 +117,22 @@ var d,m,y;
   
  			function prevmonth()
 				{	
+	  				calendar.fullCalendar('prev');
+	  				calendar.fullCalendar('gotoDate',)
 					num = document.getElementById("num").innerHTML;				
 					document.getElementById("num2").value= (num-1);
+					
 					document.getElementById("mnthForm").submit();	
 				}
 				
 			function nextmonth()
 				{
+						
+	            	calendar.fullCalendar('next');
+	            	calendar.fullCalendar('defaultDate' ,'2018-02-12');
 					num = document.getElementById("num").innerHTML;					
 					document.getElementById("num2").value= parseInt(num)+1;
+					
 					document.getElementById("mnthForm").submit();
 				}
 </script>
