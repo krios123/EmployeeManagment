@@ -90,29 +90,26 @@
 							<th>Designation</th>
 							<th>Date of Birth</th>
 							<th>Gender</th>
-							<th>Date of Joining</th>
 						</tr>
 					</thead>
 						<tbody id="myTable">
 							<c:forEach var="user" items="${listEmp.rows}">
 							<fmt:parseDate value="${user.Date_of_birth}" var="DOBirth" pattern="yyyy-MM-dd"/>
-							<fmt:parseDate value="${user.Date_of_joining}" var="DOJoining" pattern="yyyy-MM-dd"/>
 							<tr>
 								<td><c:out value="${user.Emp_id}" /></td>
 								<td><c:out value="${user.Emp_name}" /></td>
 								<td><c:out value="${user.Designation}" /></td>
 									<td><fmt:formatDate value="${DOBirth }" type="date"/> </td>
 								<td><c:out value="${user.Gender}" /></td>
-									<td><fmt:formatDate value="${DOJoining }" type="date"/></td>
 							</tr>
 							</c:forEach>
 						</tbody>
 				</table>
 				
-				<form action="CalenderBirthday.jsp" id="nextmonth1">
+				<form action="CalendarBirthday.jsp" id="nextmonth1">
 					<input type="text" style="display: none;" value="" id="id" name="id" />				
 					<button class="btn btn-primary btn-info" type="button" onclick="prevmonth()">Prev Month</button>
-			<button class="btn btn-primary btn-info" type="button" onclick="nextmonth()" style="margin-left: 890px">Next Month</button>
+					<button class="btn btn-primary btn-info" type="button" onclick="nextmonth()" style="margin-left: 890px">Next Month</button>
 				</form>
   </section>
   </div>

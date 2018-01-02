@@ -110,10 +110,10 @@
 						</tbody>
 				</table>
 				
-				<form action="CalenderWorkAnniversary.jsp" id="nextmonth1">
+				<form action="CalendarWorkAnniversary.jsp" id="nextmonth1">
 					<input type="text" style="display: none;" value="" id="id" name="id" />
-					<button class="btn btn-block btn-info btn-sm" type="button" onclick="nextmonth()">Next Month</button>
-					<button class="btn btn-block btn-info btn-sm" type="button" onclick="prevmonth()">Prev Month</button>
+					<button class="btn btn-primary btn-info" type="button" onclick="prevmonth()">Prev Month</button>
+					<button class="btn btn-primary btn-info" type="button" onclick="nextmonth()" style="margin-left: 890px">Next Month</button>
 				</form>
   </section>
   </div>
