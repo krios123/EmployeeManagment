@@ -30,6 +30,10 @@ public class Registrationaction extends DispatchAction {
 
 		String Emp_name = rform.getEmp_name();
 		String Designation = rform.getDesignation();
+		String team= rform.getTeam();
+		String work_location= rform.getWork_location();
+		String current_status= rform.getCurrent_status();
+		String reference = rform.getReference();
 		
 		String Date_of_birth 		= sdfDestination.format(sdfSource.parse(rform.getDate_of_birth()));
 		String Gender 				= rform.getGender();
@@ -60,14 +64,14 @@ public class Registrationaction extends DispatchAction {
 
 		Statement st = Dbconn.connectDB();
 
-		String sql = "INSERT INTO `employeemanagement`.`employeedetails` (`Emp_id`, `Emp_name`, `Designation`, `Date_of_birth`, `Gender`, `Fathers_name`, `Fathers_contact_details`, `Fathers_designation`, `Personal_mail_id`, `Permanent_address`, `Local_address`, `Contact_no`, `Highest_qualification`, `Year_of_Experience`, `Date_of_joining`, `Date_of_registration`, `Salary_at_the_time_of_joining`, `Passport_no`, `Pan_card_no`, `PF_no`, `Official_bank_name`, `Official_bank_account_no`, `Employee_personal_bank_name`, `Personal_bank_account_no`, `Bank_address`, `IFSC_code`) VALUES (NULL, '"
-				+ Emp_name + "', '" + Designation + "', '" + Date_of_birth + "', '" + Gender + "', '" + Fathers_name
+		String sql = "INSERT INTO `employeemanagement`.`employeedetails` (`Emp_id`, `Emp_name`, `Designation`,`Team`,`Work_location`, `Date_of_birth`, `Gender`, `Fathers_name`, `Fathers_contact_details`, `Fathers_designation`, `Personal_mail_id`, `Permanent_address`, `Local_address`, `Contact_no`, `Highest_qualification`, `Year_of_Experience`, `Date_of_joining`, `Date_of_registration`, `Salary_at_the_time_of_joining`, `Passport_no`, `Pan_card_no`, `PF_no`, `Official_bank_name`, `Official_bank_account_no`, `Employee_personal_bank_name`, `Personal_bank_account_no`, `Bank_address`, `IFSC_code`,`Current_status`,`Reference`) VALUES (NULL, '"
+				+ Emp_name + "', '" + Designation + "','" + team + "','" + work_location + "', '" + Date_of_birth + "', '" + Gender + "', '" + Fathers_name
 				+ "', '" + Fathers_contact_details + "', '" + Fathers_designation + "', '" + Personal_mail_id + "', '"
 				+ Permanent_address + "', '" + Local_address + "', '" + Contact_no + "', '" + Highest_qualification
 				+ "', '" + Year_of_Experience + "', '" + Date_of_joining + "', '" + Date_of_registration + "', '"
 				+ Salary_at_the_time_of_joining + "', '" + Passport_no + "', '" + Pancard_no + "', '" + PF_no + "', '"
 				+ Official_bank_name + "', '" + Official_bank_account_no + "', '" + Employee_personal_bank_name + "', '"
-				+ Personal_bank_account_no + "', '" + Bank_address + "', '" + IFSC_code + "')";
+				+ Personal_bank_account_no + "', '" + Bank_address + "', '" + IFSC_code + "','" + current_status + "','" + reference + "')";
 		System.out.println("Query" + sql);
 		st.executeUpdate(sql);
 
@@ -117,7 +121,7 @@ public class Registrationaction extends DispatchAction {
 		try{
 			 Statement st=Dbconn.connectDB();
 			
-			String sql="UPDATE `employeedetails` SET `Emp_name` = '"+rform.getEmp_name()+"', `Designation` = '"+rform.getDesignation()+"', `Date_of_birth` = '"+sdfDestination.format(sdfSource.parse(rform.getDate_of_birth()))+"', `Gender` = '"+rform.getGender()+"', `Fathers_name` = '"+rform.getFathers_name()+"', `Fathers_contact_details` = '"+rform.getFathers_contact_details()+"', `Fathers_designation` = '"+rform.getFathers_designation()+"', `Personal_mail_id` = '"+rform.getPersonal_mail_id()+"', `Permanent_address` = '"+rform.getPermanent_address()+"', `Local_address` = '"+rform.getLocal_address()+"', `Contact_no` = '"+rform.getContact_no()+"', `Highest_qualification` = '"+rform.getHighest_qualification()+"', `Year_of_Experience` = '"+rform.getYear_of_Experience()+"', `Date_of_joining` = '"+sdfDestination.format(sdfSource.parse(rform.getDate_of_joining()))+"', `Date_of_registration` = '"+sdfDestination.format(sdfSource.parse(rform.getDate_of_registration()))+"', `Salary_at_the_time_of_joining` = '"+rform.getSalary_at_the_time_of_joining()+"', `Increment_amount` = '"+rform.getIncrement_amount()+"', `Increment_amount_date` = '"+sdfDestination.format(sdfSource.parse(rform.getIncrement_amount_date()))+"', `Passport_no` = '"+rform.getPassport_no()+"', `Pan_card_no` = '"+rform.getPancard_no()+"', `PF_no` = '"+rform.getpF_no()+"', `Official_bank_name` = '"+rform.getOfficial_bank_name()+"', `Official_bank_account_no` = '"+rform.getOfficial_bank_account_no()+"', `Employee_personal_bank_name` = '"+rform.getEmployee_personal_bank_name()+"', `Personal_bank_account_no` = '"+rform.getPersonal_bank_account_no()+"', `Bank_address` = '"+rform.getBank_address()+"', `IFSC_code` = '"+rform.getiFSC_code()+"', `Total_leave_permissioned` = '"+rform.getTotal_leave_permissioned()+"', `Total_leave_taken_from_jan_till_dec` = '"+rform.getTotal_leave_taken_from_jan_till_dec()+"', `Total_leave_taken` = '"+rform.getTotal_leave_taken()+"', `Absent` = '"+rform.getAbsent()+"', `Total_yearly_leave_taken` = '"+rform.getTotal_yearly_leave_taken()+"' WHERE Emp_id='"+request.getSession().getAttribute("Empid")+"'";
+			String sql="UPDATE `employeedetails` SET `Emp_name` = '"+rform.getEmp_name()+"', `Designation` = '"+rform.getDesignation()+"',`Team` = '"+rform.getTeam()+"',`Work_location` = '"+rform.getWork_location()+"' ,`Date_of_birth` = '"+sdfDestination.format(sdfSource.parse(rform.getDate_of_birth()))+"', `Gender` = '"+rform.getGender()+"', `Fathers_name` = '"+rform.getFathers_name()+"', `Fathers_contact_details` = '"+rform.getFathers_contact_details()+"', `Fathers_designation` = '"+rform.getFathers_designation()+"', `Personal_mail_id` = '"+rform.getPersonal_mail_id()+"', `Permanent_address` = '"+rform.getPermanent_address()+"', `Local_address` = '"+rform.getLocal_address()+"', `Contact_no` = '"+rform.getContact_no()+"', `Highest_qualification` = '"+rform.getHighest_qualification()+"', `Year_of_Experience` = '"+rform.getYear_of_Experience()+"', `Date_of_joining` = '"+sdfDestination.format(sdfSource.parse(rform.getDate_of_joining()))+"', `Date_of_registration` = '"+sdfDestination.format(sdfSource.parse(rform.getDate_of_registration()))+"', `Salary_at_the_time_of_joining` = '"+rform.getSalary_at_the_time_of_joining()+"', `Increment_amount` = '"+rform.getIncrement_amount()+"', `Increment_amount_date` = '"+sdfDestination.format(sdfSource.parse(rform.getIncrement_amount_date()))+"', `Passport_no` = '"+rform.getPassport_no()+"', `Pan_card_no` = '"+rform.getPancard_no()+"', `PF_no` = '"+rform.getpF_no()+"', `Official_bank_name` = '"+rform.getOfficial_bank_name()+"', `Official_bank_account_no` = '"+rform.getOfficial_bank_account_no()+"', `Employee_personal_bank_name` = '"+rform.getEmployee_personal_bank_name()+"', `Personal_bank_account_no` = '"+rform.getPersonal_bank_account_no()+"', `Bank_address` = '"+rform.getBank_address()+"', `IFSC_code` = '"+rform.getiFSC_code()+"', `Total_leave_permissioned` = '"+rform.getTotal_leave_permissioned()+"', `Total_leave_taken_from_jan_till_dec` = '"+rform.getTotal_leave_taken_from_jan_till_dec()+"', `Total_leave_taken` = '"+rform.getTotal_leave_taken()+"', `Absent` = '"+rform.getAbsent()+"', `Total_yearly_leave_taken` = '"+rform.getTotal_yearly_leave_taken()+"',`Current_status` = '"+rform.getCurrent_status()+"',`Reference` = '"+rform.getReference()+"' WHERE Emp_id='"+request.getSession().getAttribute("Empid")+"'";
 				  st.executeUpdate(sql);
 				  
 				  request.getSession().invalidate();

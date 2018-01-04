@@ -89,6 +89,26 @@
 										</div>
 									</div>
 									<br>
+										<div class="row">
+										<div class="form-group">
+											<label class="col-md-4 control-label">Team</label>
+											<div class="col-md-5">
+												<html:text property="team" name="registrationForm"
+													styleClass="form-control" value="${user.Team }"></html:text>
+											</div>
+										</div>
+									</div>
+									<br>
+										<div class="row">
+										<div class="form-group">
+											<label class="col-md-4 control-label">Work Location</label>
+											<div class="col-md-5">
+												<html:text property="work_location" name="registrationForm"
+													styleClass="form-control" value="${user.Work_location}"></html:text>
+											</div>
+										</div>
+									</div>
+									<br>
 									
 									
 									<div class="row">
@@ -513,6 +533,27 @@
 										</div>
 									</div>
 									<br>
+										<div class="row">
+										<div class="form-group">
+											<label class="col-md-4 control-label">Current_Status</label>
+											<div class="col-md-5">
+												<html:text property="current_status" name="registrationForm"
+													styleClass="form-control" value="${user.Current_status}"></html:text>
+											</div>
+										</div>
+									</div>
+									<br>
+										<div class="row">
+										<div class="form-group">
+											<label class="col-md-4 control-label">References</label>
+											<div class="col-md-5">
+												<html:text property="reference" name="registrationForm"
+													styleClass="form-control" value="${user.reference}"></html:text>
+											</div>
+										</div>
+									</div>
+									<br>
+									
 									<html:submit styleClass="btn btn-success" style="margin-left:400px">Update</html:submit>
 										<html:hidden property="method" value="updateDisplay"/>
 									<hr style="margin-top: 10px; margin-bottom: 10px;">

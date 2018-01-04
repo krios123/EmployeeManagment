@@ -7,6 +7,8 @@ public class RegistrationForm extends ValidatorForm {
 	
 	String emp_name;
 	String designation;
+	String team;
+	String work_location;
 	String date_of_birth;
 	String gender;
 	String fathers_name;
@@ -37,7 +39,33 @@ public class RegistrationForm extends ValidatorForm {
 	int total_leave_taken;
 	String absent;
 	int total_yearly_leave_taken;
+	String current_status;
+	String reference;
 	
+	public String getTeam() {
+		return team;
+	}
+	public void setTeam(String team) {
+		this.team = team;
+	}
+	public String getWork_location() {
+		return work_location;
+	}
+	public void setWork_location(String work_location) {
+		this.work_location = work_location;
+	}
+	public String getCurrent_status() {
+		return current_status;
+	}
+	public void setCurrent_status(String current_status) {
+		this.current_status = current_status;
+	}
+	public String getReference() {
+		return reference;
+	}
+	public void setReference(String reference) {
+		this.reference = reference;
+	}
 	public String getEmp_name() {
 		return emp_name;
 	}

@@ -98,6 +98,8 @@
 							<th>Employee Id</th>
 							<th>Emp Name</th>
 							<th>Designation</th>
+							<th>Team</th>
+							<th>Work Location</th>
 							<th>Date of Birth</th>
 							<th>Gender</th>
 							<th>Fathers Name</th>
@@ -123,6 +125,8 @@
 							<th>Personal Bank Account No</th>
 							<th>Bank Address</th>
 							<th>IFSC Code</th>
+							<th>Current Status</th>
+							<th>Reference</th>
 							<th>Total Leave Permissioned</th>
 							<th>Total Leave taken from Jan till Dec</th>
 							<th>Leave taken</th>
@@ -142,6 +146,9 @@
 								<td><c:out value="${user.Emp_id}" /></td>
 								<td><c:out value="${user.Emp_name}" /></td>
 								<td><c:out value="${user.Designation}" /></td>
+								<td><c:out value="${user.Team}" /></td>
+								<td><c:out value="${user.Work_location}" /></td>
+								
 									<td><fmt:formatDate value="${DOBirth }" type="date"/> </td>
 								<td><c:out value="${user.Gender}" /></td>
 								<td><c:out value="${user.Fathers_name}" /></td>
@@ -167,6 +174,9 @@
 								<td><c:out value="${user.Personal_bank_account_no}" /></td>
 								<td><c:out value="${user.Bank_address}" /></td>
 								<td><c:out value="${user.IFSC_code}" /></td>
+								<td><c:out value="${user.Current_status}" /></td>
+								<td><c:out value="${user.Reference}" /></td>
+								
 								<td><c:out value="${user.Total_leave_permissioned}" /></td>
 								<td><c:out value="${user.Total_leave_taken_from_jan_till_dec}" /></td>
 								<td><c:out value="${user.Leave_taken}" /></td>

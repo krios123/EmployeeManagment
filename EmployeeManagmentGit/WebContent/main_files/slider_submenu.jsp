@@ -14,8 +14,8 @@
               </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="CalenderBirthday.jsp">Birthday Events</a></li>
-              <li><a href="CalenderWorkAnniversary.jsp"> Anniversary Events</a></li>
+            <li><a href="CalendarBirthday.jsp">Birthday Events</a></li>
+              <li><a href="CalendarWorkAnniversary.jsp"> Anniversary Events</a></li>
            
           </ul>
         </li>

@@ -76,6 +76,28 @@
 									<label class="col-md-4 control-label">Rent</label>
 									<div class="col-md-5">
 										<html:text property="rent" name="assetForm"
+											styleClass="form-control" value="" onfocus="receiveinfo()"></html:text>
+										
+									</div>
+								</div>
+							</div>
+							<br>
+								<div class="row">
+								<div class="form-group">
+									<label class="col-md-4 control-label">Team</label>
+									<div class="col-md-5">
+										<html:text property="team" name="assetForm"
+											styleClass="form-control" value="" ></html:text>
+										
+									</div>
+								</div>
+							</div>
+							<br>
+							<div class="row">
+								<div class="form-group">
+									<label class="col-md-4 control-label">Work location</label>
+									<div class="col-md-5">
+										<html:text property="work_location" name="assetForm"
 											styleClass="form-control" value="" ></html:text>
 										
 									</div>
@@ -174,5 +196,14 @@
 		autoclose : true,
 		todayHighlight : true
 	});
+</script>
+<script>
+function receiveinfo() {
+	$.ajax({
+		type : "GET",
+		url : "/ActionForm",
+	})
+	
+}
 </script>
 </html>

@@ -32,6 +32,7 @@ public class AjaxAction extends Action {
 		 * 
 		 */
 		int num=Integer.parseInt(request.getParameter("num"));
+		System.out.println("get parameter"+num);
 		
 		
 		
