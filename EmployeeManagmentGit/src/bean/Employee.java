@@ -1,10 +1,7 @@
-package form;
+package bean;
 
-
-import org.apache.struts.validator.ValidatorForm;
-
-public class RegistrationForm extends ValidatorForm {
-	
+public class Employee {
+	int emp_id;
 	String emp_name;
 	String designation;
 	String team;
@@ -41,30 +38,12 @@ public class RegistrationForm extends ValidatorForm {
 	int total_yearly_leave_taken;
 	String current_status;
 	String reference;
-	
-	public String getTeam() {
-		return team;
+	int flag;
+	public int getEmp_id() {
+		return emp_id;
 	}
-	public void setTeam(String team) {
-		this.team = team;
-	}
-	public String getWork_location() {
-		return work_location;
-	}
-	public void setWork_location(String work_location) {
-		this.work_location = work_location;
-	}
-	public String getCurrent_status() {
-		return current_status;
-	}
-	public void setCurrent_status(String current_status) {
-		this.current_status = current_status;
-	}
-	public String getReference() {
-		return reference;
-	}
-	public void setReference(String reference) {
-		this.reference = reference;
+	public void setEmp_id(int emp_id) {
+		this.emp_id = emp_id;
 	}
 	public String getEmp_name() {
 		return emp_name;
@@ -77,6 +56,18 @@ public class RegistrationForm extends ValidatorForm {
 	}
 	public void setDesignation(String designation) {
 		this.designation = designation;
+	}
+	public String getTeam() {
+		return team;
+	}
+	public void setTeam(String team) {
+		this.team = team;
+	}
+	public String getWork_location() {
+		return work_location;
+	}
+	public void setWork_location(String work_location) {
+		this.work_location = work_location;
 	}
 	public String getDate_of_birth() {
 		return date_of_birth;
@@ -222,7 +213,6 @@ public class RegistrationForm extends ValidatorForm {
 	public void setIncrement_amount(int increment_amount) {
 		this.increment_amount = increment_amount;
 	}
-	
 	public String getIncrement_amount_date() {
 		return increment_amount_date;
 	}
@@ -259,5 +249,24 @@ public class RegistrationForm extends ValidatorForm {
 	public void setTotal_yearly_leave_taken(int total_yearly_leave_taken) {
 		this.total_yearly_leave_taken = total_yearly_leave_taken;
 	}
+	public String getCurrent_status() {
+		return current_status;
+	}
+	public void setCurrent_status(String current_status) {
+		this.current_status = current_status;
+	}
+	public String getReference() {
+		return reference;
+	}
+	public void setReference(String reference) {
+		this.reference = reference;
+	}
+	public int getFlag() {
+		return flag;
+	}
+	public void setFlag(int flag) {
+		this.flag = flag;
+	}
 
+	
 }

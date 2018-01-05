@@ -13,7 +13,7 @@
 	<section class="sidebar">
 		<!-- Sidebar user panel (optional) -->
 		<div class="user-panel">
-			<h2 style="color: white">Welcome</h2>
+			<h2 style="color: white">Welcome</h2>s
 			<div class="pull-left info"></div>
 		</div>
 
@@ -78,6 +78,8 @@ var d,m,y;
 
   $(document).ready(function () {
 	
+	//  alert(" document ready");
+
 	 // alert(" document ready");
 	 // alert(new Date());
   
@@ -118,7 +120,7 @@ var d,m,y;
  			function prevmonth()
 				{	
 	  				calendar.fullCalendar('prev');
-	  				calendar.fullCalendar('gotoDate',)
+	  				calendar.fullCalendar('gotoDate')
 					num = document.getElementById("num").innerHTML;				
 					document.getElementById("num2").value= (num-1);
 					
@@ -127,7 +129,7 @@ var d,m,y;
 				
 			function nextmonth()
 				{
-						
+			
 	            	calendar.fullCalendar('next');
 	            	calendar.fullCalendar('defaultDate' ,'2018-02-12');
 					num = document.getElementById("num").innerHTML;					

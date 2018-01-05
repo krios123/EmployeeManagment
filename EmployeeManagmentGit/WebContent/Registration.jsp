@@ -63,19 +63,35 @@
 								<div class="form-group">
 									<label class="col-md-4 control-label">Designation</label>
 									<div class="col-md-5">
-										<html:select property="designation" value=""
-											styleClass="form-control" name="registrationForm">
-											<html:option value="">-Select-</html:option>
-											<html:option value="Java developer">Java Developer</html:option>
-											<html:option value="Java developer">Android Developer</html:option>
-											<html:option value="Java developer">Dotnet Developer</html:option>
-											<html:option value="PHP Developer">PHP Developer</html:option>
-										</html:select>
+										<html:text property="designation"
+											name="registrationForm" styleClass="form-control" value=""></html:text>
+									
 										<div style="color: red;">	
 										<html:errors property="designation"/></div>
 									</div>
 								</div>
 							</div>
+							<br>
+							<div class="row">
+								<div class="form-group">
+									<label class="col-md-4 control-label">Team</label>
+									<div class="col-md-5">
+										<html:text property="team"
+											name="registrationForm" styleClass="form-control" value=""></html:text>
+									</div>
+								</div>
+							</div>
+							<br>
+							<div class="row">
+								<div class="form-group">
+									<label class="col-md-4 control-label">Work Location</label>
+									<div class="col-md-5">
+										<html:text property="work_location"
+											name="registrationForm" styleClass="form-control" value=""></html:text>
+									</div>
+								</div>
+							</div>
+							<br>
 
 
 							<br>
@@ -237,17 +253,10 @@
 											<div class="input-group-addon">
 												<i class="fa fa-graduation-cap"></i>
 											</div>
-											<html:select property="highest_qualification"
-												name="registrationForm" styleClass="form-control" value="">
-												<html:option value="">--Select--</html:option>
-												<html:option value="B.tech">B.tech</html:option>
-												<html:option value="M.tech">M.tech</html:option>
-												<html:option value="B.E.">B.E.</html:option>
-												<html:option value="M.E.">M.E.</html:option>
-												<html:option value="BCA">BCA</html:option>
-												<html:option value="MCA">MCA</html:option>
-											</html:select>
-											
+										
+											<html:text property="highest_qualification"
+											name="registrationForm" styleClass="form-control" value=""></html:text>
+									
 										</div><div style="color: red;">	
 												<html:errors property="highest_qualification"/>
 											</div>
@@ -423,6 +432,26 @@
 										<div style="color: red;">	
 										<html:errors property="iFSC_code"/>
 									</div>
+									</div>
+								</div>
+							</div>
+							<br>
+							<div class="row">
+								<div class="form-group">
+									<label class="col-md-4 control-label">Current Status</label>
+									<div class="col-md-5">
+										<html:text property="current_location"
+											name="registrationForm" styleClass="form-control" value=""></html:text>
+									</div>
+								</div>
+							</div>
+							<br>
+							<div class="row">
+								<div class="form-group">
+									<label class="col-md-4 control-label">Reference</label>
+									<div class="col-md-5">
+										<html:text property="reference"
+											name="registrationForm" styleClass="form-control" value=""></html:text>
 									</div>
 								</div>
 							</div>
