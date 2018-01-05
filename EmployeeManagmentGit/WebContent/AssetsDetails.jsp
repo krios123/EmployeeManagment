@@ -87,7 +87,7 @@
 				url="jdbc:mysql://localhost:3306/employeemanagement" user="root"
 				password="" />
 
-			<sql:query var="listEmp" dataSource="${myDS }">SELECT  e.Emp_id,e.Emp_name, a.Rent, a.Date_to_given ,a.Company_of_laptop, a.Configuration,a.Courier_done,a.Laptop_received_by_employee from assetdetails as a inner join employeedetails as e on a.Employee_id=e.Emp_id where a.flag=1;</sql:query>
+			<sql:query var="listEmp" dataSource="${myDS }">SELECT  e.Emp_id,e.Emp_name, e.Designation ,e.Team,e.Work_location,a.Rent, a.Date_to_given ,a.Company_of_laptop, a.Configuration,a.Courier_done,a.Laptop_received_by_employee from assetdetails as a inner join employeedetails as e on a.Employee_id=e.Emp_id where e.flag=1 AND a.flag=1;</sql:query>
 
 
 

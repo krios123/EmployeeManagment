@@ -10,21 +10,23 @@ import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.bsf.debug.jsdi.JsObject;
 import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import org.apache.struts.actions.DispatchAction;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import controller.Dbconn;
+import form.LoginForm;
 
-public class AjaxAction extends Action {
+public class AjaxAction extends DispatchAction {
 
-	@Deprecated
-	@Override
-	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request,
-			HttpServletResponse response) throws Exception {
+	public ActionForward calender(ActionMapping mapping, ActionForm form,
+			HttpServletRequest request, HttpServletResponse response)
+			throws Exception  {
 		
 		JSONArray jArray= null;
 		System.out.println("in action");
@@ -91,6 +93,37 @@ public class AjaxAction extends Action {
 		}
 		
 		
-		return null;
+        return mapping.findForward("success");                 
 	}
+	public ActionForward assetvalue(ActionMapping mapping, ActionForm form,
+			HttpServletRequest request, HttpServletResponse response)
+			throws Exception 
+	{
+	
+				int id=Integer.parseInt(request.getParameter("id"));
+				System.out.println(id);
+				try{
+					Statement st=Dbconn.connectDB();
+					String sql="select * from employeedetails where flag=1";
+					ResultSet rs=st.executeQuery(sql);
+					JSONObject obj= new JSONObject();
+					while(rs.next())
+						{
+						
+						obj.put("team", rs.getString("Team"));
+						obj.put("designation", rs.getString("Designation"));
+						obj.put("work", rs.getString("Work_location"));
+						
+						}
+					System.out.println(obj);
+			        PrintWriter out = response.getWriter();
+			        out.print(obj);
+				}catch(Exception e)
+				{
+					System.out.println(e.getMessage());
+				}
+                return null;                 
+            
+	}
+	
 }

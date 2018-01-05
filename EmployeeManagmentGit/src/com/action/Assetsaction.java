@@ -24,12 +24,11 @@ public class Assetsaction extends DispatchAction {
 
 		AssetsForm rform=(AssetsForm)form;
 		
-		SimpleDateFormat  sdfSource= new SimpleDateFormat("MM/dd/yyyy");
-		SimpleDateFormat sdfDestination = new SimpleDateFormat("yyyy-MM-dd");
+		
 		
 		String emp_id				= rform.getEmployee_id();
 		String rent					= rform.getRent();
-		String date_to_given		= sdfDestination.format(sdfSource.parse(rform.getDate_to_given()));
+		String date_to_given		=rform.getDate_to_given();
 		String company_of_laptop	= rform.getCompany_of_laptop();
 		String configuration		= rform.getConfiguration();
 		String courier_done			= rform.getCourier_done();

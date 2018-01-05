@@ -51,7 +51,7 @@
 
 					<div class="panel-body">
 
-						<html:form action="/insertattendance" method="insert">
+						<html:form action="/insertattendance" method="inserta">
 								<div class="row">
 								<div class="form-group">
 									<label class="col-md-4 control-label">Employee Id</label>
@@ -93,6 +93,17 @@
 							<br>
 							<div class="row">
 								<div class="form-group">
+									<label class="col-md-4 control-label">Total Billing Days</label>
+									<div class="col-md-5">
+										<html:text property="total_billing_days" name="attendanceForm"
+											styleClass="form-control" value=""></html:text>
+											
+									</div>
+								</div>
+							</div>
+							<br>
+							<div class="row">
+								<div class="form-group">
 									<label class="col-md-4 control-label">Leaves Taken</label>
 									<div class="col-md-5">
 										<html:text property="leaves_taken" name="attendanceForm"
@@ -121,7 +132,7 @@
 							
 							<html:submit styleClass="btn btn-success" style="margin-left:400px">Submit</html:submit>
 							<hr style="margin-top: 10px; margin-bottom: 10px;">
-							<html:hidden property="method" value="insert"/>
+							<html:hidden property="method" value="inserta"/>
 						</html:form>
 					</div>
 				</div>
