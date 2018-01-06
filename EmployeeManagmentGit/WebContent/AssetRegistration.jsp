@@ -43,7 +43,7 @@
 				url="jdbc:mysql://localhost:3306/employeemanagement" user="root"
 				password="" />
 
-			<sql:query var="listEmp" dataSource="${myDS }">select * from employeedetails;</sql:query>
+			<sql:query var="listEmp" dataSource="${myDS }">select * from employeedetails where flag=1;</sql:query>
 
 
 		<div class="container" style="margin-top: 30px">
@@ -58,12 +58,12 @@
 									<label class="col-md-4 control-label">Employee id</label>
 									<div class="col-md-5">
 									<html:select property="employee_id" value=""
-											styleClass="form-control" name="assetForm">
+											styleClass="form-control getasset" name="assetForm" onchange="getvalue()">
 											
 											<html:option value="">-Select-</html:option>
 										<c:forEach var="user" items="${listEmp.rows}">
 											<html:option value="${user.Emp_id}">${user.Emp_id}--${user.Emp_name}</html:option>
-											</c:forEach>
+										</c:forEach>
 											
 										</html:select>
 										
@@ -76,7 +76,18 @@
 									<label class="col-md-4 control-label">Rent</label>
 									<div class="col-md-5">
 										<html:text property="rent" name="assetForm"
-											styleClass="form-control" value="" onfocus="receiveinfo()"></html:text>
+											styleClass="form-control" value="" ></html:text>
+										
+									</div>
+								</div>
+							</div>
+							<br>
+							<div class="row">
+								<div class="form-group">
+									<label class="col-md-4 control-label">Designation</label>
+									<div class="col-md-5">
+										<html:text property="designation" name="assetForm"
+											styleClass="form-control designation" value="" readonly="true" ></html:text>
 										
 									</div>
 								</div>
@@ -87,7 +98,7 @@
 									<label class="col-md-4 control-label">Team</label>
 									<div class="col-md-5">
 										<html:text property="team" name="assetForm"
-											styleClass="form-control" value="" ></html:text>
+											styleClass="form-control team" value="" readonly="true" ></html:text>
 										
 									</div>
 								</div>
@@ -98,7 +109,7 @@
 									<label class="col-md-4 control-label">Work location</label>
 									<div class="col-md-5">
 										<html:text property="work_location" name="assetForm"
-											styleClass="form-control" value="" ></html:text>
+											styleClass="form-control work" value="" readonly="true"></html:text>
 										
 									</div>
 								</div>
@@ -194,16 +205,28 @@
 <script type="text/javascript">
 	$('.datepicker').datepicker({
 		autoclose : true,
-		todayHighlight : true
+		todayHighlight : true,
+		format:"yyyy-mm-dd"
 	});
-</script>
-<script>
-function receiveinfo() {
-	$.ajax({
-		type : "GET",
-		url : "/ActionForm",
-	})
 	
-}
+	function getvalue()
+	{
+		url="http://localhost:8080/EmployeeManagmentGit/getassetvalue?method=assetvalue&id="+$(".getasset").val();
+		
+		$.get(url,function(data,status){
+			alert("hi")
+			alert(status)
+			if(status=="success")
+				{
+				alert(data)
+				var detail=JSON.parse(data)
+				
+				$(".team").val(detail.team)
+				$(".work").val(detail.work)
+				$(".designation").val(detail.designation)
+				}
+		})
+		alert(url);
+	}
 </script>
 </html>

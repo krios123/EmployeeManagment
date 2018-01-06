@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 5, 2018 2:36:35 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="bean.EmpRecruitment" table="recruitmentdetails">
+        <id name="emp_id" type="int">
+            <column name="Applicant_id" />
+            <generator class="assigned" />
+        </id>
+        <property name="applicant" type="string">
+            <column name="Applicant_name" />
+        </property>
+        <property name="scheduled_date" type="date">
+            <column name="Scheduled_date" />
+        </property>
+        <property name="interview_time" type="string">
+            <column name="Interview_time" />
+        </property>
+        <property name="venue" type="string">
+            <column name="Venue" />
+        </property>
+         <property name="flag" type="int">
+            <column name="flag" />
+        </property>
+    </class>
+</hibernate-mapping>

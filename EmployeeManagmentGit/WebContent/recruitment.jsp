@@ -124,7 +124,8 @@
 <script type="text/javascript">
 	$('.datepicker').datepicker({
 		autoclose : true,
-		todayHighlight : true
+		todayHighlight : true,
+		format:"yyyy-mm-dd"
 	});
 </script>
 </html>

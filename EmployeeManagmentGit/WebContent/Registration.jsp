@@ -440,7 +440,7 @@
 								<div class="form-group">
 									<label class="col-md-4 control-label">Current Status</label>
 									<div class="col-md-5">
-										<html:text property="current_location"
+										<html:text property="current_status"
 											name="registrationForm" styleClass="form-control" value=""></html:text>
 									</div>
 								</div>
@@ -479,6 +479,7 @@
 <script type="text/javascript">
 	$('.datepicker').datepicker({
 		autoclose : true,
+		format:"yyyy-mm-dd",
 		todayHighlight : true
 	});
 </script>

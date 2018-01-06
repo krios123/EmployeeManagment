@@ -1,0 +1,158 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 4, 2018 5:44:13 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+ <class name="bean.Employee" table="employeedetails">
+  <id name="emp_id" type="int">
+   <column name="Emp_id"/>
+   <generator class="assigned"/>
+  </id>
+  
+  <property length="20" name="emp_name" type="string">
+   <column name="Emp_name"/>
+  </property>
+  
+  <property  length="20" name="designation" type="string">
+   <column name="Designation"/>
+  </property>
+  
+  <property length="20" name="team" type="string">
+   <column name="Team"/>
+  </property>
+  
+  <property length="20"  name="work_location" type="string">
+   <column name="Work_location"/>
+  </property>
+  
+  <property name="date_of_birth" type="date">
+   <column name="Date_of_birth"/>
+  </property>
+  
+  <property length="20" name="gender" type="string">
+   <column name="Gender"/>
+  </property>
+  
+  <property length="20" name="fathers_name" type="string">
+   <column name="Fathers_name"/>
+  </property>
+  
+  <property name="fathers_contact_details" type="integer">
+   <column name="Fathers_contact_details"/>
+  </property>
+  
+  <property  length="20" name="fathers_designation" type="string">
+   <column name="Fathers_designation"/>
+  </property>
+  
+  <property length="20" name="personal_mail_id" type="string">
+   <column name="Personal_mail_id"/>
+  </property>
+  
+  <property length="20" name="permanent_address" type="string">
+   <column name="Permanent_address"/>
+  </property>
+  
+  <property length="20" name="local_address" type="string">
+   <column name="Local_address"/>
+  </property>
+  
+  <property generated="never" lazy="false" name="contact_no" type="integer">
+   <column name="Contact_no"/>
+  </property>
+  
+  <property generated="never" lazy="false" length="20" name="highest_qualification" type="string">
+   <column name="Highest_qualification"/>
+  </property>
+  
+  <property generated="never" lazy="false" name="year_of_Experience" type="int">
+   <column name="Year_of_Experience"/>
+  </property>
+  
+  <property generated="never" lazy="false" name="date_of_joining" type="date">
+   <column name="Date_of_joining"/>
+  </property>
+  
+  <property generated="never" lazy="false" name="date_of_registration" type="date">
+   <column name="Date_of_registration"/>
+  </property>
+  
+  <property generated="never" lazy="false"
+   name="salary_at_the_time_of_joining" type="int">
+   <column name="Salary_at_the_time_of_joining"/>
+  </property>
+  
+  <property generated="never" lazy="false" length="20"
+   name="passport_no" type="string">
+   <column name="Passport_no"/>
+  </property>
+  
+  <property generated="never" lazy="false" length="20" name="pancard_no" type="string">
+   <column name="Pan_card_no"/>
+  </property>
+  
+  <property access="field" generated="never" lazy="false" length="20"
+   name="pF_no" type="string">
+   <column name="PF_no"/>
+  </property>
+  
+  <property generated="never" lazy="false" length="20"
+   name="official_bank_name" type="string">
+   <column name="Official_bank_name"/>
+  </property>
+  <property generated="never" lazy="false"
+   name="official_bank_account_no" type="integer">
+   <column name="Official_bank_account_no"/>
+  </property>
+  <property generated="never" lazy="false" length="20"
+   name="employee_personal_bank_name" type="string">
+   <column name="Employee_personal_bank_name"/>
+  </property>
+  <property generated="never" lazy="false"
+   name="personal_bank_account_no" type="integer">
+   <column name="Personal_bank_account_no"/>
+  </property>
+  <property generated="never" lazy="false" length="20"
+   name="bank_address" type="string">
+   <column name="Bank_address"/>
+  </property>
+  <property access="field" generated="never" lazy="false" length="20"
+   name="iFSC_code" type="string">
+   <column name="IFSC_code"/>
+  </property>
+  <property generated="never" lazy="false" name="increment_amount" type="int">
+   <column name="Increment_amount"/>
+  </property>
+  <property generated="never" lazy="false" name="increment_amount_date" type="date">
+   <column name="Increment_amount_date"/>
+  </property>
+  <property generated="never" lazy="false"
+   name="total_leave_permissioned" type="int">
+   <column name="Total_leave_permissioned"/>
+  </property>
+  <property generated="never" lazy="false"
+   name="total_leave_taken_from_jan_till_dec" type="int">
+   <column name="Total_leave_taken_from_jan_till_dec"/>
+  </property>
+  <property generated="never" lazy="false" name="total_leave_taken" type="int">
+   <column name="Total_leave_taken"/>
+  </property>
+  <property generated="never" lazy="false" length="20" name="absent" type="string">
+   <column name="Absent"/>
+  </property>
+  <property generated="never" lazy="false"
+   name="total_yearly_leave_taken" type="int">
+   <column name="TOTAL_YEARLY_LEAVE_TAKEN"/>
+  </property>
+  <property  length="20"
+   name="current_status" type="string">
+   <column name="Current_status"/>
+  </property>
+  <property generated="never" lazy="false" length="20" name="reference" type="string">
+   <column name="Reference"/>
+  </property>
+  <property generated="never" lazy="false" name="flag" type="int" >
+   <column name="flag" default="1"/>
+  </property>
+ </class>
+</hibernate-mapping>

@@ -46,6 +46,11 @@
 			<forward name="success" path="/ShowInterviews.jsp"></forward>
 		</action>
 		
+		<action path="/select" parameter="method"
+			type="com.action.Recruitmentaction" input="/ShowInterviews.jsp" name="recruitmentForm" validate="true">
+			<forward name="success" path="/Registration.jsp"></forward>
+		</action>
+		
 		<action path="/idelete" parameter="method"
 			type="com.action.Recruitmentaction" input="/ShowInterviews.jsp" validate="false"
 			name="recruitmentForm">
@@ -73,6 +78,8 @@
 			<forward name="success" path="/Main.jsp"></forward>
 			<forward name="fail" path="/login.jsp"></forward>
 		</action>
+		
+		
 
 		<action path="/registration" parameter="method"
 			type="com.action.Registrationaction" input="/Registration.jsp" name="registrationForm" validate="true">
@@ -104,6 +111,8 @@
 			<forward name="failure" path="/insertAttendance.jsp"></forward>
 		</action> 
 		
+		<action path="/getassetvalue" type="com.action.AjaxAction" parameter="method" input="AssetRegistration.jsp"></action>
+	
 		<action path="/getJsonCalender" type="com.action.AjaxAction"></action>
 
 	</action-mappings>

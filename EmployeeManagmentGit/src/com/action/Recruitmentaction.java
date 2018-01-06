@@ -2,6 +2,7 @@ package com.action;
 
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -10,7 +11,13 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.actions.DispatchAction;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.cfg.Configuration;
 
+import bean.EmpRecruitment;
 import controller.Dbconn;
 import form.RecruitmentForm;
 import form.RegistrationForm;
@@ -21,22 +28,47 @@ public class Recruitmentaction extends DispatchAction
 			HttpServletResponse response) throws Exception 
 	{
 		RecruitmentForm rform=(RecruitmentForm)form;
-		SimpleDateFormat  sdfSource= new SimpleDateFormat("MM/dd/yyyy");
-		SimpleDateFormat sdfDestination = new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		
 		String name=rform.getApplicant();
-		String date=sdfDestination.format(sdfSource.parse(rform.getScheduled_date()));
+		Date date=sdf.parse(rform.getScheduled_date());
 		String time=rform.getInterview_time();
 		String venue=rform.getVenue();
 		
 		System.out.println("name" + name);
 		
-		Statement st = Dbconn.connectDB();
+		try{
+			
+			
+			Configuration conf=new Configuration().configure();
+			StandardServiceRegistryBuilder builder= new StandardServiceRegistryBuilder().applySettings(conf.getProperties());
+			
+			SessionFactory sf=conf.buildSessionFactory(builder.build());
+			
+			Session session = sf.openSession();
+			
+			Transaction t=session.beginTransaction();
+			EmpRecruitment r=new EmpRecruitment();
+			r.setApplicant(name);
+			r.setScheduled_date(date);
+			r.setInterview_time(time);
+			r.setVenue(venue);
+			r.setFlag(1);
+			
+			session.save(r);
+			t.commit();
+			session.close();
+			
+		}catch(Exception e)
+		{
+			System.out.println(e.getMessage());
+		}
+		/*Statement st = Dbconn.connectDB();
 		
 		String sql="INSERT INTO `employeemanagement`.`recruitmentdetails` (`Applicant_id`, `Applicant_name`, `Scheduled_date`, `Interview_time`, `Venue`) VALUES (NULL, '"+name+"', '"+date+"', '"+time+"', '"+venue+"')";
 		
 		System.out.println("Query" + sql);
-		st.executeUpdate(sql);
+		st.executeUpdate(sql);*/
 
 		
 		return mapping.findForward("success");

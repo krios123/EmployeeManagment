@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 5, 2018 3:30:34 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="bean.EmpAsset" table="assetdetails">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <property name="employee_id" type="string">
+            <column name="Employee_id" />
+        </property>
+        <property name="rent" type="string">
+            <column name="Rent" />
+        </property>
+        <property name="date_to_given" type="date">
+            <column name="Date_to_given" />
+        </property>
+        <property name="company_of_laptop" type="string">
+            <column name="Company_of_laptop" />
+        </property>
+        <property name="configuration" type="string">
+            <column name="Configuration" />
+        </property>
+        <property name="courier_done" type="string">
+            <column name="Courier_done" />
+        </property>
+        <property name="laptop_received_by_employee" type="string">
+            <column name="Laptop_received_by_employee" />
+        </property>
+        <property name="flag" type="int">
+            <column name="flag" />
+        </property>
+        
+        <many-to-one name="bean.EmpAsset" class=""></many-to-one>
+    </class>
+</hibernate-mapping>

@@ -1,6 +1,8 @@
 package form;
 
 
+import java.util.Date;
+
 import org.apache.struts.validator.ValidatorForm;
 
 public class RegistrationForm extends ValidatorForm {
@@ -41,31 +43,6 @@ public class RegistrationForm extends ValidatorForm {
 	int total_yearly_leave_taken;
 	String current_status;
 	String reference;
-	
-	public String getTeam() {
-		return team;
-	}
-	public void setTeam(String team) {
-		this.team = team;
-	}
-	public String getWork_location() {
-		return work_location;
-	}
-	public void setWork_location(String work_location) {
-		this.work_location = work_location;
-	}
-	public String getCurrent_status() {
-		return current_status;
-	}
-	public void setCurrent_status(String current_status) {
-		this.current_status = current_status;
-	}
-	public String getReference() {
-		return reference;
-	}
-	public void setReference(String reference) {
-		this.reference = reference;
-	}
 	public String getEmp_name() {
 		return emp_name;
 	}
@@ -78,12 +55,19 @@ public class RegistrationForm extends ValidatorForm {
 	public void setDesignation(String designation) {
 		this.designation = designation;
 	}
-	public String getDate_of_birth() {
-		return date_of_birth;
+	public String getTeam() {
+		return team;
 	}
-	public void setDate_of_birth(String date_of_birth) {
-		this.date_of_birth = date_of_birth;
+	public void setTeam(String team) {
+		this.team = team;
 	}
+	public String getWork_location() {
+		return work_location;
+	}
+	public void setWork_location(String work_location) {
+		this.work_location = work_location;
+	}
+	
 	public String getGender() {
 		return gender;
 	}
@@ -144,18 +128,7 @@ public class RegistrationForm extends ValidatorForm {
 	public void setYear_of_Experience(int year_of_Experience) {
 		this.year_of_Experience = year_of_Experience;
 	}
-	public String getDate_of_joining() {
-		return date_of_joining;
-	}
-	public void setDate_of_joining(String date_of_joining) {
-		this.date_of_joining = date_of_joining;
-	}
-	public String getDate_of_registration() {
-		return date_of_registration;
-	}
-	public void setDate_of_registration(String date_of_registration) {
-		this.date_of_registration = date_of_registration;
-	}
+	
 	public int getSalary_at_the_time_of_joining() {
 		return salary_at_the_time_of_joining;
 	}
@@ -223,12 +196,6 @@ public class RegistrationForm extends ValidatorForm {
 		this.increment_amount = increment_amount;
 	}
 	
-	public String getIncrement_amount_date() {
-		return increment_amount_date;
-	}
-	public void setIncrement_amount_date(String increment_amount_date) {
-		this.increment_amount_date = increment_amount_date;
-	}
 	public int getTotal_leave_permissioned() {
 		return total_leave_permissioned;
 	}
@@ -259,5 +226,43 @@ public class RegistrationForm extends ValidatorForm {
 	public void setTotal_yearly_leave_taken(int total_yearly_leave_taken) {
 		this.total_yearly_leave_taken = total_yearly_leave_taken;
 	}
+	public String getCurrent_status() {
+		return current_status;
+	}
+	public void setCurrent_status(String current_status) {
+		this.current_status = current_status;
+	}
+	public String getReference() {
+		return reference;
+	}
+	public void setReference(String reference) {
+		this.reference = reference;
+	}
+	public String getDate_of_birth() {
+		return date_of_birth;
+	}
+	public void setDate_of_birth(String date_of_birth) {
+		this.date_of_birth = date_of_birth;
+	}
+	public String getDate_of_joining() {
+		return date_of_joining;
+	}
+	public void setDate_of_joining(String date_of_joining) {
+		this.date_of_joining = date_of_joining;
+	}
+	public String getDate_of_registration() {
+		return date_of_registration;
+	}
+	public void setDate_of_registration(String date_of_registration) {
+		this.date_of_registration = date_of_registration;
+	}
+	public String getIncrement_amount_date() {
+		return increment_amount_date;
+	}
+	public void setIncrement_amount_date(String increment_amount_date) {
+		this.increment_amount_date = increment_amount_date;
+	}
+	
+	
 
 }

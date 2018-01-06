@@ -3,6 +3,7 @@ package com.action;
 
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,7 +12,13 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.actions.DispatchAction;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.cfg.Configuration;
 
+import bean.EmpAsset;
 import controller.Dbconn;
 import form.AssetsForm;
 
@@ -25,23 +32,48 @@ public class Assetsaction extends DispatchAction {
 		AssetsForm rform=(AssetsForm)form;
 		
 		SimpleDateFormat  sdfSource= new SimpleDateFormat("MM/dd/yyyy");
-		SimpleDateFormat sdfDestination = new SimpleDateFormat("yyyy-MM-dd");
+		
 		
 		String emp_id				= rform.getEmployee_id();
 		String rent					= rform.getRent();
-		String date_to_given		= sdfDestination.format(sdfSource.parse(rform.getDate_to_given()));
+		Date date_to_given		= sdfSource.parse(rform.getDate_to_given());
 		String company_of_laptop	= rform.getCompany_of_laptop();
 		String configuration		= rform.getConfiguration();
 		String courier_done			= rform.getCourier_done();
 		String laptop_received_by_employee= rform.getLaptop_received_by_employee();
 		
 		try{
-				Statement st = Dbconn.connectDB();
+			
+			Configuration conf=new Configuration().configure();
+			StandardServiceRegistryBuilder builder= new StandardServiceRegistryBuilder().applySettings(conf.getProperties());
+			
+			SessionFactory sf=conf.buildSessionFactory(builder.build());
+			
+			Session session = sf.openSession();
+			
+			Transaction t=session.beginTransaction();
+			
+			EmpAsset e =new EmpAsset();
+			
+			e.setEmployee_id(emp_id);
+			e.setRent(rent);
+			e.setDate_to_given(date_to_given);
+			e.setCompany_of_laptop(company_of_laptop);
+			e.setCourier_done(courier_done);
+			e.setLaptop_received_by_employee(laptop_received_by_employee);
+			e.setFlag(1);
+			
+			session.save(e);
+			t.commit();
+			session.close();
+			
+			
+				/*Statement st = Dbconn.connectDB();
 		
 				String sql = "insert into assetdetails values(null,'"+emp_id+"','"+rent+"','"+date_to_given+"','"+company_of_laptop+"','"+configuration+"','"+courier_done+"','"+laptop_received_by_employee+"',1) ";
 				System.out.println("Query" + sql);
-				st.executeUpdate(sql);
-				}
+				st.executeUpdate(sql);*/
+			}
 		catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
