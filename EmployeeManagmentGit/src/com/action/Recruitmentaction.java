@@ -126,5 +126,20 @@ public class Recruitmentaction extends DispatchAction
 	return mapping.findForward("success");	
 
 	}
+	public ActionForward selecteddelete(ActionMapping mapping, ActionForm form, HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+
+		
+
+		int id = Integer.parseInt(request.getParameter("id"));
+		System.out.println("idd" + id);
+
+		Statement st = Dbconn.connectDB();
+
+		String sl = "update recruitmentdetails set flag = 0 WHERE Applicant_id='" + id + "'";
+		 st.executeUpdate(sl);
+
+		return mapping.findForward("success");
+	}
 
 }

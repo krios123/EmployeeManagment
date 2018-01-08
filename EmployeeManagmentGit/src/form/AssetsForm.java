@@ -5,7 +5,7 @@ import org.apache.struts.action.ActionForm;
 public class AssetsForm extends ActionForm{
 	
 
-String employee_id;
+int employee_id;
 String rent;
 String date_to_given;
 String company_of_laptop;
@@ -14,12 +14,7 @@ String courier_done;
 String laptop_received_by_employee;
 
 
-public String getEmployee_id() {
-	return employee_id;
-}
-public void setEmployee_id(String employee_id) {
-	this.employee_id = employee_id;
-}
+
 public String getRent() {
 	return rent;
 }
@@ -57,6 +52,12 @@ public String getLaptop_received_by_employee() {
 }
 public void setLaptop_received_by_employee(String laptop_received_by_employee) {
 	this.laptop_received_by_employee = laptop_received_by_employee;
+}
+public int getEmployee_id() {
+	return employee_id;
+}
+public void setEmployee_id(int employee_id) {
+	this.employee_id = employee_id;
 }
 
 }

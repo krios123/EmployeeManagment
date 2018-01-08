@@ -8,9 +8,15 @@
             <column name="id" />
             <generator class="assigned" />
         </id>
-        <property name="employee_id" type="string">
+        
+      <!--   <many-to-one name="Employee" class="bean.Employee">
+       		<column name="Employee_id" unique="true" not-null="false" ></column>
+       </many-to-one>  -->
+     
+       <property name="employee_id" type="int">
             <column name="Employee_id" />
         </property>
+           
         <property name="rent" type="string">
             <column name="Rent" />
         </property>
@@ -33,6 +39,6 @@
             <column name="flag" />
         </property>
         
-        <many-to-one name="bean.EmpAsset" class=""></many-to-one>
+        
     </class>
 </hibernate-mapping>

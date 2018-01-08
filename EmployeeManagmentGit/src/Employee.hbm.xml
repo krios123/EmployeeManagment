@@ -2,13 +2,13 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
                                    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated Jan 4, 2018 5:44:13 PM by Hibernate Tools 3.5.0.Final -->
-<hibernate-mapping>
+<hibernate-mapping >
  <class name="bean.Employee" table="employeedetails">
   <id name="emp_id" type="int">
    <column name="Emp_id"/>
    <generator class="assigned"/>
   </id>
-  
+ 
   <property length="20" name="emp_name" type="string">
    <column name="Emp_name"/>
   </property>
@@ -120,7 +120,7 @@
    name="iFSC_code" type="string">
    <column name="IFSC_code"/>
   </property>
-  <property generated="never" lazy="false" name="increment_amount" type="int">
+  <property generated="never" lazy="false" name="increment_amount" type="int" not-null="true">
    <column name="Increment_amount"/>
   </property>
   <property generated="never" lazy="false" name="increment_amount_date" type="date">

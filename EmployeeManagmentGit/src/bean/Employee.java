@@ -1,5 +1,6 @@
 package bean;
 
+
 import java.util.Date;
 
 public class Employee {
@@ -273,5 +274,4 @@ public class Employee {
 		this.increment_amount_date = increment_amount_date;
 	}
 	
-		
 }

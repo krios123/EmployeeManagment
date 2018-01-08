@@ -16,7 +16,7 @@ import form.AttendanceSheetForm;
 public class AttendanceSheetAction extends DispatchAction {
 
 	
-	public ActionForward insert(ActionMapping mapping, ActionForm form, HttpServletRequest request,
+	public ActionForward inserta(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		
 		AttendanceSheetForm aform= (AttendanceSheetForm)form;
@@ -24,7 +24,7 @@ public class AttendanceSheetAction extends DispatchAction {
 		try{
 			Statement st = Dbconn.connectDB();
 	
-			String sql = "insert into attendance_sheet values(null,'"+aform.getEmp_id()+"','"+aform.getTotal_working_days()+"','"+aform.getTotal_present_days()+"','"+aform.getLeaves_taken()+"','"+aform.getLeave_type()+"') ";
+			String sql = "insert into attendance_sheet values(null,'"+aform.getEmp_id()+"','"+aform.getTotal_working_days()+"','"+aform.getTotal_present_days()+"','"+aform.getTotal_billing_days()+"','"+aform.getLeaves_taken()+"','"+aform.getLeave_type()+"') ";
 			System.out.println("Query" + sql);
 			st.executeUpdate(sql);
 			}

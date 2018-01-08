@@ -215,7 +215,9 @@
 		
 		$.get(url,function(data,status){
 			alert("hi")
+
 			alert(status)
+
 			if(status=="success")
 				{
 				alert(data)

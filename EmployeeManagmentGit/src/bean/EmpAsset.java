@@ -3,8 +3,9 @@ package bean;
 import java.util.Date;
 
 public class EmpAsset {
+	
 	int id;
-	String employee_id;
+	int employee_id;
 	String rent;
 	Date date_to_given;
 	String company_of_laptop;
@@ -18,10 +19,10 @@ public class EmpAsset {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getEmployee_id() {
+	public int getEmployee_id() {
 		return employee_id;
 	}
-	public void setEmployee_id(String employee_id) {
+	public void setEmployee_id(int employee_id) {
 		this.employee_id = employee_id;
 	}
 	public String getRent() {
@@ -30,7 +31,12 @@ public class EmpAsset {
 	public void setRent(String rent) {
 		this.rent = rent;
 	}
-	
+	public Date getDate_to_given() {
+		return date_to_given;
+	}
+	public void setDate_to_given(Date date_to_given) {
+		this.date_to_given = date_to_given;
+	}
 	public String getCompany_of_laptop() {
 		return company_of_laptop;
 	}
@@ -61,12 +67,5 @@ public class EmpAsset {
 	public void setFlag(int flag) {
 		this.flag = flag;
 	}
-	public Date getDate_to_given() {
-		return date_to_given;
-	}
-	public void setDate_to_given(Date date_to_given) {
-		this.date_to_given = date_to_given;
-	}
-	
 	
 }

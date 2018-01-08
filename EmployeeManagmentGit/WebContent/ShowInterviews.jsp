@@ -114,7 +114,7 @@
 								<td><fmt:formatDate value="${sdate}" type="date"/> </td>
 								<td><c:out value="${user.Interview_time}" /></td>
 								<td><c:out value="${user.Venue}" /></td>	
-								<td><html:link page="/registration?method=insert"><div class="btn btn-block btn-success btn-sm">Selected</div></html:link></td>
+								<td><html:link page="/select?method=selecteddelete&id=${user.Applicant_id}"><div class="btn btn-block btn-success btn-sm">Selected</div></html:link></td>
 															
 								<td><html:link page="/iupdate?method=update&id=${user.Applicant_id}"><div class="btn btn-block btn-warning btn-sm">Update</div></html:link></td>
 								<td><div onclick="forDelete(${user.Applicant_id})" ><div class="btn btn-block btn-danger btn-sm">Delete</div></div></td>

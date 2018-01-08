@@ -31,13 +31,14 @@ public class Assetsaction extends DispatchAction {
 
 		AssetsForm rform=(AssetsForm)form;
 		
-		SimpleDateFormat  sdfSource= new SimpleDateFormat("MM/dd/yyyy");
+
+		SimpleDateFormat  sdfSource= new SimpleDateFormat("yyyy-mm-dd");
+
 		
-		
-		String emp_id				= rform.getEmployee_id();
+		int emp_id				= rform.getEmployee_id();
 		String rent					= rform.getRent();
 		Date date_to_given		= sdfSource.parse(rform.getDate_to_given());
-		String company_of_laptop	= rform.getCompany_of_laptop();
+	String company_of_laptop	= rform.getCompany_of_laptop();
 		String configuration		= rform.getConfiguration();
 		String courier_done			= rform.getCourier_done();
 		String laptop_received_by_employee= rform.getLaptop_received_by_employee();
@@ -59,6 +60,7 @@ public class Assetsaction extends DispatchAction {
 			e.setRent(rent);
 			e.setDate_to_given(date_to_given);
 			e.setCompany_of_laptop(company_of_laptop);
+			e.setConfiguration(configuration);
 			e.setCourier_done(courier_done);
 			e.setLaptop_received_by_employee(laptop_received_by_employee);
 			e.setFlag(1);
@@ -115,7 +117,7 @@ AssetsForm rform=(AssetsForm)form;
 		SimpleDateFormat  sdfSource= new SimpleDateFormat("MM/dd/yyyy");
 		SimpleDateFormat sdfDestination = new SimpleDateFormat("yyyy-MM-dd");
 		
-		String emp_id				= rform.getEmployee_id();
+		int emp_id				= rform.getEmployee_id();
 		String rent					= rform.getRent();
 		String date_to_given		= sdfDestination.format(sdfSource.parse(rform.getDate_to_given()));
 		String company_of_laptop	= rform.getCompany_of_laptop();
