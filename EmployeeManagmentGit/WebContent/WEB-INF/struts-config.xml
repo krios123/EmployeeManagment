@@ -13,6 +13,10 @@
 		<form-bean name="recruitmentForm" type="form.RecruitmentForm"></form-bean>
 		<form-bean name="assetForm" type="form.AssetsForm"></form-bean>
 		<form-bean name="attendanceForm" type="form.AttendanceSheetForm"></form-bean>
+		<form-bean name="designationform" type="form.DesignationForm"></form-bean>
+		<form-bean name="abc" type="form.TeamForm"></form-bean>
+		<form-bean name="qualificationform" type="form.QualificationForm"></form-bean>
+		<form-bean name="fileform" type="form.FileForm"></form-bean>
 		
 
 	</form-beans>
@@ -70,6 +74,7 @@
 		
 		<action path="/login" parameter="method" type="com.action.Registrationaction"
 			input="/login.jsp" validate="false" name="loginForm">
+			<forward name="admin" path="/Admin.jsp"></forward>			
 			<forward name="success" path="/Main.jsp"></forward>
 			<forward name="fail" path="/login.jsp"></forward>
 		</action>
@@ -77,6 +82,25 @@
 			input="/loginnew.jsp" validate="false" name="loginForm">
 			<forward name="success" path="/Main.jsp"></forward>
 			<forward name="fail" path="/login.jsp"></forward>
+		</action>
+		
+		<action path="/designatin" parameter="method" type="com.action.AdminAction"
+		 input="/Admin.jsp" name="designationform">
+		<forward name="success" path="/Admin.jsp"></forward>
+		</action>
+		<action path="/valueteam" parameter="method" type="com.action.AdminAction"
+		 input="/Admin.jsp" name="abc">
+		<forward name="success" path="/Admin.jsp"></forward>
+		</action>
+		<action path="/qualificatin" parameter="method" type="com.action.AdminAction"
+		 input="/Admin.jsp" name="qualificationform">
+		<forward name="success" path="/Admin.jsp"></forward>
+		</action>
+		<action path="/fileupload" parameter="method" type="com.action.AdminAction"
+		 input="/fileupload.jsp" name="fileform">
+		<forward name="success" path="/Main.jsp"></forward>
+		</action>
+		<action path="/img" parameter="method" type="com.action.AdminAction" input="/fileDownload.jsp">
 		</action>
 		
 		

@@ -53,13 +53,13 @@
 							<html:form action="/update1" method="updateDisplay">
 								<c:forEach var="user" items="${listEmp.rows}">
 										<fmt:parseDate value="${user.Date_of_birth }" var="DOBirth" pattern="yyyy-MM-dd"/>
-											<fmt:formatDate value="${DOBirth}" pattern="MM/dd/yyyy" var="DOBirth1"/>
+											<fmt:formatDate value="${DOBirth}" pattern="yyyy-MM-dd" var="DOBirth1"/>
 										<fmt:parseDate value="${user.Date_of_joining}" var="DOJoining" pattern="yyyy-MM-dd"/>
-											<fmt:formatDate value="${DOJoining}" pattern="MM/dd/yyyy" var="DOJoining1"/>
+											<fmt:formatDate value="${DOJoining}" pattern="yyyy-MM-dd" var="DOJoining1"/>
 										<fmt:parseDate value="${user.Date_of_registration}" var="DORegistration" pattern="yyyy-MM-dd"/>
-											<fmt:formatDate value="${DORegistration}" pattern="MM/dd/yyyy" var="DORegistration1"/>
+											<fmt:formatDate value="${DORegistration}" pattern="yyyy-MM-dd" var="DORegistration1"/>
 										<fmt:parseDate value="${user.Increment_amount_date}" var="IncrementAmtDate" pattern="yyyy-MM-dd"/>
-											<fmt:formatDate value="${IncrementAmtDate}" pattern="MM/dd/yyyy" var="IncrementAmtDate1"/>
+											<fmt:formatDate value="${IncrementAmtDate}" pattern="yyyy-MM-dd" var="IncrementAmtDate1"/>
 										
 									<div class="row">
 										<div class="form-group">
@@ -580,6 +580,7 @@
 <script type="text/javascript">
 	$('.datepicker').datepicker({
 		autoclose : true,
+		format:'yyyy-mm-dd',
 		todayHighlight : true
 	});
 </script>

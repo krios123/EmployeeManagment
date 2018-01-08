@@ -18,6 +18,9 @@
         <mapping resource="/Employee.hbm.xml"/>
         <mapping resource="/EmpRecruitment.hbm.xml"/>
      <mapping resource="/EmpAsset.hbm.xml"/>
+        <mapping resource="/EmpDesignation.hbm.xml"/>
+        
+     
         
         
     </session-factory>

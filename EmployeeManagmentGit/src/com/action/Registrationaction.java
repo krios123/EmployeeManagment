@@ -74,10 +74,7 @@ SimpleDateFormat smf=new SimpleDateFormat("yyyy-mm-dd");
 
 		System.out.println("PFname" + PF_no);
 		System.out.println("status:"+current_status);
-		try{
-			
-		
-		Configuration conf=new Configuration().configure();
+		try{Configuration conf=new Configuration().configure();
 		StandardServiceRegistryBuilder builder= new StandardServiceRegistryBuilder().applySettings(conf.getProperties());
 		
 		SessionFactory sf=conf.buildSessionFactory(builder.build());
@@ -85,6 +82,9 @@ SimpleDateFormat smf=new SimpleDateFormat("yyyy-mm-dd");
 		Session session = sf.openSession();
 		
 		Transaction t=session.beginTransaction();
+			
+		
+		
 		Employee e= new Employee();
 		
 		e.setEmp_name(Emp_name);
@@ -196,12 +196,14 @@ SimpleDateFormat smf=new SimpleDateFormat("yyyy-mm-dd");
 	public ActionForward updateDisplay(ActionMapping mapping, ActionForm form, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		
-		SimpleDateFormat smf = new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat smf = new SimpleDateFormat("yyyy-mm-dd");
 		
 		System.out.println("hii"+request.getParameter("id"));
 		RegistrationForm rform=(RegistrationForm)form;
 		System.out.println("in update employee method");
 		
+		Date Date_of_birth 			= smf.parse(rform.getDate_of_birth());
+		System.out.println("date"+Date_of_birth.toString());
 		try{
 			String Emp_name = rform.getEmp_name();
 			String Designation = rform.getDesignation();
@@ -209,8 +211,7 @@ SimpleDateFormat smf=new SimpleDateFormat("yyyy-mm-dd");
 			String work_location= rform.getWork_location();
 			String current_status= rform.getCurrent_status();
 			String reference = rform.getReference();
-			
-			Date Date_of_birth 			= smf.parse(rform.getDate_of_birth());
+		
 			String Gender 				= rform.getGender();
 			String Fathers_name 		= rform.getFathers_name();
 			int Fathers_contact_details = rform.getFathers_contact_details();
@@ -233,19 +234,67 @@ SimpleDateFormat smf=new SimpleDateFormat("yyyy-mm-dd");
 			int Personal_bank_account_no= rform.getPersonal_bank_account_no();
 			String Bank_address 		= rform.getBank_address();
 			String IFSC_code 			= rform.getiFSC_code();
-			System.out.println("name" + Emp_name);
-
-			System.out.println("PFname" + PF_no);
-			System.out.println("status:"+current_status);
+			int Increment_amount = rform.getIncrement_amount();
+			Date Increment_amount_date= smf.parse(rform.getIncrement_amount_date());
+			int Total_leave_permissioned=rform.getTotal_leave_permissioned();
+			int Total_leave_taken_from_jantodec=rform.getTotal_leave_taken_from_jan_till_dec();
+			int Total_leave_taken=rform.getTotal_leave_taken();
+			String Absent=rform.getAbsent();
+			int Total_yearly_leave_taken=rform.getTotal_yearly_leave_taken();
 			
+			int id=(int) request.getSession().getAttribute("Empid");
 			Configuration conf=new Configuration().configure();
 			StandardServiceRegistryBuilder builder= new StandardServiceRegistryBuilder().applySettings(conf.getProperties());			
 			SessionFactory sf=conf.buildSessionFactory(builder.build());			
 			Session session = sf.openSession();			
 			Transaction t=session.beginTransaction();
+			System.out.println("Gender"+Gender);
+			Employee e=new Employee();
+			e.setEmp_id(id);
+			System.out.println("Gender"+Gender);
+			e.setEmp_name(Emp_name);
+			e.setDesignation(Designation);
+			e.setTeam(team);
+			e.setWork_location(work_location);
+			e.setCurrent_status(current_status);
+			e.setReference(reference);
+			e.setDate_of_birth((Date_of_birth));
+			e.setGender(Gender);
+			e.setFathers_name(Fathers_name);
+			e.setFathers_designation(Fathers_designation);
+			e.setFathers_contact_details(Fathers_contact_details);
+			e.setDesignation(Designation);
+			e.setPersonal_mail_id(Personal_mail_id);
+			e.setPermanent_address(Permanent_address);
+			e.setLocal_address(Local_address);
+			e.setContact_no(Contact_no);
+			e.setHighest_qualification(Highest_qualification);
+			e.setYear_of_Experience(Year_of_Experience);
 			
-			Query sql=session.createQuery("UPDATE `employeedetails` SET `Emp_name` = '"+rform.getEmp_name()+"', `Designation` = '"+rform.getDesignation()+"',`Team` = '"+rform.getTeam()+"',`Work_location` = '"+rform.getWork_location()+"' ,`Date_of_birth` = '"+smf.parse(rform.getDate_of_birth())+"', `Gender` = '"+rform.getGender()+"', `Fathers_name` = '"+rform.getFathers_name()+"', `Fathers_contact_details` = '"+rform.getFathers_contact_details()+"', `Fathers_designation` = '"+rform.getFathers_designation()+"', `Personal_mail_id` = '"+rform.getPersonal_mail_id()+"', `Permanent_address` = '"+rform.getPermanent_address()+"', `Local_address` = '"+rform.getLocal_address()+"', `Contact_no` = '"+rform.getContact_no()+"', `Highest_qualification` = '"+rform.getHighest_qualification()+"', `Year_of_Experience` = '"+rform.getYear_of_Experience()+"', `Date_of_joining` = '"+smf.parse(rform.getDate_of_joining())+"', `Date_of_registration` = '"+smf.parse(rform.getDate_of_registration())+"', `Salary_at_the_time_of_joining` = '"+rform.getSalary_at_the_time_of_joining()+"', `Increment_amount` = '"+rform.getIncrement_amount()+"', `Increment_amount_date` = '"+smf.parse(rform.getIncrement_amount_date())+"', `Passport_no` = '"+rform.getPassport_no()+"', `Pan_card_no` = '"+rform.getPancard_no()+"', `PF_no` = '"+rform.getpF_no()+"', `Official_bank_name` = '"+rform.getOfficial_bank_name()+"', `Official_bank_account_no` = '"+rform.getOfficial_bank_account_no()+"', `Employee_personal_bank_name` = '"+rform.getEmployee_personal_bank_name()+"', `Personal_bank_account_no` = '"+rform.getPersonal_bank_account_no()+"', `Bank_address` = '"+rform.getBank_address()+"', `IFSC_code` = '"+rform.getiFSC_code()+"', `Total_leave_permissioned` = '"+rform.getTotal_leave_permissioned()+"', `Total_leave_taken_from_jan_till_dec` = '"+rform.getTotal_leave_taken_from_jan_till_dec()+"', `Total_leave_taken` = '"+rform.getTotal_leave_taken()+"', `Absent` = '"+rform.getAbsent()+"', `Total_yearly_leave_taken` = '"+rform.getTotal_yearly_leave_taken()+"',`Current_status` = '"+rform.getCurrent_status()+"',`Reference` = '"+rform.getReference()+"' WHERE Emp_id='"+request.getSession().getAttribute("Empid")+"'");
+			e.setDate_of_joining(Date_of_joining);
+			e.setDate_of_registration(Date_of_registration);
+			e.setSalary_at_the_time_of_joining(Salary_at_the_time_of_joining);
+			e.setIncrement_amount(Increment_amount);
+			e.setIncrement_amount_date(Increment_amount_date);
+			e.setPassport_no(Passport_no);
+			e.setPancard_no(Pancard_no);
+			e.setpF_no(PF_no);
+			e.setOfficial_bank_name(Official_bank_name);
+			e.setOfficial_bank_account_no(Official_bank_account_no);
+			e.setEmployee_personal_bank_name(Employee_personal_bank_name);
+			e.setPersonal_bank_account_no(Personal_bank_account_no);
+			e.setBank_address(Bank_address);
+			e.setiFSC_code(IFSC_code);
+			e.setTotal_leave_permissioned(Total_leave_permissioned);
+			e.setTotal_leave_taken_from_jan_till_dec(Total_leave_taken_from_jantodec);
+			e.setTotal_leave_taken(Total_leave_taken);
+			e.setTotal_yearly_leave_taken(Total_yearly_leave_taken);
+			e.setAbsent(Absent);
+			e.setFlag(1);
 			
+			session.update(e);
+			t.commit();
+			session.close();
 			
 			
 			/* Statement st=Dbconn.connectDB();
@@ -270,27 +319,46 @@ SimpleDateFormat smf=new SimpleDateFormat("yyyy-mm-dd");
 			HttpServletRequest request, HttpServletResponse response)
 			throws Exception 
 	{
-	
-		LoginForm login=(LoginForm)form;
+		String email=null,role=null;
+		Statement st=Dbconn.connectDB();
+		String sql="Select * from employeedetails";
+		ResultSet rs=st.executeQuery(sql);
+		while(rs.next())
+		{
+			email=rs.getString("Role");
+			role=rs.getString("Personal_mail_id");
+		}
 		
+		LoginForm login=(LoginForm)form;
+		String type=login.getType();
         String username = login.getUsername();
         String password = login.getPassword();
        
         System.out.println("name"+username);
       
-
-            if((username.equals("reshma"))&&(password.equals("123")))
+        if((username.equals("reshma"))&&(password.equals("123"))&&(type.equals("Admin")))
             {
                 System.out.println("Successfully Login");
-                return mapping.findForward("success");
-               
+                return mapping.findForward("admin");         
             }
-            else
+        else if((username.equals("HR"))&&(password.equals("HR"))&&(type.equals("HR")))
+        {
+        	 
+                  System.out.println("Successfully Login");
+                  return mapping.findForward("success");                
+            
+        }
+        else if((username.equals("krios"))&&(password.equals("krios")))
+         {
+                  System.out.println("Successfully Login");
+                  return mapping.findForward("success");
+                 
+          }
+          else
             {
-                System.out.println(" Login Failed");
-
-                return mapping.findForward("fail");                 
-            }
+               System.out.println(" Login Failed");                                
+            }      
+        return mapping.findForward("fail");  
 	}
 	
 

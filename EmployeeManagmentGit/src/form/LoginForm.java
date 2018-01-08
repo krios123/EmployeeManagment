@@ -13,7 +13,7 @@ public class LoginForm extends ValidatorForm{
 	private static final long serialVersionUID = 1L;
 	String username;
 	String password;
-
+	String type;
 	public String getUsername() {
 		return username;
 	}
@@ -34,6 +34,14 @@ public class LoginForm extends ValidatorForm{
 
 		username = "";
 		password = "";
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 
 }
