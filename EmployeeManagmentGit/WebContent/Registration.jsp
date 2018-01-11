@@ -597,6 +597,7 @@
 		        document.getElementById("salary_at_the_time_of_joining").focus(); 
 		        return false; 
 		    } 
+		
 	}
 </script>
 </html>
