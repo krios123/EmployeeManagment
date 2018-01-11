@@ -66,6 +66,9 @@
 										</c:forEach>
 											
 										</html:select>
+										<div style="color: red;">
+											<html:errors property="employee_id" />
+										</div>
 										
 										</div>
 								</div>
@@ -77,7 +80,9 @@
 									<div class="col-md-5">
 										<html:text property="rent" name="assetForm" styleId="rent"
 											styleClass="form-control" value="" ></html:text>
-										
+										<div style="color: red;">
+											<html:errors property="rent" />
+										</div>
 									</div>
 								</div>
 							</div>
@@ -125,10 +130,16 @@
 												<i class="fa fa-calendar"></i>
 											</div>
 											<div>
+
 											<html:text property="date_to_given" name="assetForm" styleId="date_to_given"
 												styleClass="form-control pull-right datepicker" value=""></html:text>
-							
+											</div>
+											</div>
+											<div style="color: red;">
+											<html:errors property="date_to_given" />
 										</div>
+											
+										
 									
 									</div>
 								</div>
@@ -154,6 +165,10 @@
 									<div class="col-md-5">
 										<html:text property="configuration" styleId="configuration"
 											name="assetForm" styleClass="form-control" value=""></html:text>
+											<div style="color: red;">
+											<html:errors property="configuration" />
+										</div>
+											
 									</div>
 								</div>
 							</div>
@@ -176,6 +191,10 @@
 									<div class="col-md-5">
 										<html:text property="laptop_received_by_employee" styleId="laptop_received_by_employee"
 											name="assetForm" styleClass="form-control" value=""></html:text>
+											<div style="color: red;">
+											<html:errors property="laptop_received_by_employee" />
+										</div>
+											
 									</div>
 								</div>
 							</div>
