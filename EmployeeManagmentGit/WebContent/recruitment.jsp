@@ -66,24 +66,17 @@
 											<div class="input-group-addon">
 												<i class="fa fa-calendar"></i>
 											</div>
-<<<<<<< HEAD
+											
 											<div>
 											<html:text property="scheduled_date" name="recruitmentForm" styleId="scheduled_date"
 												styleClass="form-control pull-right datepicker" value=""></html:text>
-							
 										</div>
-=======
-											<div>											
-													<html:text property="scheduled_date" name="recruitmentForm"
-													styleClass="form-control pull-right datepicker" value=""></html:text>
-											</div>	
 											</div>
 													<div style="color: red;">
 												<html:errors property="scheduled_date" />
 												</div>
 
 											</div>
->>>>>>> refs/remotes/origin/master
 									
 										</div>
 									</div>
@@ -96,7 +89,7 @@
 								<div class="form-group">
 									<label class="col-md-4 control-label">Interview Time</label>
 									<div class="col-md-5">
-<<<<<<< HEAD
+
 										<div class="input-group date">
 											<div class="input-group-addon">
 						                      <i class="fa fa-clock-o"></i>
@@ -106,9 +99,6 @@
 													styleClass="form-control timepicker" value=""></html:text>
 											</div>
 
-										<html:text property="interview_time" name="recruitmentForm"
-											styleClass="form-control" value=""></html:text>
-											<div style="color: red;">
 										<html:errors property="interview_time" />
 
 										</div>
@@ -125,8 +115,6 @@
 										<html:text property="venue" styleId="venue"
 											name="recruitmentForm" styleClass="form-control" value=""></html:text>
 
-										<html:text property="venue" name="recruitmentForm"
-											styleClass="form-control" value=""></html:text>
 											<div style="color: red;">
 										<html:errors property="venue" />
 										</div>
@@ -189,7 +177,6 @@
 		        document.getElementById("applicant").focus(); 
 		        return false; 
 		    } 
-		 
 		 
 	}
 </script>

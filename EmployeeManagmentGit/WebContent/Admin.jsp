@@ -73,7 +73,7 @@
 												<div class="clearfix">
 													<br>
 													<div>
-														<html:form action="/designatin" method="addDesign">
+														<html:form action="/designatin" method="addDesign" onsubmit="return formValidation()">
 															<div class="row">
 
 																<div class="form-group">
@@ -81,7 +81,7 @@
 																		Designation</label>
 																	<div class="col-md-5">
 																		<html:text property="designation"
-																			name="designationform" styleClass="form-control"
+																			name="designationform" styleClass="form-control" styleId="typeName"
 																			value=""></html:text>
 																	</div>
 																</div>
@@ -132,12 +132,12 @@
 												<div class="clearfix">
 													<br>
 													<div>
-														<html:form action="/valueteam" method="addTeam">
+														<html:form action="/valueteam" method="addTeam" onsubmit="return formValidation()">
 															<div class="row">
 																<div class="form-group">
 																	<label class="col-md-4 control-label">Add Team</label>
 																	<div class="col-md-5">
-																		<html:text property="team" name="abc"
+																		<html:text property="team" name="abc" styleId="typeName"
 																			styleClass="form-control" value=""></html:text>
 																	</div>
 																</div>
@@ -194,8 +194,7 @@
 												<div class="clearfix">
 													<br>
 													<div>
-														<html:form action="/qualificatin"
-															method="addQualification">
+														<html:form action="/qualificatin" method="addQualification" onsubmit="return formValidation()">
 															<div class="row">
 																<div class="form-group">
 																	<label class="col-md-4 control-label">Add
@@ -213,7 +212,7 @@
 																<div class="form-group">
 																	<label class="col-md-4 control-label"></label>
 																	<div class="col-md-5">
-																		<html:text property="type" name="qualificationform"
+																		<html:text property="type" name="qualificationform" styleId="typeName"
 																			styleClass="form-control" value="Qualification"
 																			style="Display:none"></html:text>
 																	</div>
@@ -270,6 +269,30 @@
 
 
 	<%@include file="main_files/js_section.jsp"%>
+	
+	<script type="text/javascript">
+	typeName
+	function formValidation()
+	{
+		var type = document.getElementById("typeName").value;
+		
+		if(type=="")
+			{
+				alert("Please enter all the mandatory fields!!!"); 
+				document.getElementById("typeName").focus(); 
+		        return false; 
+			}
+		
+		 if(!(/^[A-Za-z ]+$/).test(type)) 
+		    { 
+		        alert("Emlopyee Name contains alphabets only!!"); 
+		        document.getElementById("typeName").value = ""; 
+		        document.getElementById("typeName").focus(); 
+		        return false; 
+		    } 
+	}
+	
+	</script>
 
 </body>
 

@@ -1,3 +1,5 @@
+
+
 <%@include file="main_files/header.jsp"%>
 
 <%@include file="main_files/nav_header1.jsp"%>
@@ -50,7 +52,7 @@
 				<div class="panel panel-default">
 
 					<div class="panel-body">
-
+						<html:errors/>
 						<html:form action="/insertattendance" method="inserta">
 								<div class="row">
 								<div class="form-group">
@@ -63,6 +65,9 @@
 												<html:option value="${user.Emp_id}">${user.Emp_id} ${user.Emp_name}</html:option>
 											</c:forEach>
 										</html:select>
+										<div style="color: red;">
+												<html:errors property="emp_id" />
+												</div>
 									</div>
 								</div>
 							</div>
@@ -74,7 +79,9 @@
 									<div class="col-md-5">
 										<html:text property="total_working_days" name="attendanceForm"
 											styleClass="form-control" value=""></html:text>
-											
+											<div style="color: red;">
+												<html:errors property="total_working_days" />
+												</div>
 									</div>
 								</div>
 							</div>
@@ -86,7 +93,9 @@
 									<div class="col-md-5">
 										<html:text property="total_present_days" name="attendanceForm"
 											styleClass="form-control" value=""></html:text>
-											
+											<div style="color: red;">
+												<html:errors property="total_present_days" />
+												</div>
 									</div>
 								</div>
 							</div>
@@ -97,7 +106,9 @@
 									<div class="col-md-5">
 										<html:text property="total_billing_days" name="attendanceForm"
 											styleClass="form-control" value=""></html:text>
-											
+											<div style="color: red;">
+												<html:errors property="total_billing_days" />
+												</div>
 									</div>
 								</div>
 							</div>
@@ -109,7 +120,7 @@
 										<html:text property="leaves_taken" name="attendanceForm"
 											styleClass="form-control" value=""></html:text>
 											<div style="color: red;">	
-												<html:errors property="emp_name" />
+												<html:errors property="leaves_taken" />
 											</div>
 									</div>
 								</div>
@@ -125,6 +136,9 @@
 												<html:option value="paid">Paid</html:option>
 												<html:option value="unpaid">UnPaid</html:option>
 										</html:select>
+										<div style="color: red;">
+												<html:errors property="leave_type" />
+												</div>
 									</div>
 								</div>
 							</div>

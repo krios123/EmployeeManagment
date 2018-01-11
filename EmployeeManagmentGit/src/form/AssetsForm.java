@@ -1,8 +1,9 @@
 package form;
 
 import org.apache.struts.action.ActionForm;
+import org.apache.struts.validator.ValidatorForm;
 
-public class AssetsForm extends ActionForm{
+public class AssetsForm extends ValidatorForm{
 	
 
 int employee_id;

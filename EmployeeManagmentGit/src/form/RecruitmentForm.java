@@ -1,8 +1,9 @@
 package form;
 
 import org.apache.struts.action.ActionForm;
+import org.apache.struts.validator.ValidatorForm;
 
-public class RecruitmentForm extends ActionForm
+public class RecruitmentForm extends ValidatorForm
 {
 String applicant;
 String scheduled_date;

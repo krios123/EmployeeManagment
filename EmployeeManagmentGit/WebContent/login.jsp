@@ -40,7 +40,6 @@
 		<!-- Main content -->
 		<section class="content container-fluid">
 
-			<html:errors />
 			<div class="container" style="margin-top: 30px">
 				<div class="col-md-10 col-md-offset-1">
 					<div class="panel panel-default">
@@ -55,7 +54,7 @@
 								<div class="row">
 
 									<div class="form-group">
-										<label class="col-md-4 control-label" for="Name">Type</label>
+										<label class="col-md-4 control-label" for="Name">Type*</label>
 										<div class="col-md-5">
 											<html:select property="type"
 												value="" styleClass="form-control"
@@ -66,6 +65,9 @@
 												<html:option value="Employee">Employee</html:option>
 												
 											</html:select>
+											<div style="color: red;">
+											<html:errors property="type" />
+										</div>
 										</div>
 									</div>
 								</div><br>
@@ -73,10 +75,13 @@
 
 									<div class="form-group">
 										<label class="col-md-4 control-label" for="Name">User
-											Name</label>
+											Name*</label>
 										<div class="col-md-5">
 											<html:text property="username" name="loginForm"
 												styleClass="form-control" value=""></html:text>
+												<div style="color: red;">
+											<html:errors property="username" />
+										</div>
 										</div>
 									</div>
 								</div>
@@ -84,10 +89,13 @@
 
 								<div class="row">
 									<div class="form-group">
-										<label class="col-md-4 control-label"> Password</label>
+										<label class="col-md-4 control-label"> Password*</label>
 										<div class="col-md-5">
 											<html:text property="password" name="loginForm"
 												styleClass="form-control" value=""></html:text>
+												<div style="color: red;">
+											<html:errors property="password" />
+										</div>
 										</div>
 									</div>
 								</div>
