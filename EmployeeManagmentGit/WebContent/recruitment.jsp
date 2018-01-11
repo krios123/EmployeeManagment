@@ -50,7 +50,10 @@
 									<div class="col-md-5">
 										<html:text property="applicant" name="recruitmentForm"
 											styleClass="form-control" value=""></html:text>
+										<div style="color: red;">
+											<html:errors property="applicant" />
 										</div>
+									</div>
 								</div>
 							</div>
 							<br>
@@ -63,27 +66,33 @@
 											<div class="input-group-addon">
 												<i class="fa fa-calendar"></i>
 											</div>
-											<div>
-											<html:text property="scheduled_date" name="recruitmentForm"
-												styleClass="form-control pull-right datepicker" value=""></html:text>
-							
-										</div>
+											<div>											
+													<html:text property="scheduled_date" name="recruitmentForm"
+													styleClass="form-control pull-right datepicker" value=""></html:text>
+											</div>	
+											</div>
+													<div style="color: red;">
+												<html:errors property="scheduled_date" />
+												</div>
+
+											</div>
 									
+										</div>
 									</div>
-								</div>
-							</div>
-							</div>
+								
 							<br>
 
-							
-						
+
+
 							<div class="row">
 								<div class="form-group">
 									<label class="col-md-4 control-label">Interview Time</label>
 									<div class="col-md-5">
 										<html:text property="interview_time" name="recruitmentForm"
 											styleClass="form-control" value=""></html:text>
-										
+											<div style="color: red;">
+										<html:errors property="interview_time" />
+										</div>
 									</div>
 								</div>
 							</div>
@@ -93,17 +102,21 @@
 								<div class="form-group">
 									<label class="col-md-4 control-label">Venue</label>
 									<div class="col-md-5">
-										<html:text property="venue"
-											name="recruitmentForm" styleClass="form-control" value=""></html:text>
+										<html:text property="venue" name="recruitmentForm"
+											styleClass="form-control" value=""></html:text>
+											<div style="color: red;">
+										<html:errors property="venue" />
+										</div>
 									</div>
 								</div>
 							</div>
 							<br>
 
 
-							<html:submit styleClass="btn btn-success" style="margin-left:400px">Submit</html:submit>
+							<html:submit styleClass="btn btn-success"
+								style="margin-left:400px">Submit</html:submit>
 							<hr style="margin-top: 10px; margin-bottom: 10px;">
-							<html:hidden property="method" value="recruit"/>
+							<html:hidden property="method" value="recruit" />
 						</html:form>
 					</div>
 				</div>
@@ -111,7 +124,7 @@
 		</div>
 
 
-</section>
+	</section>
 	<!-- /.content -->
 </div>
 
@@ -125,7 +138,7 @@
 	$('.datepicker').datepicker({
 		autoclose : true,
 		todayHighlight : true,
-		format:"yyyy-mm-dd"
+		format : "yyyy-mm-dd"
 	});
 </script>
 </html>

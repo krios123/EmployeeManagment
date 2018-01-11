@@ -166,7 +166,7 @@
 								<td><c:out value="${user.Increment_amount}" /></td>
 									<td><fmt:formatDate value="${IncrementAmtDate }" type="date"/></td>
 								<td><c:out value="${user.Passport_no}" /></td>
-								<td><c:out value="${user.Pancard_no}" /></td>
+								<td><c:out value="${user.Pan_card_no}" /></td>
 								<td><c:out value="${user.PF_no}" /></td>
 								<td><c:out value="${user.Official_bank_name}" /></td>
 								<td><c:out value="${user.Official_bank_account_no}" /></td>

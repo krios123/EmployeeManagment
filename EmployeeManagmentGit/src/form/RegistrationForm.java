@@ -14,12 +14,12 @@ public class RegistrationForm extends ValidatorForm {
 	String date_of_birth;
 	String gender;
 	String fathers_name;
-	int fathers_contact_details;
+	long fathers_contact_details;
 	String fathers_designation;
 	String personal_mail_id;
 	String permanent_address;
 	String local_address;
-	int contact_no;
+	long contact_no;
 	String highest_qualification;
 	int year_of_Experience;
 	String date_of_joining;
@@ -29,9 +29,9 @@ public class RegistrationForm extends ValidatorForm {
 	String pancard_no;
 	String pF_no;
 	String official_bank_name;
-	int official_bank_account_no;
+	long official_bank_account_no;
 	String employee_personal_bank_name;
-	int personal_bank_account_no;
+	long personal_bank_account_no;
 	String bank_address;
 	String iFSC_code;
 	int increment_amount;
@@ -80,12 +80,7 @@ public class RegistrationForm extends ValidatorForm {
 	public void setFathers_name(String fathers_name) {
 		this.fathers_name = fathers_name;
 	}
-	public int getFathers_contact_details() {
-		return fathers_contact_details;
-	}
-	public void setFathers_contact_details(int fathers_contact_details) {
-		this.fathers_contact_details = fathers_contact_details;
-	}
+	
 	public String getFathers_designation() {
 		return fathers_designation;
 	}
@@ -110,12 +105,7 @@ public class RegistrationForm extends ValidatorForm {
 	public void setLocal_address(String local_address) {
 		this.local_address = local_address;
 	}
-	public int getContact_no() {
-		return contact_no;
-	}
-	public void setContact_no(int contact_no) {
-		this.contact_no = contact_no;
-	}
+	
 	public String getHighest_qualification() {
 		return highest_qualification;
 	}
@@ -159,24 +149,14 @@ public class RegistrationForm extends ValidatorForm {
 	public void setOfficial_bank_name(String official_bank_name) {
 		this.official_bank_name = official_bank_name;
 	}
-	public int getOfficial_bank_account_no() {
-		return official_bank_account_no;
-	}
-	public void setOfficial_bank_account_no(int official_bank_account_no) {
-		this.official_bank_account_no = official_bank_account_no;
-	}
+	
 	public String getEmployee_personal_bank_name() {
 		return employee_personal_bank_name;
 	}
 	public void setEmployee_personal_bank_name(String employee_personal_bank_name) {
 		this.employee_personal_bank_name = employee_personal_bank_name;
 	}
-	public int getPersonal_bank_account_no() {
-		return personal_bank_account_no;
-	}
-	public void setPersonal_bank_account_no(int personal_bank_account_no) {
-		this.personal_bank_account_no = personal_bank_account_no;
-	}
+	
 	public String getBank_address() {
 		return bank_address;
 	}
@@ -262,6 +242,32 @@ public class RegistrationForm extends ValidatorForm {
 	public void setIncrement_amount_date(String increment_amount_date) {
 		this.increment_amount_date = increment_amount_date;
 	}
+	public long getFathers_contact_details() {
+		return fathers_contact_details;
+	}
+	public void setFathers_contact_details(long fathers_contact_details) {
+		this.fathers_contact_details = fathers_contact_details;
+	}
+	public long getContact_no() {
+		return contact_no;
+	}
+	public void setContact_no(long contact_no) {
+		this.contact_no = contact_no;
+	}
+	public long getOfficial_bank_account_no() {
+		return official_bank_account_no;
+	}
+	public void setOfficial_bank_account_no(long official_bank_account_no) {
+		this.official_bank_account_no = official_bank_account_no;
+	}
+	public long getPersonal_bank_account_no() {
+		return personal_bank_account_no;
+	}
+	public void setPersonal_bank_account_no(long personal_bank_account_no) {
+		this.personal_bank_account_no = personal_bank_account_no;
+	}
+	
+
 	
 	
 
