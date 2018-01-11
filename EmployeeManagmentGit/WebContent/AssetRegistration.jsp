@@ -52,12 +52,12 @@
 
 					<div class="panel-body">
 
-						<html:form action="/assetregistration" method="insert">
+						<html:form action="/assetregistration" method="insert" onsubmit="return formValidation()">
 							<div class="row">
 								<div class="form-group">
 									<label class="col-md-4 control-label">Employee id</label>
 									<div class="col-md-5">
-									<html:select property="employee_id" value=""
+									<html:select property="employee_id" value="" styleId="employee_id"
 											styleClass="form-control getasset" name="assetForm" onchange="getvalue()">
 											
 											<html:option value="">-Select-</html:option>
@@ -75,7 +75,7 @@
 								<div class="form-group">
 									<label class="col-md-4 control-label">Rent</label>
 									<div class="col-md-5">
-										<html:text property="rent" name="assetForm"
+										<html:text property="rent" name="assetForm" styleId="rent"
 											styleClass="form-control" value="" ></html:text>
 										
 									</div>
@@ -86,7 +86,7 @@
 								<div class="form-group">
 									<label class="col-md-4 control-label">Designation</label>
 									<div class="col-md-5">
-										<html:text property="designation" name="assetForm"
+										<html:text property="designation" name="assetForm" styleId=""
 											styleClass="form-control designation" value="" readonly="true" ></html:text>
 										
 									</div>
@@ -97,7 +97,7 @@
 								<div class="form-group">
 									<label class="col-md-4 control-label">Team</label>
 									<div class="col-md-5">
-										<html:text property="team" name="assetForm"
+										<html:text property="team" name="assetForm" styleId=""
 											styleClass="form-control team" value="" readonly="true" ></html:text>
 										
 									</div>
@@ -108,7 +108,7 @@
 								<div class="form-group">
 									<label class="col-md-4 control-label">Work location</label>
 									<div class="col-md-5">
-										<html:text property="work_location" name="assetForm"
+										<html:text property="work_location" name="assetForm" styleId=""
 											styleClass="form-control work" value="" readonly="true"></html:text>
 										
 									</div>
@@ -125,7 +125,7 @@
 												<i class="fa fa-calendar"></i>
 											</div>
 											<div>
-											<html:text property="date_to_given" name="assetForm"
+											<html:text property="date_to_given" name="assetForm" styleId="date_to_given"
 												styleClass="form-control pull-right datepicker" value=""></html:text>
 							
 										</div>
@@ -140,7 +140,7 @@
 								<div class="form-group">
 									<label class="col-md-4 control-label">Company of Laptop</label>
 									<div class="col-md-5">
-										<html:text property="company_of_laptop"
+										<html:text property="company_of_laptop" styleId="company_of_laptop"
 											name="assetForm" styleClass="form-control" value=""></html:text>
 									</div>
 								</div>
@@ -152,7 +152,7 @@
 								<div class="form-group">
 									<label class="col-md-4 control-label">Configuration</label>
 									<div class="col-md-5">
-										<html:text property="configuration"
+										<html:text property="configuration" styleId="configuration"
 											name="assetForm" styleClass="form-control" value=""></html:text>
 									</div>
 								</div>
@@ -163,7 +163,7 @@
 								<div class="form-group">
 									<label class="col-md-4 control-label">Courier_done</label>
 									<div class="col-md-5">
-										<html:text property="courier_done"
+										<html:text property="courier_done" styleId="courier_done"
 											name="assetForm" styleClass="form-control" value=""></html:text>
 									</div>
 								</div>
@@ -174,7 +174,7 @@
 								<div class="form-group">
 									<label class="col-md-4 control-label">Laptop Received by Employee</label>
 									<div class="col-md-5">
-										<html:text property="laptop_received_by_employee"
+										<html:text property="laptop_received_by_employee" styleId="laptop_received_by_employee"
 											name="assetForm" styleClass="form-control" value=""></html:text>
 									</div>
 								</div>
@@ -229,6 +229,32 @@
 				}
 		})
 		alert(url);
+	}
+	
+	function formValidation()
+	{
+		var employee_id = document.getElementById("employee_id").value;
+		var rent = document.getElementById("rent").value;
+		var date_to_given = document.getElementById("date_to_given").value;
+		var company_of_laptop = document.getElementById("company_of_laptop").value;
+		var configuration = document.getElementById("configuration").value;
+		var courier_done = document.getElementById("courier_done").value;
+		var laptop_received_by_employee = document.getElementById("laptop_received_by_employee").value;
+		
+		if(employee_id=="")
+			{
+				alert("Please select Employee id !!");
+				document.getElementById("employee_id").focus();
+				return false;
+			}
+		
+		if(rent==""|| date_to_given==""|| date_to_given==""|| company_of_laptop==""
+				|| configuration==""|| courier_done==""|| laptop_received_by_employee)
+			{
+			 	alert("Please enter all the mandatory fields!!!"); 
+		        return false; 
+			}
+		
 	}
 </script>
 </html>

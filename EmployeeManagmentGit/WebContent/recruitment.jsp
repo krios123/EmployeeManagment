@@ -42,13 +42,13 @@
 
 					<div class="panel-body">
 
-						<html:form action="/recruitment" method="recruit">
+						<html:form action="/recruitment" method="recruit" onsubmit="return formValidation()">
 
 							<div class="row">
 								<div class="form-group">
 									<label class="col-md-4 control-label">Applicant name</label>
 									<div class="col-md-5">
-										<html:text property="applicant" name="recruitmentForm"
+										<html:text property="applicant" name="recruitmentForm" styleId="applicant"
 											styleClass="form-control" value=""></html:text>
 										</div>
 								</div>
@@ -64,7 +64,7 @@
 												<i class="fa fa-calendar"></i>
 											</div>
 											<div>
-											<html:text property="scheduled_date" name="recruitmentForm"
+											<html:text property="scheduled_date" name="recruitmentForm" styleId="scheduled_date"
 												styleClass="form-control pull-right datepicker" value=""></html:text>
 							
 										</div>
@@ -81,9 +81,15 @@
 								<div class="form-group">
 									<label class="col-md-4 control-label">Interview Time</label>
 									<div class="col-md-5">
-										<html:text property="interview_time" name="recruitmentForm"
-											styleClass="form-control" value=""></html:text>
-										
+										<div class="input-group date">
+											<div class="input-group-addon">
+						                      <i class="fa fa-clock-o"></i>
+						                    </div>
+											<div>
+												<html:text property="interview_time" name="recruitmentForm" styleId="interview_time"
+													styleClass="form-control timepicker" value=""></html:text>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -93,7 +99,7 @@
 								<div class="form-group">
 									<label class="col-md-4 control-label">Venue</label>
 									<div class="col-md-5">
-										<html:text property="venue"
+										<html:text property="venue" styleId="venue"
 											name="recruitmentForm" styleClass="form-control" value=""></html:text>
 									</div>
 								</div>
@@ -127,5 +133,33 @@
 		todayHighlight : true,
 		format:"yyyy-mm-dd"
 	});
+	
+	 $('.timepicker').timepicker({
+	      showInputs: false
+	    })
+	
+	function formValidation()
+	{
+		var applicant = document.getElementById("applicant").value;
+		var scheduled_date = document.getElementById("scheduled_date").value;
+		var interview_time = document.getElementById("interview_time").value;
+		var venue = document.getElementById("venue").value;
+		
+		if(applicant == ""|| scheduled_date==""|| interview_time=="" ||venue=="")
+			{
+			 	alert("Please enter all the mandatory fields!!!"); 
+		        return false; 
+			}
+		
+		 if(!(/^[A-Za-z ]+$/).test(applicant)) 
+		    { 
+		        alert("Applicant Name contains alphabets only!!"); 
+		        document.getElementById("applicant").value = ""; 
+		        document.getElementById("applicant").focus(); 
+		        return false; 
+		    } 
+		 
+		 
+	}
 </script>
 </html>
