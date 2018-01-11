@@ -409,7 +409,7 @@
 														<html:text property="increment_amount_date"
 															styleId="increment_amount_date" name="registrationForm"
 															styleClass="form-control pull-right datepicker"
-															value="${IncrementAmtDate1}"></html:text>
+															value=""></html:text>
 													</div>
 												</div>
 											</div>

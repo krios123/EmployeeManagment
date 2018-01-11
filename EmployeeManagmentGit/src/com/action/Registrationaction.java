@@ -234,7 +234,13 @@ SimpleDateFormat smf=new SimpleDateFormat("yyyy-mm-dd");
 			String Bank_address 		= rform.getBank_address();
 			String IFSC_code 			= rform.getiFSC_code();
 			int Increment_amount = rform.getIncrement_amount();
-			Date Increment_amount_date= smf.parse(rform.getIncrement_amount_date());
+			String dt=rform.getIncrement_amount_date();
+			Date Increment_amount_date=null;
+			if(dt!="")
+			{
+				Increment_amount_date= smf.parse(rform.getIncrement_amount_date());
+			}
+			
 			int Total_leave_permissioned=rform.getTotal_leave_permissioned();
 			int Total_leave_taken_from_jantodec=rform.getTotal_leave_taken_from_jan_till_dec();
 			int Total_leave_taken=rform.getTotal_leave_taken();
@@ -274,6 +280,9 @@ SimpleDateFormat smf=new SimpleDateFormat("yyyy-mm-dd");
 			e.setDate_of_registration(Date_of_registration);
 			e.setSalary_at_the_time_of_joining(Salary_at_the_time_of_joining);
 			e.setIncrement_amount(Increment_amount);
+			System.out.println(""+Increment_amount_date);
+			if(Increment_amount_date!=null)
+				
 			e.setIncrement_amount_date(Increment_amount_date);
 			e.setPassport_no(Passport_no);
 			e.setPancard_no(Pancard_no);
@@ -298,7 +307,7 @@ SimpleDateFormat smf=new SimpleDateFormat("yyyy-mm-dd");
 			
 			/* Statement st=Dbconn.connectDB();
 			
-			String sql="UPDATE `employeedetails` SET `Emp_name` = '"+rform.getEmp_name()+"', `Designation` = '"+rform.getDesignation()+"',`Team` = '"+rform.getTeam()+"',`Work_location` = '"+rform.getWork_location()+"' ,`Date_of_birth` = '"+sdfDestination.format(sdfSource.parse(rform.getDate_of_birth()))+"', `Gender` = '"+rform.getGender()+"', `Fathers_name` = '"+rform.getFathers_name()+"', `Fathers_contact_details` = '"+rform.getFathers_contact_details()+"', `Fathers_designation` = '"+rform.getFathers_designation()+"', `Personal_mail_id` = '"+rform.getPersonal_mail_id()+"', `Permanent_address` = '"+rform.getPermanent_address()+"', `Local_address` = '"+rform.getLocal_address()+"', `Contact_no` = '"+rform.getContact_no()+"', `Highest_qualification` = '"+rform.getHighest_qualification()+"', `Year_of_Experience` = '"+rform.getYear_of_Experience()+"', `Date_of_joining` = '"+sdfDestination.format(sdfSource.parse(rform.getDate_of_joining()))+"', `Date_of_registration` = '"+sdfDestination.format(sdfSource.parse(rform.getDate_of_registration()))+"', `Salary_at_the_time_of_joining` = '"+rform.getSalary_at_the_time_of_joining()+"', `Increment_amount` = '"+rform.getIncrement_amount()+"', `Increment_amount_date` = '"+sdfDestination.format(sdfSource.parse(rform.getIncrement_amount_date()))+"', `Passport_no` = '"+rform.getPassport_no()+"', `Pan_card_no` = '"+rform.getPancard_no()+"', `PF_no` = '"+rform.getpF_no()+"', `Official_bank_name` = '"+rform.getOfficial_bank_name()+"', `Official_bank_account_no` = '"+rform.getOfficial_bank_account_no()+"', `Employee_personal_bank_name` = '"+rform.getEmployee_personal_bank_name()+"', `Personal_bank_account_no` = '"+rform.getPersonal_bank_account_no()+"', `Bank_address` = '"+rform.getBank_address()+"', `IFSC_code` = '"+rform.getiFSC_code()+"', `Total_leave_permissioned` = '"+rform.getTotal_leave_permissioned()+"', `Total_leave_taken_from_jan_till_dec` = '"+rform.getTotal_leave_taken_from_jan_till_dec()+"', `Total_leave_taken` = '"+rform.getTotal_leave_taken()+"', `Absent` = '"+rform.getAbsent()+"', `Total_yearly_leave_taken` = '"+rform.getTotal_yearly_leave_taken()+"',`Current_status` = '"+rform.getCurrent_status()+"',`Reference` = '"+rform.getReference()+"' WHERE Emp_id='"+request.getSession().getAttribute("Empid")+"'";
+			String sql="UPDATE `employeedetails`() SET `Emp_name` = '"+rform.getEmp_name()+"', `Designation` = '"+rform.getDesignation()+"',`Team` = '"+rform.getTeam()+"',`Work_location` = '"+rform.getWork_location()+"' ,`Date_of_birth` = '"+sdfDestination.format(sdfSource.parse(rform.getDate_of_birth()))+"', `Gender` = '"+rform.getGender()+"', `Fathers_name` = '"+rform.getFathers_name()+"', `Fathers_contact_details` = '"+rform.getFathers_contact_details()+"', `Fathers_designation` = '"+rform.getFathers_designation()+"', `Personal_mail_id` = '"+rform.getPersonal_mail_id()+"', `Permanent_address` = '"+rform.getPermanent_address()+"', `Local_address` = '"+rform.getLocal_address()+"', `Contact_no` = '"+rform.getContact_no()+"', `Highest_qualification` = '"+rform.getHighest_qualification()+"', `Year_of_Experience` = '"+rform.getYear_of_Experience()+"', `Date_of_joining` = '"+sdfDestination.format(sdfSource.parse(rform.getDate_of_joining()))+"', `Date_of_registration` = '"+sdfDestination.format(sdfSource.parse(rform.getDate_of_registration()))+"', `Salary_at_the_time_of_joining` = '"+rform.getSalary_at_the_time_of_joining()+"', `Increment_amount` = '"+rform.getIncrement_amount()+"', `Increment_amount_date` = '"+sdfDestination.format(sdfSource.parse(rform.getIncrement_amount_date()))+"', `Passport_no` = '"+rform.getPassport_no()+"', `Pan_card_no` = '"+rform.getPancard_no()+"', `PF_no` = '"+rform.getpF_no()+"', `Official_bank_name` = '"+rform.getOfficial_bank_name()+"', `Official_bank_account_no` = '"+rform.getOfficial_bank_account_no()+"', `Employee_personal_bank_name` = '"+rform.getEmployee_personal_bank_name()+"', `Personal_bank_account_no` = '"+rform.getPersonal_bank_account_no()+"', `Bank_address` = '"+rform.getBank_address()+"', `IFSC_code` = '"+rform.getiFSC_code()+"', `Total_leave_permissioned` = '"+rform.getTotal_leave_permissioned()+"', `Total_leave_taken_from_jan_till_dec` = '"+rform.getTotal_leave_taken_from_jan_till_dec()+"', `Total_leave_taken` = '"+rform.getTotal_leave_taken()+"', `Absent` = '"+rform.getAbsent()+"', `Total_yearly_leave_taken` = '"+rform.getTotal_yearly_leave_taken()+"',`Current_status` = '"+rform.getCurrent_status()+"',`Reference` = '"+rform.getReference()+"' WHERE Emp_id='"+request.getSession().getAttribute("Empid")+"'";
 				  st.executeUpdate(sql);
 				  */
 				  request.getSession().invalidate();
@@ -318,15 +327,7 @@ SimpleDateFormat smf=new SimpleDateFormat("yyyy-mm-dd");
 			HttpServletRequest request, HttpServletResponse response)
 			throws Exception 
 	{
-		String email=null,role=null;
-		Statement st=Dbconn.connectDB();
-		String sql="Select * from employeedetails";
-		ResultSet rs=st.executeQuery(sql);
-		while(rs.next())
-		{
-			email=rs.getString("Role");
-			role=rs.getString("Personal_mail_id");
-		}
+		String email=null,role=null;	
 		
 		LoginForm login=(LoginForm)form;
 		String type=login.getType();
