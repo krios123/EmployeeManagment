@@ -108,6 +108,8 @@
 		<action path="/registration" parameter="method"
 			type="com.action.Registrationaction" input="/Registration.jsp" name="registrationForm" validate="false">
 			<forward name="success" path="/Display.jsp"></forward>
+			<forward name="fail" path="/Registration.jsp"></forward>
+			
 		</action>
 
 		<action path="/delete" parameter="method"
@@ -126,6 +128,8 @@
 			type="com.action.Registrationaction" input="/Update.jsp" validate="false"
 			name="registrationForm">
 			<forward name="success" path="/Display.jsp"></forward>
+			<forward name="fail" path="/Update.jsp"></forward>
+			
 		</action>
 
 		<action path="/insertattendance" parameter="method"

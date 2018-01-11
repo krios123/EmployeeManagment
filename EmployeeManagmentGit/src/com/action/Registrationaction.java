@@ -124,6 +124,8 @@ SimpleDateFormat smf=new SimpleDateFormat("yyyy-mm-dd");
 		session.save(e);
 		t.commit();
 		session.close();
+		return mapping.findForward("success");
+
 		}
 		catch(Exception e)
 		{
@@ -143,7 +145,8 @@ SimpleDateFormat smf=new SimpleDateFormat("yyyy-mm-dd");
 		System.out.println("Query" + sql);
 		//st.executeUpdate(sql);
 */
-		return mapping.findForward("success");
+		return mapping.findForward("fail");	
+
 
 	}
 
@@ -311,6 +314,7 @@ SimpleDateFormat smf=new SimpleDateFormat("yyyy-mm-dd");
 				  st.executeUpdate(sql);
 				  */
 				  request.getSession().invalidate();
+				  return mapping.findForward("success");	
 				  
 		}catch (Exception e) {
 			e.printStackTrace();
@@ -319,7 +323,7 @@ SimpleDateFormat smf=new SimpleDateFormat("yyyy-mm-dd");
 			
 		}
 	
-	return mapping.findForward("success");	
+	return mapping.findForward("fail");	
 
 	}
 	
