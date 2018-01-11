@@ -76,5 +76,96 @@
 		 </field>
 		
         </form>
+        <form name="recruitmentForm">
+      
+         <field property="applicant" depends="required">
+		 	<msg name="required" key="err.user.Applicant.required" />
+		 </field>
+		 
+		  <field property="scheduled_date" depends="required">
+		 	<msg name="required" key="err.user.Scheduled_date.required" />
+		 </field>
+		 
+		  <field property="interview_time" depends="required">
+		 	<msg name="required" key="err.user.Interview_time.required" />
+		 </field>
+		 
+		  <field property="venue" depends="required">
+		 	<msg name="required" key="err.user.Venue.required" />
+		 </field>
+		 
+		 </form>
+		 
+		  <form name="loginForm">
+      
+         <field property="type" depends="required">
+		 	<msg name="required" key="err.user.Type.required" />
+		 </field>
+		 
+		  <field property="username" depends="required">
+		 	<msg name="required" key="err.user.Username.required" />
+		 </field>
+		 
+		  <field property="password" depends="required">
+		 	<msg name="required" key="err.user.Password.required" />
+		 </field>
+		 
+		 
+		 </form>
+		   <form name="assetForm">
+      
+         <field property="employee_id" depends="required">
+		 	<msg name="required" key="err.user.Employee_id.required" />
+		 </field>
+		 
+		  <field property="rent" depends="required">
+		 	<msg name="required" key="err.user.Rent.required" />
+		 </field>
+		 
+		  <field property="date_to_given" depends="required">
+		 	<msg name="required" key="err.user.Date_to_given.required" />
+		 </field>
+		 
+		  <field property="configuration" depends="required">
+		 	<msg name="required" key="err.user.Configuration.required" />
+		 </field>
+		 
+		  <field property="laptop_received_by_employee" depends="required">
+		 	<msg name="required" key="err.user.Laptop_received_by_employee.required" />
+		 </field>
+		
+		 </form>
+		 
+		 
+		  <form name="attendanceForm">
+		      
+		         <field property="emp_id" depends="required">
+				 	<msg name="required" key="err.user.Employee_id.required" />
+				 </field>
+				 
+				  <field property="total_working_days" depends="required">
+				 	<msg name="required" key="err.user.Total_working_days.required" />
+				 </field>
+				 
+				  <field property="total_present_days" depends="required">
+				 	<msg name="required" key="err.user.Total_present_days.required" />
+				 </field>
+				 
+				  <field property="total_billing_days" depends="required">
+				 	<msg name="required" key="err.user.Total_billing_days.required" />
+				 </field>
+				 
+				  <field property="leaves_taken" depends="required">
+				 	<msg name="required" key="err.user.Leaves_taken.required" />
+				 </field>
+				 
+				 <field property="leave_type" depends="required">
+				 	<msg name="required" key="err.user.Leave_type.required" />
+				 </field>
+				 
+		
+		 
+		 </form>
+		 
   </formset>
 </form-validation>

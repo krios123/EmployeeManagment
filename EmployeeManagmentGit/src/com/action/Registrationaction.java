@@ -50,12 +50,15 @@ SimpleDateFormat smf=new SimpleDateFormat("yyyy-mm-dd");
 		Date Date_of_birth 			= smf.parse(rform.getDate_of_birth());
 		String Gender 				= rform.getGender();
 		String Fathers_name 		= rform.getFathers_name();
-		int Fathers_contact_details = rform.getFathers_contact_details();
+		long Fathers_contact_details = rform.getFathers_contact_details();
+		System.out.println("no"+Fathers_contact_details);
+		
 		String Fathers_designation 	= rform.getFathers_designation();
 		String Personal_mail_id 	= rform.getPersonal_mail_id();
 		String Permanent_address 	= rform.getPermanent_address();
 		String Local_address 		= rform.getLocal_address();
-		int Contact_no 				= rform.getContact_no();
+		long Contact_no 				= rform.getContact_no();
+		System.out.println("cno"+Contact_no);
 		String Highest_qualification= rform.getHighest_qualification();
 		int Year_of_Experience 		= rform.getYear_of_Experience();
 		Date Date_of_joining 		= smf.parse(rform.getDate_of_joining());
@@ -65,13 +68,13 @@ SimpleDateFormat smf=new SimpleDateFormat("yyyy-mm-dd");
 		String Pancard_no 			= rform.getPancard_no();
 		String PF_no 				= rform.getpF_no();
 		String Official_bank_name 	= rform.getOfficial_bank_name();
-		int Official_bank_account_no= rform.getOfficial_bank_account_no();
+		long Official_bank_account_no= rform.getOfficial_bank_account_no();
 		String Employee_personal_bank_name = rform.getEmployee_personal_bank_name();
-		int Personal_bank_account_no= rform.getPersonal_bank_account_no();
+		long Personal_bank_account_no= rform.getPersonal_bank_account_no();
 		String Bank_address 		= rform.getBank_address();
 		String IFSC_code 			= rform.getiFSC_code();
 		System.out.println("name" + Emp_name);
-
+		System.out.println("pan"+Pancard_no);
 		System.out.println("PFname" + PF_no);
 		System.out.println("status:"+current_status);
 		try{Configuration conf=new Configuration().configure();
@@ -81,9 +84,7 @@ SimpleDateFormat smf=new SimpleDateFormat("yyyy-mm-dd");
 		
 		Session session = sf.openSession();
 		
-		Transaction t=session.beginTransaction();
-			
-		
+		Transaction t=session.beginTransaction();				
 		
 		Employee e= new Employee();
 		
@@ -127,9 +128,7 @@ SimpleDateFormat smf=new SimpleDateFormat("yyyy-mm-dd");
 		catch(Exception e)
 		{
 			System.out.println("fail");
-			System.out.println(e.getMessage());
-		
-
+			System.out.println(e.getMessage());	
 		}
 		//Statement st = Dbconn.connectDB();
 /*
@@ -214,12 +213,12 @@ SimpleDateFormat smf=new SimpleDateFormat("yyyy-mm-dd");
 		
 			String Gender 				= rform.getGender();
 			String Fathers_name 		= rform.getFathers_name();
-			int Fathers_contact_details = rform.getFathers_contact_details();
+			long Fathers_contact_details = rform.getFathers_contact_details();
 			String Fathers_designation 	= rform.getFathers_designation();
 			String Personal_mail_id 	= rform.getPersonal_mail_id();
 			String Permanent_address 	= rform.getPermanent_address();
 			String Local_address 		= rform.getLocal_address();
-			int Contact_no 				= rform.getContact_no();
+			long Contact_no 				= rform.getContact_no();
 			String Highest_qualification= rform.getHighest_qualification();
 			int Year_of_Experience 		= rform.getYear_of_Experience();
 			Date Date_of_joining 		= smf.parse(rform.getDate_of_joining());
@@ -229,9 +228,9 @@ SimpleDateFormat smf=new SimpleDateFormat("yyyy-mm-dd");
 			String Pancard_no 			= rform.getPancard_no();
 			String PF_no 				= rform.getpF_no();
 			String Official_bank_name 	= rform.getOfficial_bank_name();
-			int Official_bank_account_no= rform.getOfficial_bank_account_no();
+			long Official_bank_account_no= rform.getOfficial_bank_account_no();
 			String Employee_personal_bank_name = rform.getEmployee_personal_bank_name();
-			int Personal_bank_account_no= rform.getPersonal_bank_account_no();
+			long Personal_bank_account_no= rform.getPersonal_bank_account_no();
 			String Bank_address 		= rform.getBank_address();
 			String IFSC_code 			= rform.getiFSC_code();
 			int Increment_amount = rform.getIncrement_amount();

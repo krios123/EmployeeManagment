@@ -14,5 +14,6 @@
 
 <script src="bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.js"></script>
 <script src="bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+<script src="bower_components/timepicker/bootstrap-timepicker.min.js"></script>
 <script src="bower_components/moment/moment.js"></script>
 <script src="bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
