@@ -23,7 +23,7 @@
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
         
-	
+	<link rel="stylesheet" href="dist/css/custom.css">
 </head>
 
 
@@ -81,36 +81,48 @@
 		
     	<div align="center" style="font-size: xx-large;">
   			<c:forEach var="mnth" items="${month.rows}" varStatus="cnt"><c:choose><c:when test="${ cnt.count le 1}">${mnth.Month} month Birthdays!!</c:when></c:choose></c:forEach>	
-		</div>			
-  		<table border="1" class="table table-hover">
-					<thead>
+		</div>
+		<div class="tbl_birthday">			
+	  		<table border="1" class="table table-hover">
+				<thead>
+					<tr>
+						<th>Employee Id</th>
+						<th>Emp Name</th>
+						<th>Designation</th>
+						<th>Date of Birth</th>
+						<th>Gender</th>
+					</tr>
+				</thead>
+					<tbody id="myTable">
+						<c:forEach var="user" items="${listEmp.rows}">
+						<fmt:parseDate value="${user.Date_of_birth}" var="DOBirth" pattern="yyyy-MM-dd"/>
 						<tr>
-							<th>Employee Id</th>
-							<th>Emp Name</th>
-							<th>Designation</th>
-							<th>Date of Birth</th>
-							<th>Gender</th>
+							<td><c:out value="${user.Emp_id}" /></td>
+							<td><c:out value="${user.Emp_name}" /></td>
+							<td><c:out value="${user.Designation}" /></td>
+								<td><fmt:formatDate value="${DOBirth }" type="date"/> </td>
+							<td><c:out value="${user.Gender}" /></td>
 						</tr>
-					</thead>
-						<tbody id="myTable">
-							<c:forEach var="user" items="${listEmp.rows}">
-							<fmt:parseDate value="${user.Date_of_birth}" var="DOBirth" pattern="yyyy-MM-dd"/>
-							<tr>
-								<td><c:out value="${user.Emp_id}" /></td>
-								<td><c:out value="${user.Emp_name}" /></td>
-								<td><c:out value="${user.Designation}" /></td>
-									<td><fmt:formatDate value="${DOBirth }" type="date"/> </td>
-								<td><c:out value="${user.Gender}" /></td>
-							</tr>
-							</c:forEach>
-						</tbody>
-				</table>
-				
-				<form action="CalendarBirthday.jsp" id="nextmonth1">
-					<input type="text" style="display: none;" value="" id="id" name="id" />				
-					<button class="btn btn-primary btn-info" type="button" onclick="prevmonth()">Prev Month</button>
-					<button class="btn btn-primary btn-info" type="button" onclick="nextmonth()" style="margin-left: 780px">Next Month</button>
-				</form>
+						</c:forEach>
+					</tbody>
+			</table>
+			<ul class="pagination">
+			    <li><a href="#">&laquo;</a></li>
+			    <li><a href="#">1</a></li>
+			    <li><a href="#">2</a></li>
+			    <li><a href="#">3</a></li>
+			    <li><a href="#">4</a></li>
+			    <li><a href="#">5</a></li>
+			    <li><a href="#">&raquo;</a></li>
+			</ul>
+			<div class="clearfix"></div>
+		</div>
+		<form action="CalendarBirthday.jsp" id="nextmonth1">
+			<input type="text" style="display: none;" value="" id="id" name="id" />				
+			<button class="btn btn-primary btn-info pull-left" type="button" onclick="prevmonth()">Prev Month</button>
+			<button class="btn btn-primary btn-info pull-right" type="button" onclick="nextmonth()">Next Month</button>
+			<div class="clearfix"></div>
+		</form>
   </section>
   </div>
  

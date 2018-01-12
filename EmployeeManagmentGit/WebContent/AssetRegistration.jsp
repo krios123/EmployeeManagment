@@ -137,10 +137,8 @@
 											</div>
 											<div style="color: red;">
 											<html:errors property="date_to_given" />
-										</div>
-											
-										
-									
+										</div>						
+																	
 									</div>
 								</div>
 							</div>
@@ -230,7 +228,7 @@
 	
 	function getvalue()
 	{
-		url="http://localhost:8080/EmployeeManagmentGit/getassetvalue?method=assetvalue&id="+$(".getasset").val();
+		url="http://localhost:8081/EmployeeManagmentGit/getassetvalue?method=assetvalue&id="+$(".getasset").val();
 		
 		$.get(url,function(data,status){
 			alert("hi")

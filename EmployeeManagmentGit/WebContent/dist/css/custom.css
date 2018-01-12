@@ -1,0 +1,25 @@
+@CHARSET "utf-8";
+
+.dashboard_box{
+	min-height: 128px;
+}
+.dashboard_box .icon{
+	position: unset;
+	padding: 20px;
+}
+.dashboard_box .icon i{
+	font-size: 40px;
+}
+
+
+.table>thead>tr>th{
+	    vertical-align: middle !important;
+}
+
+.tbl_birthday{
+	min-height: 430px;
+}
+.tbl_birthday .pagination{
+	margin: 0;
+	float: right;
+}

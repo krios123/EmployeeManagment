@@ -104,7 +104,7 @@ public class AjaxAction extends DispatchAction {
 				System.out.println(id);
 				try{
 					Statement st=Dbconn.connectDB();
-					String sql="select * from employeedetails where flag=1";
+					String sql="select * from employeedetails where Emp_id='"+id+"' AND flag=1";
 					ResultSet rs=st.executeQuery(sql);
 					JSONObject obj= new JSONObject();
 					while(rs.next())

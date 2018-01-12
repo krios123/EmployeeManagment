@@ -149,7 +149,7 @@
 								<td><c:out value="${user.Team}" /></td>
 								<td><c:out value="${user.Work_location}" /></td>
 								
-									<td><fmt:formatDate value="${DOBirth }" type="date"/> </td>
+								<td><fmt:formatDate value="${DOBirth }" type="date"/> </td>
 								<td><c:out value="${user.Gender}" /></td>
 								<td><c:out value="${user.Fathers_name}" /></td>
 								<td><c:out value="${user.Fathers_contact_details}" /></td>

@@ -91,7 +91,7 @@
 											<label class="col-md-4 control-label">Interview Time</label>
 											<div class="col-md-5">
 												<html:text property="interview_time" name="recruitmentForm"
-													styleClass="form-control" value="${user.Interview_time }"></html:text>
+													styleClass="form-control timepicker" value="${user.Interview_time }"></html:text>
 											</div>
 										</div>
 									</div>
@@ -137,5 +137,8 @@
 		autoclose : true,
 		todayHighlight : true
 	});
+	 $('.timepicker').timepicker({
+	      showInputs: false
+	    })
 </script>
 </html>

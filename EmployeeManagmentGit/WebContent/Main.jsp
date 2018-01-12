@@ -56,26 +56,27 @@
 		<section class="content">
 			<!-- Small boxes (Stat box) -->
 			<div class="row">
-				<div class="col-lg-3 col-xs-6">
+				<div class="col-md-4 col-xs-6">
 					<!-- small box -->
-					<div class="small-box bg-aqua">
-						<div class="inner">
+					<div class="small-box bg-aqua dashboard_box">
+						<div class="inner pull-left">
 							<h3>${emps.rowCount}</h3>
 
 							<p>Employee Registrations</p>
 						</div>
-						<div class="icon">
+						<div class="icon pull-right">
 							<i class="ion ion-person-add"></i>
 						</div>
+						<div class="clearfix"></div>
 						<a href="Display.jsp" class="small-box-footer">More info <i
 							class="fa fa-arrow-circle-right"></i></a>
 					</div>
 				</div>
 				<!-- ./col -->
-				<div class="col-lg-4 col-xs-6">
+				<div class="col-md-4 col-xs-6">
 					<!-- small box -->
-					<div class="small-box bg-green">
-						<div class="inner">
+					<div class="small-box bg-green dashboard_box">
+						<div class="inner pull-left">
 							<h3>${Interviews.rowCount}</h3>
 							<h4>Today's InterView Scheduled</h4>
 							
@@ -83,14 +84,45 @@
 									<c:out value="${usr.Applicant_name}" /><br>
 								</c:forEach>
 						</div>
-						<div class="icon">
+						<div class="icon pull-right">
 							<i class="ion ion-stats-bars"></i>
 						</div>
+						<div class="clearfix"></div>
 						<a href="ShowInterviews.jsp" class="small-box-footer">More info <i
 							class="fa fa-arrow-circle-right"></i></a>
 					</div>
-					<div class="small-box bg-yellow">
-						<div class="inner">
+					
+				</div>
+				<!-- ./col -->
+				
+				<!-- ./col -->
+				<div class="col-md-4 col-xs-6">
+					<!-- small box -->
+					<div class="small-box bg-purple dashboard_box">
+						<div class="inner pull-left">
+							<h3>${dobCount.rowCount}	</h3>
+							<h4><%	out.print("Today's Birthday ");	%></h4>						
+							<p>
+								<c:forEach var="usr" items="${dobCount.rows}">
+									<c:out value="${usr.Emp_name}" /><br>
+								</c:forEach>
+							</p>
+						</div>
+						<div class="icon pull-right">
+							<i class="fa fa-birthday-cake"></i>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+					  
+				</div>
+				<div class="clearfix"></div>
+				<!-- ./col -->
+			</div>
+			<div class="row">
+				<div class="col-md-2"></div>
+				<div class="col-md-4 col-xs-6">
+					<div class="small-box bg-yellow dashboard_box">
+						<div class="inner pull-left">
 							<h3>${joining.rowCount}	</h3>
 							<h4><%	out.print(" Today's Joining!!! ");	%></h4>						
 							<p>
@@ -100,33 +132,15 @@
 								</c:forEach>
 							</p>
 						</div>
-						<div class="icon">
+						<div class="icon pull-right">
 							<i class=""></i>
 						</div>
-				
+						<div class="clearfix"></div>
 					</div>  
 				</div>
-				<!-- ./col -->
-				
-				<!-- ./col -->
-				<div class="col-lg-5 col-xs-6">
-					<!-- small box -->
-					<div class="small-box bg-purple">
-						<div class="inner">
-							<h3>${dobCount.rowCount}	</h3>
-							<h4><%	out.print("Today's Birthday ");	%></h4>						
-							<p>
-								<c:forEach var="usr" items="${dobCount.rows}">
-									<c:out value="${usr.Emp_name}" /><br>
-								</c:forEach>
-							</p>
-						</div>
-						<div class="icon">
-							<i class="fa fa-birthday-cake"></i>
-						</div>
-					</div>
-					<div class="small-box bg-red">
-						<div class="inner">
+				<div class="col-md-4 col-xs-6">
+					<div class="small-box bg-red dashboard_box">
+						<div class="inner pull-left">
 							<h3>${workAnniversaries.rowCount}	</h3>
 							<h4><%	out.print(" Happy Work Anniversary!!! ");	%></h4>						
 							<p>
@@ -136,17 +150,15 @@
 								</c:forEach>
 							</p>
 						</div>
-						<div class="icon">
+						<div class="icon pull-right">
 							<i class="fa fa-gift"></i>
 						</div>
-				
-					</div>  
+						<div class="clearfix"></div>
+					</div>
 				</div>
-				<!-- ./col -->
+				<div class="col-md-2"></div>
 			</div>
 		</section>
-	
-
 					<%@include file="Events.jsp"%>
 
 				</div>
